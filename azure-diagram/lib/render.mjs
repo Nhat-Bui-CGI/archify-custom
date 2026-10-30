@@ -12,7 +12,7 @@ export function renderDiagram(spec, { iconsDir } = {}) {
   const view = canvas(diagram);
   return {
     svg: renderSvg(diagram, view),
-    html: renderHtml(diagram, renderSvg(diagram, view, { heading: false })),
+    html: renderHtml(diagram, renderSvg(diagram, view, { heading: false, interactive: true })),
     drawio: renderDrawio(diagram, view),
     warnings: diagram.warnings,
     diagram,

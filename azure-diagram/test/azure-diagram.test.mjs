@@ -149,7 +149,8 @@ test('label text is escaped in every output', () => {
     edges: [{ from: 'a', to: 'b', step: 1, label: nasty }],
     steps: [nasty],
   }));
-  for (const output of [svg, html, drawio]) assert.ok(!output.includes('<script'));
+  for (const output of [svg, html, drawio]) assert.ok(!output.includes('<script>alert'));
+  assert.ok(html.includes('aria-label="&lt;script&gt;'));
   assert.ok(svg.includes('&lt;script&gt;'));
   assert.ok(html.includes('<li>&lt;script&gt;'));
   assertWellFormed(svg);
@@ -232,10 +233,22 @@ test('the drawio file is well-formed and editable', () => {
 
 test('the HTML is standalone', () => {
   const { html } = renderDiagram(example);
-  const external = html.replace(/xmlns="http:\/\/www\.w3\.org\/2000\/svg"/g, '').match(/(?:src|href)="(?!data:)[^"]*"|https?:\/\/|<link|<script/g);
+  const external = html.replace(/xmlns="http:\/\/www\.w3\.org\/2000\/svg"/g, '').match(/(?:src|href)="(?!data:)[^"]*"|https?:\/\/|<link|<script\s/g);
   assert.equal(external, null);
   assert.match(html, /name="viewport"/);
   assert.equal(html.match(/<li>/g).length, example.steps.length);
+});
+
+test('the viewer hooks are in the HTML and not in the SVG file', () => {
+  const { svg, html, diagram } = renderDiagram(example);
+  assert.doesNotMatch(svg, /data-(?:node|edge|from)|class="flow"/);
+  assert.match(svg, /role="img"/);
+  assert.equal(html.match(/data-node="/g).length, example.nodes.length);
+  assert.equal(html.match(/data-from="/g).length, example.edges.length);
+  assert.equal(html.match(/class="flow"/g).length, example.edges.length);
+  const twoWay = diagram.edges.filter((edge) => edge.bidirectional).length;
+  assert.equal(html.match(/data-both=""/g).length, twoWay);
+  assert.ok(!html.slice(html.indexOf('<script>')).includes(example.title));
 });
 
 test('icons keep their aspect ratio and exact bytes', () => {

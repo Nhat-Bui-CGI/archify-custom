@@ -1,6 +1,7 @@
 import { esc } from './escape.mjs';
 import { BADGE_R } from './annotate.mjs';
 import { fonts } from './layout.mjs';
+import { VIEWER_CSS, VIEWER_JS } from './viewer.mjs';
 
 const FONT = "'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif";
 export const INK = '#323130';
@@ -59,12 +60,19 @@ function shortened(points, bidirectional) {
   return copy;
 }
 
-function drawEdge(edge) {
+const edgeTag = (edge, interactive) => (interactive ? ` data-edge="${edge.index}"` : '');
+
+function drawEdge(edge, interactive) {
   const { points } = edge;
   const dash = edge.style === 'dashed' ? ' stroke-dasharray="6 4"' : '';
   const heads = [`<polygon points="${arrowHead(points[points.length - 1], points[points.length - 2])}" fill="${EDGE}"/>`];
   if (edge.bidirectional) heads.push(`<polygon points="${arrowHead(points[0], points[1])}" fill="${EDGE}"/>`);
-  return `<g><path d="${roundedPath(shortened(points, edge.bidirectional))}" fill="none" stroke="${EDGE}" stroke-width="1.5"${dash}/>${heads.join('')}</g>`;
+  const d = roundedPath(shortened(points, edge.bidirectional));
+  const line = `<path d="${d}" fill="none" stroke="${EDGE}" stroke-width="1.5"${dash}/>${heads.join('')}`;
+  if (!interactive) return `<g>${line}</g>`;
+  const step = edge.step === undefined ? '' : ` data-step="${edge.step}"`;
+  const both = edge.bidirectional ? ' data-both=""' : '';
+  return `<g${edgeTag(edge, true)} data-from="${esc(edge.from)}" data-to="${esc(edge.to)}"${step}${both}><path class="hit" d="${d}"/>${line}<path class="flow" d="${d}"/></g>`;
 }
 
 function drawGroup(group) {
@@ -75,8 +83,9 @@ function drawGroup(group) {
     + `<text x="${x + 10}" y="${y + 17}" font-size="12" font-weight="600" fill="${style.text}">${esc(group.label)}</text></g>`;
 }
 
-function drawNode(node) {
+function drawNode(node, interactive) {
   const { icon, cx, textY } = node;
+  const tag = interactive ? ` data-node="${esc(node.id)}" tabindex="0" role="button" aria-label="${esc(node.label)}"` : '';
   const lines = [];
   let y = textY;
   for (const line of node.labelLines) {
@@ -87,25 +96,26 @@ function drawNode(node) {
     y += fonts.SUB_LINE;
     lines.push(`<text x="${cx}" y="${y - 3}" text-anchor="middle" font-size="${fonts.SUB_SIZE}" fill="${MUTED}">${esc(line)}</text>`);
   }
-  return `<g><title>${esc(node.label)}</title><image x="${icon.x}" y="${icon.y}" width="${icon.w}" height="${icon.h}" preserveAspectRatio="xMidYMid meet" href="${dataUri(node.iconData.svg)}"/>${lines.join('')}</g>`;
+  return `<g${tag}><title>${esc(node.label)}</title><image x="${icon.x}" y="${icon.y}" width="${icon.w}" height="${icon.h}" preserveAspectRatio="xMidYMid meet" href="${dataUri(node.iconData.svg)}"/>${lines.join('')}</g>`;
 }
 
-function drawBadge({ x, y, step }) {
-  return `<g><circle cx="${x}" cy="${y}" r="${BADGE_R}" fill="${BADGE}" stroke="#FFFFFF" stroke-width="1.5"/>`
+function drawBadge({ x, y, step }, tag) {
+  return `<g${tag}><circle cx="${x}" cy="${y}" r="${BADGE_R}" fill="${BADGE}" stroke="#FFFFFF" stroke-width="1.5"/>`
     + `<text x="${x}" y="${y + 4}" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">${step}</text></g>`;
 }
 
-function drawEdgeLabel({ labelBox: { x, y, w, h, lines } }, { size, line }) {
+function drawEdgeLabel({ labelBox: { x, y, w, h, lines } }, { size, line }, tag) {
   const text = lines.map((content, index) => `<text x="${x + w / 2}" y="${y + 2 + line * (index + 1) - 3}" text-anchor="middle" font-size="${size}" fill="${INK}">${esc(content)}</text>`);
-  return `<g><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="2" fill="#FFFFFF"/>${text.join('')}</g>`;
+  return `<g${tag}><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="2" fill="#FFFFFF"/>${text.join('')}</g>`;
 }
 
-// The HTML page has its own heading, so it asks for the drawing without the title block.
-export function renderSvg(diagram, view, { heading = true } = {}) {
+// The HTML page has its own heading, so it asks for the drawing without the title block, and
+// for the hooks its viewer needs. The .svg file stays free of them.
+export function renderSvg(diagram, view, { heading = true, interactive = false } = {}) {
   const y = heading ? view.y : view.y + view.headerH;
   const h = heading ? view.h : view.h - view.headerH;
   const parts = [
-    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${view.x} ${y} ${view.w} ${h}" width="${view.w}" height="${h}" role="img" aria-labelledby="azd-title" font-family="${FONT}">`,
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${view.x} ${y} ${view.w} ${h}" width="${view.w}" height="${h}" role="${interactive ? 'group' : 'img'}" aria-labelledby="azd-title" font-family="${FONT}">`,
     `<title id="azd-title">${esc(diagram.title)}</title>`,
     `<rect x="${view.x}" y="${y}" width="${view.w}" height="${h}" fill="#FFFFFF"/>`,
   ];
@@ -113,10 +123,10 @@ export function renderSvg(diagram, view, { heading = true } = {}) {
   if (heading && diagram.subtitle) parts.push(`<text x="${view.titleX}" y="${view.subtitleY}" font-size="13" fill="${MUTED}">${esc(diagram.subtitle)}</text>`);
   const outerFirst = [...diagram.groups].sort((a, b) => b.level - a.level);
   parts.push(...outerFirst.map(drawGroup));
-  parts.push(...diagram.edges.map(drawEdge));
-  parts.push(...diagram.nodes.map(drawNode));
-  parts.push(...diagram.edges.filter((edge) => edge.labelBox).map((edge) => drawEdgeLabel(edge, diagram.labelStyle)));
-  parts.push(...diagram.edges.filter((edge) => edge.badge).map((edge) => drawBadge(edge.badge)));
+  parts.push(...diagram.edges.map((edge) => drawEdge(edge, interactive)));
+  parts.push(...diagram.nodes.map((node) => drawNode(node, interactive)));
+  parts.push(...diagram.edges.filter((edge) => edge.labelBox).map((edge) => drawEdgeLabel(edge, diagram.labelStyle, edgeTag(edge, interactive))));
+  parts.push(...diagram.edges.filter((edge) => edge.badge).map((edge) => drawBadge(edge.badge, edgeTag(edge, interactive))));
   parts.push('</svg>');
   return parts.join('\n');
 }
@@ -149,18 +159,28 @@ li::before { content: counter(step); position: absolute; left: 0; top: 7px; widt
   background: var(--accent); color: #FFFFFF; font-size: 12px; font-weight: 700; line-height: 24px; text-align: center; }
 @media (max-width: 1200px) { .hint { display: block; } h1 { font-size: 22px; } }
 @media print { .canvas { overflow: visible; border: 0; } .canvas svg { min-width: 0; } }
-</style>
+${VIEWER_CSS}</style>
 </head>
 <body>
 <main>
 <h1>${esc(diagram.title)}</h1>
 ${subtitle}
+<div class="tools" role="toolbar" aria-label="Diagram controls" hidden>
+<button type="button" data-action="in" aria-label="Zoom in">+</button>
+<button type="button" data-action="out" aria-label="Zoom out">&minus;</button>
+<button type="button" data-action="fit">Fit</button>
+<button type="button" data-action="live">Pause</button>
+<button type="button" data-action="clear" hidden>Clear focus</button>
+<output aria-live="polite"></output>
+</div>
 <div class="canvas" tabindex="0" role="region" aria-label="Diagram">
 ${svg}
 </div>
 <p class="hint">Swipe the diagram sideways to see all of it.</p>
+<p class="help">Scroll or pinch to zoom and drag to move. Select a resource or step to focus on it.</p>
 ${steps}
 </main>
+<script>${VIEWER_JS}</script>
 </body>
 </html>
 `;

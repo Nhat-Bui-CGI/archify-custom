@@ -1,13 +1,15 @@
 ---
 name: azure-diagram
-description: "Create static architecture diagrams in the Microsoft Azure Architecture Center style: the official Azure SVG icon is the node, with no boxes, a large icon, the resource name and product name below it, grouped boundaries (subscription, resource group, VNet, subnet, on-premises) and numbered data-flow steps. Outputs SVG, standalone HTML and an editable draw.io file. Use when the user asks for an Azure Architecture Center style diagram, a Microsoft-style diagram, a reference architecture, Azure icons as nodes, or a diagram to edit in draw.io or paste into a document. Archify remains the choice for interactive viewers and animated diagrams."
+description: "Create architecture diagrams in the Microsoft Azure Architecture Center style: the official Azure SVG icon is the node, with no boxes, a large icon, the resource name and product name below it, grouped boundaries (subscription, resource group, VNet, subnet, on-premises) and numbered data-flow steps. Outputs SVG, a standalone HTML page with zoom, focus and animated data flow, and an editable draw.io file. Use when the user asks for an Azure Architecture Center style diagram, a Microsoft-style diagram, a reference architecture, Azure icons as nodes, or a diagram to edit in draw.io or paste into a document. Archify remains the choice for its full viewer, with search, themes and video export."
 ---
 
 # Azure diagram
 
 Writes a JSON spec, then renders it. Layout is an explicit grid; edges are routed automatically.
 
-Use Archify instead for an explorable or animated page, for sequence, ERD, state or timeline diagrams, or when the user names Archify.
+The HTML page has zoom, focus on a resource or step, and animated data flow in step order. It works offline and honours the reduce-motion setting. The SVG and draw.io files are static.
+
+Use Archify instead for search, deep links, themes or video export, for sequence, ERD, state or timeline diagrams, or when the user names Archify.
 
 ## Workflow
 

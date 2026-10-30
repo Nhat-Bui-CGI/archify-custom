@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Replays the local brand-mark branch on upstream and installs it for Claude Code and Codex.
+// See local/README.md for setting up another computer.
 //
-//   node local/sync-archify.mjs               update, verify, install
+//   node local/sync-archify.mjs               update, verify, install, push
 //   node local/sync-archify.mjs --no-fetch    rebuild and install the current branch
 //   node local/sync-archify.mjs --no-install  update and verify only
 //
@@ -18,7 +19,9 @@ const repo = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const skill = path.join(repo, 'archify');
 const generated = 'archify/renderers/shared/generated-brand-marks.mjs';
 const branch = 'local/brand-marks';
-const upstream = 'origin/main';
+const upstreamUrl = 'https://github.com/tt-a1i/archify';
+const upstream = 'upstream/main';
+const shared = `origin/${branch}`;
 const targets = {
   claude: path.join(os.homedir(), '.claude', 'skills', 'archify'),
   codex: path.join(os.homedir(), '.agents', 'skills', 'archify'),
@@ -72,11 +75,31 @@ function rebase() {
   }
 }
 
+// Another computer may have rebased and force-pushed the branch. Its copy replaces this
+// one only when every local commit is already in it, so no local work can be lost.
+function adoptSharedBranch() {
+  const unique = git('cherry', shared, 'HEAD').split('\n').filter((line) => line.startsWith('+'));
+  if (unique.length > 0 && git('rev-list', '--count', `HEAD..${shared}`) !== '0') {
+    throw new Error(`This branch and ${shared} both have new commits. Rebase onto ${shared} by hand, then rerun.`);
+  }
+  if (unique.length === 0) git('reset', '--hard', shared);
+}
+
+// Upstream history is rewritten on every rebase, so the shared branch needs a guarded force-push.
+function publish() {
+  if (git('rev-parse', 'HEAD') === git('rev-parse', shared)) return;
+  git('push', '--force-with-lease', 'origin', branch);
+  step(`pushed ${branch} to origin`);
+}
+
 function update() {
   if (git('branch', '--show-current') !== branch) throw new Error(`Switch to ${branch} first.`);
   if (git('status', '--porcelain')) throw new Error('The working tree has uncommitted changes. Commit or stash them first.');
   if (flags.has('--no-fetch')) return;
-  git('fetch', 'origin', '--tags');
+  if (!git('remote').split('\n').includes('upstream')) git('remote', 'add', 'upstream', upstreamUrl);
+  git('fetch', 'upstream', '--tags');
+  git('fetch', 'origin');
+  adoptSharedBranch();
   const behind = git('rev-list', '--count', `HEAD..${upstream}`);
   step(`${behind} new upstream commit(s) on ${upstream}`);
   if (behind === '0') return;
@@ -109,6 +132,7 @@ function install(stage) {
   fs.mkdirSync(backups, { recursive: true });
   for (const [name, target] of Object.entries(targets)) {
     const incoming = `${target}.incoming`;
+    fs.mkdirSync(path.dirname(target), { recursive: true });
     fs.cpSync(stage, incoming, { recursive: true });
     if (fs.existsSync(target)) fs.renameSync(target, path.join(backups, name));
     fs.renameSync(incoming, target);
@@ -123,7 +147,10 @@ try {
   const stage = path.join(work, 'archify');
   verify(stage);
   step(`verified ${git('rev-parse', '--short', 'HEAD')} on top of ${git('rev-parse', '--short', upstream)}`);
-  if (!flags.has('--no-install')) install(stage);
+  if (!flags.has('--no-install')) {
+    install(stage);
+    if (!flags.has('--no-fetch')) publish();
+  }
 } catch (error) {
   console.error(error.message);
   process.exitCode = 1;

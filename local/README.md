@@ -42,11 +42,22 @@ and record its source in both `THIRD_PARTY_NOTICES.md` files. Then run
 The new mark also reaches `azure-diagram`: the sync builds that skill's icons from the same
 catalog.
 
+## Update the Azure icon set
+
+`azure-diagram/azure-icons/` holds Microsoft's Azure icon download, unaltered. Keep this
+repository private, because Microsoft allows redistribution only for diagrams, training
+materials and documentation.
+
+Download the new set from <https://learn.microsoft.com/azure/architecture/icons>. Replace the
+category folders and `Microsoft_Terms_of_Use.pdf`, change `AZURE_SET` in
+`azure-diagram/scripts/build-icons.mjs`, commit and run the sync.
+
 ## Azure diagram skill
 
-`azure-diagram/` creates static Azure Architecture Center style diagrams. Its icons are not in
-Git. The sync copies the folder to a stage, builds `icons/` from `archify/brand-marks`, runs
-its tests and renders its example. To work on it in the repo:
+`azure-diagram/` creates static Azure Architecture Center style diagrams. Its built `icons/`
+folder is not in Git. The sync copies the skill to a stage, builds `icons/` from
+`archify/brand-marks` and `azure-icons/`, runs its tests and renders its example. To work on it
+in the repo:
 
 ```bash
 node azure-diagram/scripts/build-icons.mjs

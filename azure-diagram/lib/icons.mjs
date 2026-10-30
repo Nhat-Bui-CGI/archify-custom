@@ -71,12 +71,13 @@ export function loadIcons(dir = DEFAULT_ICONS_DIR) {
   }
   const { icons } = JSON.parse(fs.readFileSync(indexFile, 'utf8'));
   const lookup = new Map();
-  for (const icon of icons) {
-    for (const key of [icon.id, icon.title, ...(icon.aliases ?? [])]) {
-      const id = normalise(key);
-      if (!lookup.has(id)) lookup.set(id, icon);
-    }
-  }
+  const add = (key, icon) => {
+    const id = normalise(key);
+    if (!lookup.has(id)) lookup.set(id, icon);
+  };
+  // An exact id or title beats another icon's alias: "Azure OpenAI" is its own icon.
+  for (const icon of icons) [icon.id, icon.title].forEach((key) => add(key, icon));
+  for (const icon of icons) (icon.aliases ?? []).forEach((key) => add(key, icon));
   return { dir, icons, lookup };
 }
 

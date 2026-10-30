@@ -132,13 +132,14 @@ function verify(stage) {
 }
 
 // The icons are ignored by Git and built here, so the stage holds exactly what is committed.
+// Microsoft's download is the build input and is not installed.
 function verifyAzureDiagram(stage) {
   fs.cpSync(azureDiagram, stage, {
     recursive: true,
-    filter: (source) => path.relative(azureDiagram, source).split(path.sep)[0] !== 'icons',
+    filter: (source) => !['icons', 'azure-icons'].includes(path.relative(azureDiagram, source).split(path.sep)[0]),
   });
   run('node', [path.join(stage, 'scripts', 'build-icons.mjs'), '--source', path.join(skill, 'brand-marks'),
-    '--out', path.join(stage, 'icons')]);
+    '--azure', path.join(azureDiagram, 'azure-icons'), '--out', path.join(stage, 'icons')]);
   run('node', ['--test', path.join('test', 'azure-diagram.test.mjs')], { cwd: stage });
   const sample = path.join(`${stage}-sample`, 'example');
   run('node', [path.join(stage, 'bin', 'azure-diagram.mjs'), 'render',

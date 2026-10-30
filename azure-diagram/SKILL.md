@@ -81,7 +81,8 @@ Microsoft publishes no layout, sizing or boundary rules, so this is not a standa
 
 ## Icon notes
 
-- The catalog has 41 entries: Microsoft product icons, the Boomi logo and the reused AX 2012 mark. Run `icons` to list them. Microsoft's full icon download is not included, because its page requires accepting terms, so many Azure services have no icon yet.
+- The catalog has the curated marks (Microsoft product icons, including Dataverse and Power Apps, the Boomi logo and the reused AX 2012 mark) and Microsoft's Azure Public Service Icons V24. Run `icons <query>` to search them. Microsoft's set uses its own names, often plural, such as `Key Vaults`, and the node shows that name below the label. A curated mark is the first match where both exist.
+- Microsoft allows these icons in architectural diagrams, training materials and documentation only. Do not publish the icon set itself.
 - `dynamics-ax-2012` is the Dynamics 365 icon reused, because no official AX 2012 icon was found. The CLI warns when it is used. Say so in the sublabel or tell the user.
 - The Boomi logo has no published licence. Keep Boomi diagrams to internal use unless the user has cleared it with Boomi.
 
@@ -89,7 +90,7 @@ Microsoft publishes no layout, sizing or boundary rules, so this is not a standa
 
 In the private repo `peterbuitho/archify-custom`, not in the installed skill:
 
-1. The user gets the SVG from a source they are entitled to use. If it comes from Microsoft's icon download, the user accepts its terms and downloads it.
+1. The user gets the SVG from a source they are entitled to use. For a new Microsoft set, follow "Update the Azure icon set" in `local/README.md`.
 2. Put it in `archify/brand-marks/azure/`.
 3. Add an entry to `archify/brand-marks/catalog.local.json` and record the source in both `THIRD_PARTY_NOTICES.md` files.
 4. Run `npm run generate:brand-marks` in `archify/`, commit, then run `node local/sync-archify.mjs`.

@@ -6,7 +6,7 @@ import path from 'node:path';
 import { before, test } from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { DiagramError } from '../lib/errors.mjs';
-import { assertSafeSvg, DEFAULT_ICONS_DIR, ensureViewBox } from '../lib/icons.mjs';
+import { assertSafeSvg, DEFAULT_ICONS_DIR, ensureViewBox, loadIcons } from '../lib/icons.mjs';
 import { renderDiagram } from '../lib/render.mjs';
 import { nodeObstacles, segmentHitsRect, toSegments } from '../lib/route.mjs';
 import { buildIcons } from '../scripts/build-icons.mjs';
@@ -109,6 +109,19 @@ test('the CLI reports errors with a nonzero exit', () => {
   assert.equal(result.status, 1);
   assert.match(result.stderr, /error: .*unknown icon/);
   assert.ok(!fs.existsSync(path.join(tmp, 'bad.svg')));
+});
+
+test('Microsoft icons are searchable, unaltered and do not replace curated marks', () => {
+  const { lookup } = loadIcons();
+  assert.equal(lookup.get('dataverse').title, 'Microsoft Dataverse');
+  assert.equal(lookup.get('azure openai').id, 'azure-openai');
+  const firewall = lookup.get('firewalls');
+  assert.equal(firewall.title, 'Firewalls');
+  assert.match(firewall.note, /Azure Public Service Icons V24: networking/);
+  const original = path.join(root, 'test', 'fixtures', 'firewalls.svg');
+  assert.equal(fs.readFileSync(path.join(DEFAULT_ICONS_DIR, firewall.file), 'utf8'), fs.readFileSync(original, 'utf8'));
+  assert.ok(lookup.size > 600);
+  assert.doesNotThrow(() => renderDiagram(spec({ nodes: [{ id: 'a', icon: 'firewalls', label: 'Edge firewall', col: 0, row: 0 }] })));
 });
 
 test('the resource name comes first and the product name is shown once', () => {

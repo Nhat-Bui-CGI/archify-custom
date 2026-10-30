@@ -111,6 +111,18 @@ test('the CLI reports errors with a nonzero exit', () => {
   assert.ok(!fs.existsSync(path.join(tmp, 'bad.svg')));
 });
 
+test('the resource name comes first and the product name is shown once', () => {
+  const texts = (node) => {
+    const { svg } = renderDiagram(spec({ nodes: [node] }));
+    return [...svg.matchAll(/<text[^>]*>([^<]*)<\/text>/g)].map((match) => match[1]).filter((text) => text !== 'T');
+  };
+  const node = { id: 'a', icon: 'dataverse', col: 0, row: 0 };
+  assert.deepEqual(texts({ ...node, label: 'Orders', sublabel: 'Active' }), ['Orders', 'Microsoft Dataverse', 'Active']);
+  assert.deepEqual(texts({ ...node, label: 'Microsoft Dataverse', sublabel: 'Active' }), ['Microsoft Dataverse', 'Active']);
+  assert.deepEqual(texts({ ...node, label: 'Orders', sublabel: 'Microsoft Dataverse table' }), ['Orders', 'Microsoft Dataverse table']);
+  assert.deepEqual(texts({ ...node, icon: 'generic:person', label: 'User' }), ['User']);
+});
+
 test('label text is escaped in every output', () => {
   const nasty = '<script>alert("x")</script> & co';
   const { svg, html, drawio } = renderDiagram(spec({

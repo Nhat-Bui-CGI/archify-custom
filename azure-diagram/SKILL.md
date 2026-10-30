@@ -1,6 +1,6 @@
 ---
 name: azure-diagram
-description: "Create static architecture diagrams in the Microsoft Azure Architecture Center style: the official Azure SVG icon is the node, with no boxes, a large icon, the product name below it, grouped boundaries (subscription, resource group, VNet, subnet, on-premises) and numbered data-flow steps. Outputs SVG, standalone HTML and an editable draw.io file. Use when the user asks for an Azure Architecture Center style diagram, a Microsoft-style diagram, a reference architecture, Azure icons as nodes, or a diagram to edit in draw.io or paste into a document. Archify remains the choice for interactive viewers and animated diagrams."
+description: "Create static architecture diagrams in the Microsoft Azure Architecture Center style: the official Azure SVG icon is the node, with no boxes, a large icon, the resource name and product name below it, grouped boundaries (subscription, resource group, VNet, subnet, on-premises) and numbered data-flow steps. Outputs SVG, standalone HTML and an editable draw.io file. Use when the user asks for an Azure Architecture Center style diagram, a Microsoft-style diagram, a reference architecture, Azure icons as nodes, or a diagram to edit in draw.io or paste into a document. Archify remains the choice for interactive viewers and animated diagrams."
 ---
 
 # Azure diagram
@@ -35,7 +35,7 @@ node <skill>/bin/azure-diagram.mjs render spec.json --out path/to/stem
   "title": "Required",
   "subtitle": "Optional",
   "nodes": [
-    { "id": "apim", "icon": "api-management", "label": "Azure API Management", "sublabel": "Policies", "col": 2, "row": 1 }
+    { "id": "apim", "icon": "api-management", "label": "Orders API", "sublabel": "Policies", "col": 2, "row": 1 }
   ],
   "groups": [
     { "id": "rg", "label": "Resource group", "kind": "resource-group", "contains": ["apim", "vnet"] }
@@ -57,7 +57,9 @@ Group bounds come from the members, so members must form a rectangle on the grid
 
 ## Labelling rules
 
-- `label` is the product name as Microsoft writes it. Put the role, SKU or detail in `sublabel`.
+- `label` is the resource's own name, such as `Product dataset` or `Orders API`. Use the product name only when the resource has no name of its own.
+- Do not repeat the product name in `sublabel`. The renderer shows it from the icon, on the line below the label, so `Product dataset` on a `dataverse` icon also shows `Microsoft Dataverse`.
+- Put the role, SKU or detail in `sublabel`. When converting an Archify diagram, its node label is the `label`.
 - Keep `sublabel` to a few words, and edge labels to two or three.
 - Put the explanation in `steps`, one sentence per step, numbered in the order the data moves.
 - Do not use an Azure icon for something that is not that service. A non-Azure system uses its own mark if the catalog has it, otherwise a `generic:*` shape with its name as the label.

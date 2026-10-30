@@ -118,13 +118,24 @@ function lanes(starts, sizes, before, after) {
   return [...new Set(positions)];
 }
 
+// The label is the resource's own name, so the product name comes from the icon. It is left
+// out when the label or sublabel already gives it, and for neutral shapes, which have no product.
+function productLine(node) {
+  const { id, title } = node.iconData;
+  const product = title.toLowerCase();
+  const label = node.label.toLowerCase();
+  if (id.startsWith('generic:') || label.includes(product) || product.includes(label)) return '';
+  return node.sublabel?.toLowerCase().includes(product) ? '' : title;
+}
+
 export function layout(diagram) {
   const warnings = [];
   const tooWide = (where) => (word) => warnings.push(`${where}: "${word}" is wider than a cell, so the text may touch its neighbour.`);
   const nodes = diagram.nodes.map((node) => {
     const labelLines = wrapText(node.label, NODE_W - 6, LABEL_SIZE, true, tooWide(`Node ${node.id}`));
-    const subLines = node.sublabel ? wrapText(node.sublabel, NODE_W - 6, SUB_SIZE, false, tooWide(`Node ${node.id}`)) : [];
-    if (labelLines.length > 3) warnings.push(`Node ${node.id}: the label takes ${labelLines.length} lines. Use the product name and move detail to sublabel.`);
+    const subLines = [productLine(node), node.sublabel].filter(Boolean)
+      .flatMap((text) => wrapText(text, NODE_W - 6, SUB_SIZE, false, tooWide(`Node ${node.id}`)));
+    if (labelLines.length > 3) warnings.push(`Node ${node.id}: the label takes ${labelLines.length} lines. Shorten it and move detail to sublabel.`);
     const textH = labelLines.length * LABEL_LINE + subLines.length * SUB_LINE;
     return { ...node, labelLines, subLines, boxH: ICON + LABEL_GAP + textH };
   });

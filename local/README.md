@@ -24,7 +24,11 @@ to `~/.claude/skills/` and `~/.agents/skills/`. It moves any copies already ther
 
 Run the same `sync-archify.mjs` command on any computer. It picks up what the other computer
 pushed, replays the local commits on upstream `main`, verifies, installs and pushes. If a
-step fails for either skill, it installs nothing. Do not use the normal Archify update.
+check fails for either skill, it installs nothing. Do not use the normal Archify update.
+
+On Windows, a running Codex or Claude can lock a skill folder for a moment. The script retries
+for up to 20 seconds. If the folder stays locked, it stops without pushing and some copies can
+be new and others old. Close Codex and Claude, then run the same command again.
 
 Run it on a second computer to get the update there. Commit local changes first, because
 the script stops on uncommitted changes.

@@ -6,8 +6,9 @@
 //   node local/sync-archify.mjs --no-fetch    rebuild and install the current branch
 //   node local/sync-archify.mjs --no-install  update and verify only
 //
-// Nothing is installed unless every step passes for both skills. Each install keeps the
-// previous copies under ~/.archify-backups/<timestamp>/<skill>/{claude,codex}.
+// Nothing is installed unless every check passes for both skills. If a folder stays locked
+// during the install, some copies can be new and others old, and rerunning completes it.
+// Each install keeps the previous copies under ~/.archify-backups/<timestamp>/<skill>/{claude,codex}.
 
 import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -28,6 +29,8 @@ const skillRoots = {
   codex: path.join(os.homedir(), '.agents', 'skills'),
 };
 const expectedMarks = { 'Azure Fabric': 'microsoft-fabric', Boomi: 'boomi', 'AX 2012': 'dynamics-ax-2012', d365: 'dynamics-365' };
+const renameAttempts = 40;
+const renameDelayMs = 500;
 const flags = new Set(process.argv.slice(2));
 
 function run(command, args, { cwd = repo, allowFailure = false, env } = {}) {
@@ -145,21 +148,40 @@ function verifyAzureDiagram(stage) {
   }
 }
 
+// Windows refuses a rename while another process briefly holds a file in the folder.
+function renameWithRetry(from, to) {
+  for (let attempt = 1; ; attempt += 1) {
+    try {
+      fs.renameSync(from, to);
+      return;
+    } catch (error) {
+      if (attempt === renameAttempts || !['EPERM', 'EBUSY', 'EACCES'].includes(error.code)) throw error;
+      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, renameDelayMs);
+    }
+  }
+}
+
 function install(stages) {
   const backups = path.join(os.homedir(), '.archify-backups', new Date().toISOString().replace(/[:.]/g, '-'));
-  for (const [skillName, stage] of Object.entries(stages)) {
-    for (const [name, root] of Object.entries(skillRoots)) {
-      const target = path.join(root, skillName);
-      const incoming = `${target}.incoming`;
-      fs.mkdirSync(root, { recursive: true });
-      fs.cpSync(stage, incoming, { recursive: true });
+  const installs = Object.entries(stages).flatMap(([skillName, stage]) => Object.entries(skillRoots)
+    .map(([name, root]) => ({ skillName, stage, name, root, target: path.join(root, skillName) })));
+  // Every copy is prepared before the first swap, so a failed copy leaves the installs untouched.
+  for (const { stage, root, target } of installs) {
+    fs.mkdirSync(root, { recursive: true });
+    fs.rmSync(`${target}.incoming`, { recursive: true, force: true, maxRetries: 5 });
+    fs.cpSync(stage, `${target}.incoming`, { recursive: true });
+  }
+  for (const { skillName, name, target } of installs) {
+    try {
       if (fs.existsSync(target)) {
         fs.mkdirSync(path.join(backups, skillName), { recursive: true });
-        fs.renameSync(target, path.join(backups, skillName, name));
+        renameWithRetry(target, path.join(backups, skillName, name));
       }
-      fs.renameSync(incoming, target);
-      step(`installed ${target}`);
+      renameWithRetry(`${target}.incoming`, target);
+    } catch (error) {
+      throw new Error(`Could not replace ${target}, so the install is incomplete and nothing was pushed. Close Codex and Claude, then rerun. Previous copies are in ${backups}.\n${error.message}`);
     }
+    step(`installed ${target}`);
   }
   step(`previous copies are in ${backups}`);
 }

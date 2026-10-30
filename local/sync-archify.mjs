@@ -1,13 +1,13 @@
 #!/usr/bin/env node
-// Replays the local brand-mark branch on upstream and installs it for Claude Code and Codex.
-// See local/README.md for setting up another computer.
+// Replays the local brand-mark branch on upstream and installs the archify and azure-diagram
+// skills for Claude Code and Codex. See local/README.md for setting up another computer.
 //
 //   node local/sync-archify.mjs               update, verify, install, push
 //   node local/sync-archify.mjs --no-fetch    rebuild and install the current branch
 //   node local/sync-archify.mjs --no-install  update and verify only
 //
-// Nothing is installed unless every step passes. Each install keeps the previous
-// copy under ~/.archify-backups/<timestamp>/.
+// Nothing is installed unless every step passes for both skills. Each install keeps the
+// previous copies under ~/.archify-backups/<timestamp>/<skill>/{claude,codex}.
 
 import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -22,9 +22,10 @@ const branch = 'local/brand-marks';
 const upstreamUrl = 'https://github.com/tt-a1i/archify';
 const upstream = 'upstream/main';
 const shared = `origin/${branch}`;
-const targets = {
-  claude: path.join(os.homedir(), '.claude', 'skills', 'archify'),
-  codex: path.join(os.homedir(), '.agents', 'skills', 'archify'),
+const azureDiagram = path.join(repo, 'azure-diagram');
+const skillRoots = {
+  claude: path.join(os.homedir(), '.claude', 'skills'),
+  codex: path.join(os.homedir(), '.agents', 'skills'),
 };
 const expectedMarks = { 'Azure Fabric': 'microsoft-fabric', Boomi: 'boomi', 'AX 2012': 'dynamics-ax-2012', d365: 'dynamics-365' };
 const flags = new Set(process.argv.slice(2));
@@ -127,16 +128,38 @@ function verify(stage) {
   run('node', [cli, 'validate', 'architecture', path.join(stage, 'examples', 'd365fo-integration.architecture.json')]);
 }
 
-function install(stage) {
+// The icons are ignored by Git and built here, so the stage holds exactly what is committed.
+function verifyAzureDiagram(stage) {
+  fs.cpSync(azureDiagram, stage, {
+    recursive: true,
+    filter: (source) => path.relative(azureDiagram, source).split(path.sep)[0] !== 'icons',
+  });
+  run('node', [path.join(stage, 'scripts', 'build-icons.mjs'), '--source', path.join(skill, 'brand-marks'),
+    '--out', path.join(stage, 'icons')]);
+  run('node', ['--test', path.join('test', 'azure-diagram.test.mjs')], { cwd: stage });
+  const sample = path.join(`${stage}-sample`, 'example');
+  run('node', [path.join(stage, 'bin', 'azure-diagram.mjs'), 'render',
+    path.join(stage, 'examples', 'd365-integration.json'), '--out', sample]);
+  for (const extension of ['svg', 'html', 'drawio']) {
+    if (!fs.statSync(`${sample}.${extension}`).size) throw new Error(`azure-diagram wrote an empty .${extension} file.`);
+  }
+}
+
+function install(stages) {
   const backups = path.join(os.homedir(), '.archify-backups', new Date().toISOString().replace(/[:.]/g, '-'));
-  fs.mkdirSync(backups, { recursive: true });
-  for (const [name, target] of Object.entries(targets)) {
-    const incoming = `${target}.incoming`;
-    fs.mkdirSync(path.dirname(target), { recursive: true });
-    fs.cpSync(stage, incoming, { recursive: true });
-    if (fs.existsSync(target)) fs.renameSync(target, path.join(backups, name));
-    fs.renameSync(incoming, target);
-    step(`installed ${target}`);
+  for (const [skillName, stage] of Object.entries(stages)) {
+    for (const [name, root] of Object.entries(skillRoots)) {
+      const target = path.join(root, skillName);
+      const incoming = `${target}.incoming`;
+      fs.mkdirSync(root, { recursive: true });
+      fs.cpSync(stage, incoming, { recursive: true });
+      if (fs.existsSync(target)) {
+        fs.mkdirSync(path.join(backups, skillName), { recursive: true });
+        fs.renameSync(target, path.join(backups, skillName, name));
+      }
+      fs.renameSync(incoming, target);
+      step(`installed ${target}`);
+    }
   }
   step(`previous copies are in ${backups}`);
 }
@@ -144,11 +167,12 @@ function install(stage) {
 const work = fs.mkdtempSync(path.join(os.tmpdir(), 'archify-sync-'));
 try {
   update();
-  const stage = path.join(work, 'archify');
-  verify(stage);
+  const stages = { archify: path.join(work, 'archify'), 'azure-diagram': path.join(work, 'azure-diagram') };
+  verify(stages.archify);
+  verifyAzureDiagram(stages['azure-diagram']);
   step(`verified ${git('rev-parse', '--short', 'HEAD')} on top of ${git('rev-parse', '--short', upstream)}`);
   if (!flags.has('--no-install')) {
-    install(stage);
+    install(stages);
     if (!flags.has('--no-fetch')) publish();
   }
 } catch (error) {

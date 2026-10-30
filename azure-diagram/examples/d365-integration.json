@@ -1,0 +1,50 @@
+{
+  "title": "Partner and on-premises integration with Dynamics 365",
+  "subtitle": "API-led integration on Azure, with Dynamics AX 2012 connected through Boomi and analytics in Microsoft Fabric",
+  "nodes": [
+    { "id": "partner", "icon": "generic:person", "label": "Partner or client app", "sublabel": "HTTPS with OAuth 2.0 token", "col": 0, "row": 1 },
+    { "id": "ax", "icon": "dynamics-ax-2012", "label": "Dynamics AX 2012", "sublabel": "Reused Dynamics 365 icon", "col": 0, "row": 2 },
+    { "id": "boomi", "icon": "boomi", "label": "Boomi", "sublabel": "Runtime on local server", "col": 1, "row": 2 },
+    { "id": "entra", "icon": "entra-id", "label": "Microsoft Entra ID", "sublabel": "Tenant identity provider", "col": 2, "row": 0 },
+    { "id": "apim", "icon": "api-management", "label": "Azure API Management", "sublabel": "Policies and rate limits", "col": 2, "row": 1 },
+    { "id": "logic", "icon": "logic-apps", "label": "Azure Logic Apps", "sublabel": "Standard workflows", "col": 3, "row": 1 },
+    { "id": "functions", "icon": "azure-functions", "label": "Azure Functions", "sublabel": "Mapping and enrichment", "col": 4, "row": 1 },
+    { "id": "bus", "icon": "service-bus", "label": "Azure Service Bus", "sublabel": "Topics and dead-letter queues", "col": 3, "row": 2 },
+    { "id": "vault", "icon": "key-vault", "label": "Azure Key Vault", "sublabel": "Secrets and certificates", "col": 4, "row": 2 },
+    { "id": "d365", "icon": "dynamics-365", "label": "Dynamics 365", "sublabel": "Finance and Operations", "col": 5, "row": 1 },
+    { "id": "fabric", "icon": "microsoft-fabric", "label": "Microsoft Fabric", "sublabel": "Lakehouse and reporting", "col": 5, "row": 2 }
+  ],
+  "groups": [
+    { "id": "subscription", "label": "Azure subscription", "kind": "subscription", "contains": ["rg"] },
+    { "id": "rg", "label": "Resource group", "kind": "resource-group", "contains": ["apim", "vnet", "bus", "vault"] },
+    { "id": "vnet", "label": "Virtual network", "kind": "vnet", "contains": ["subnet"] },
+    { "id": "subnet", "label": "Subnet: snet-integration", "kind": "subnet", "contains": ["logic", "functions"] },
+    { "id": "onprem", "label": "On-premises", "kind": "on-premises", "contains": ["ax", "boomi"] },
+    { "id": "partners", "label": "Partner", "kind": "external", "contains": ["partner"] },
+    { "id": "saas", "label": "Microsoft SaaS", "kind": "external", "contains": ["d365", "fabric"] }
+  ],
+  "edges": [
+    { "from": "partner", "to": "apim", "step": 1, "label": "API call" },
+    { "from": "apim", "to": "entra", "step": 2, "label": "Validate token" },
+    { "from": "apim", "to": "logic", "step": 3 },
+    { "from": "logic", "to": "bus", "step": 4, "label": "Queue message" },
+    { "from": "bus", "to": "functions", "step": 5, "label": "Trigger" },
+    { "from": "functions", "to": "vault", "step": 6, "label": "Read secrets" },
+    { "from": "functions", "to": "d365", "step": 7, "bidirectional": true },
+    { "from": "ax", "to": "boomi", "step": 8 },
+    { "from": "boomi", "to": "bus", "step": 9, "label": "Publish over HTTPS", "style": "dashed" },
+    { "from": "d365", "to": "fabric", "step": 10, "label": "Replicate", "style": "dashed" }
+  ],
+  "steps": [
+    "A partner or client app calls the API on Azure API Management with an OAuth 2.0 access token.",
+    "API Management validates the token against Microsoft Entra ID and applies its policies.",
+    "API Management forwards the accepted request to a Logic Apps workflow.",
+    "The workflow validates the payload and puts a message on a Service Bus topic, then returns an acknowledgement.",
+    "The message triggers an Azure Function, which maps it to the Dynamics 365 data model.",
+    "The function reads the secrets and certificates it needs from Key Vault with its managed identity.",
+    "The function writes to Dynamics 365 and reads the result back.",
+    "Boomi picks up changes from Dynamics AX 2012 on the local network.",
+    "Boomi publishes these changes to Service Bus over outbound HTTPS, so they follow the same path from step 5.",
+    "Dynamics 365 replicates business data to Microsoft Fabric for reporting."
+  ]
+}

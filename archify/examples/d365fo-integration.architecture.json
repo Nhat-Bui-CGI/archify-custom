@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "D365 F&O Integration Platform",
+    "output": "d365fo-integration-rendered.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "partners", "type": "external", "label": "Partners", "sublabel": "EDI / REST", "pos": [40, 300], "size": [130, 60] },
+    { "id": "apim", "type": "cloud", "label": "API Management", "sublabel": "public gateway", "pos": [250, 300], "size": [150, 60], "brand": "api-management" },
+    { "id": "entra", "type": "security", "label": "Entra ID", "sublabel": "OAuth 2.0", "pos": [250, 130], "size": [150, 60], "brand": "entra-id" },
+    { "id": "logic", "type": "backend", "label": "Logic Apps", "sublabel": "orchestration", "pos": [480, 300], "size": [150, 60], "brand": "logic-apps" },
+    { "id": "bus", "type": "messagebus", "label": "Service Bus", "sublabel": "queues + topics", "pos": [480, 450], "size": [150, 60], "brand": "service-bus" },
+    { "id": "func", "type": "backend", "label": "Functions", "sublabel": "mapping", "pos": [710, 450], "size": [150, 60], "brand": "azure-functions" },
+    { "id": "d365", "type": "backend", "label": "D365 F&O", "sublabel": "OData / DMF", "pos": [710, 300], "size": [150, 60], "brand": "dynamics-365" },
+    { "id": "kv", "type": "security", "label": "Key Vault", "sublabel": "secrets", "pos": [480, 130], "size": [150, 60], "brand": "key-vault" },
+    { "id": "events", "type": "messagebus", "label": "Event Grid", "sublabel": "business events", "pos": [940, 300], "size": [150, 60], "brand": "event-grid" },
+    { "id": "lake", "type": "database", "label": "Data Lake", "sublabel": "Synapse Link", "pos": [940, 450], "size": [150, 60], "brand": "data-lake-storage" },
+    { "id": "insights", "type": "cloud", "label": "App Insights", "sublabel": "telemetry", "pos": [710, 130], "size": [150, 60], "brand": "application-insights" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Azure: West Europe", "wraps": ["apim", "entra", "d365", "logic", "bus", "func", "kv", "events", "lake", "insights"] }
+  ],
+  "connections": [
+    { "id": "partners-to-apim", "from": "partners", "to": "apim", "label": "HTTPS", "variant": "emphasis" },
+    { "id": "apim-auth", "from": "apim", "to": "entra", "label": "validate", "variant": "security", "fromSide": "top", "toSide": "bottom" },
+    { "id": "apim-to-logic", "from": "apim", "to": "logic" },
+    { "id": "logic-secrets", "from": "logic", "to": "kv", "label": "secrets", "variant": "dashed", "fromSide": "top", "toSide": "bottom" },
+    { "id": "logic-to-d365", "from": "logic", "to": "d365", "label": "OData" },
+    { "id": "logic-to-bus", "from": "logic", "to": "bus", "label": "async", "fromSide": "bottom", "toSide": "top" },
+    { "id": "bus-to-func", "from": "bus", "to": "func" },
+    { "id": "func-to-d365", "from": "func", "to": "d365", "label": "DMF", "fromSide": "top", "toSide": "bottom" },
+    { "id": "d365-events", "from": "d365", "to": "events", "label": "events" },
+    { "id": "d365-lake", "from": "d365", "to": "lake", "label": "export", "variant": "dashed" },
+    { "id": "d365-telemetry", "from": "d365", "to": "insights", "label": "telemetry", "variant": "dashed", "fromSide": "top", "toSide": "bottom" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Inbound", "items": ["Partners call APIM, authenticated with Entra ID", "Logic Apps orchestrate sync OData calls"] },
+    { "dot": "emerald", "title": "Async", "items": ["Bulk messages buffered in Service Bus", "Functions map and import via DMF"] },
+    { "dot": "rose", "title": "Outbound", "items": ["Business events through Event Grid", "Analytics export to the data lake"] }
+  ]
+}

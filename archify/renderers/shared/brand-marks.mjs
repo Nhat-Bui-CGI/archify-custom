@@ -85,7 +85,7 @@ export function listBrandMarks(query = '') {
     if (!needle) return true;
     return [mark.id, mark.title, mark.category, ...mark.aliases, ...mark.domains]
       .some((value) => String(value).toLocaleLowerCase('en-US').includes(needle));
-  }).map(({ path, ...mark }) => mark);
+  }).map(({ path, svg, ...mark }) => mark);
 }
 
 function ipv4Private(address) {
@@ -689,7 +689,12 @@ export function renderBrandMark(node, { x, y, size = 16 } = {}) {
   if (!mark) return '';
   const inset = 3;
   let content;
-  if (mark.kind === 'preset') {
+  if (mark.kind === 'preset' && mark.svg) {
+    // Full-colour official icons: shown unaltered, with a slimmer inset so the
+    // detail stays legible inside the 16px badge.
+    const svgInset = 1;
+    content = `<image href="${esc(mark.svg)}" x="${svgInset}" y="${svgInset}" width="${size - svgInset * 2}" height="${size - svgInset * 2}" preserveAspectRatio="xMidYMid meet"/>`;
+  } else if (mark.kind === 'preset') {
     const scale = (size - inset * 2) / mark.viewBox;
     content = `<path d="${esc(mark.path)}" transform="translate(${inset} ${inset}) scale(${scale})" fill="#${esc(mark.hex)}"/>`;
   } else if (mark.kind === 'remote') {

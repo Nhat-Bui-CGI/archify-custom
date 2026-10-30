@@ -44,6 +44,14 @@ does; `brand` explains whose product it is.
    }
    ```
 
+   Azure and Microsoft services have per-service full-colour icons. List them
+   with `node bin/archify.mjs brands microsoft`; common aliases resolve
+   directly (`APIM`, `ADF`, `Azure AD`, `ADLS`, `D365FO`, `Service Bus`, `Fabric`,
+   `AX 2012`). `dynamics-ax-2012` reuses the Dynamics 365 icon because no official
+   AX icon was found. Microsoft Fabric is `microsoft-fabric`, and it is different
+   from Azure Service Fabric. Boomi is the `boomi` mark in the `data` category.
+   Prefer the specific service mark (`logic-apps`) over the generic `azure`.
+
 4. If there is no match and no user-provided URL, omit `brand`. Do not invent a
    URL or silently assign a visually similar company.
 

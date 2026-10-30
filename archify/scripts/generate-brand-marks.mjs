@@ -9,7 +9,10 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..');
 const catalogPath = path.join(root, 'brand-marks', 'catalog.json');
 const outputPath = path.join(root, 'renderers', 'shared', 'generated-brand-marks.mjs');
+const localCatalogPath = path.join(root, 'brand-marks', 'catalog.local.json');
 const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
+// Local marks stay out of the upstream catalog so upstream updates cannot conflict with them.
+catalog.marks.push(...JSON.parse(fs.readFileSync(localCatalogPath, 'utf8')).marks);
 const simpleIconsVersion = JSON.parse(fs.readFileSync(
   path.join(root, 'node_modules', 'simple-icons', 'package.json'),
   'utf8',
@@ -37,6 +40,27 @@ function lookupForms(value) {
 function fail(message) {
   console.error(`brand catalog: ${message}`);
   process.exit(1);
+}
+
+function svgMark(entry) {
+  if (!entry.title || !entry.source || !/^[0-9A-F]{6}$/i.test(entry.hex || '')) {
+    fail(`${entry.id} svgFile mark requires title, source, and six-digit hex`);
+  }
+  const svgPath = path.join(root, 'brand-marks', entry.svgFile);
+  if (!fs.existsSync(svgPath)) fail(`${entry.id} references missing file ${entry.svgFile}`);
+  const svg = fs.readFileSync(svgPath, 'utf8').trim();
+  // Official full-colour artwork is embedded unaltered, so unsafe files are rejected rather than cleaned.
+  if (!svg.startsWith('<svg')) fail(`${entry.svgFile} must start with an svg element`);
+  if (/<script|<foreignObject|\son[a-z]+\s*=/i.test(svg)) fail(`${entry.svgFile} contains script or event handlers`);
+  const references = [...svg.matchAll(/(?:href\s*=\s*["']|url\(\s*["']?)([^"')\s]+)/gi)].map((match) => match[1]);
+  if (references.some((reference) => !reference.startsWith('#'))) fail(`${entry.svgFile} contains an external reference`);
+  const box = svg.match(/viewBox="[\d.-]+[\s,]+[\d.-]+[\s,]+([\d.]+)[\s,]+([\d.]+)"/);
+  const size = box
+    ? [box[1], box[2]]
+    : [svg.match(/\swidth="([\d.]+)"/)?.[1], svg.match(/\sheight="([\d.]+)"/)?.[1]];
+  const viewBox = Math.max(...size.map(Number));
+  if (!Number.isFinite(viewBox) || viewBox <= 0) fail(`${entry.svgFile} needs a viewBox or width and height`);
+  return { viewBox, svg: `data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}` };
 }
 
 if (catalog.schemaVersion !== 1 || !Array.isArray(catalog.marks) || catalog.marks.length === 0) {
@@ -109,8 +133,26 @@ const generated = catalog.marks.map((entry, index) => {
         ...(custom.guidelines ? { guidelines: custom.guidelines } : {}),
       },
     };
+  } else if (entry.svgFile) {
+    const { viewBox, svg } = svgMark(entry);
+    mark = {
+      id: entry.id,
+      title: entry.title,
+      category: entry.category,
+      aliases,
+      domains: entryDomains,
+      viewBox,
+      hex: entry.hex.toUpperCase(),
+      svg,
+      provenance: {
+        provider: entry.provider || 'Official brand asset',
+        source: entry.source,
+        ...(entry.guidelines ? { guidelines: entry.guidelines } : {}),
+        ...(entry.note ? { note: entry.note } : {}),
+      },
+    };
   } else {
-    fail(`${entry.id} must provide simpleIcon or custom`);
+    fail(`${entry.id} must provide simpleIcon, custom, or svgFile`);
   }
   if (!mark.category || !mark.title) fail(`${entry.id} is missing category or title`);
   for (const form of lookupForms(mark.title)) {

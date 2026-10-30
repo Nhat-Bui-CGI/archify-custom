@@ -1,6 +1,6 @@
 # Built-in brand marks
 
-Archify ships a bounded catalogue of 107 commonly used brands for architecture,
+Archify ships a bounded catalogue of 148 commonly used brands for architecture,
 workflow, sequence, data-flow, and lifecycle nodes. The mark is optional authored
 identity: it never replaces the node's semantic `type`, color, label, or
 relationships.
@@ -20,6 +20,21 @@ Icons' CC0 license covers its collection work, not every underlying trademark or
 artwork. Contributors must review the recorded source, current brand guidelines,
 and intended referential use before adding or updating a mark. Archify does not
 imply sponsorship, endorsement, or partnership.
+
+Full-colour official icon sets that cannot be reduced to one path without
+altering the artwork use `svgFile` instead of `simpleIcon` or `custom`. The
+`microsoft` category (Azure services, Dynamics 365, Dataverse, Power Apps, Power BI
+and Microsoft Fabric) is stored in `brand-marks/azure/` from Microsoft's published
+icon sets and embedded unaltered; the generator rejects files with script, event handlers, or external
+references. Try `node bin/archify.mjs brands microsoft`.
+
+Three marks were added locally to the installed package, and a package update may
+overwrite them. `microsoft-fabric` comes from Microsoft's Fabric icon set.
+`boomi` (`brand-marks/boomi/`) comes from the boomi.com site header; no logo licence
+was found. `dynamics-ax-2012` has no artwork of its own: no official AX icon was
+found, so it reuses the Dynamics 365 icon. See `THIRD_PARTY_NOTICES.md`. The generator
+is not part of the installed package, so these entries were added to `catalog.json`
+and the bundle by hand in the generator's output shape.
 
 Edit `catalog.json`, then regenerate the committed zero-runtime-dependency bundle:
 

@@ -42,6 +42,56 @@ pinned Simple Icons 16.28.0 metadata:
 The source, guideline, and known license fields for every packaged mark are
 preserved in `renderers/shared/generated-brand-marks.mjs`.
 
+## Microsoft Azure Architecture Icons
+
+The `microsoft` category marks (Azure services, Dynamics 365, Power BI) are the
+official full-colour icons from the
+[Azure Architecture Icons](https://learn.microsoft.com/azure/architecture/icons/)
+set, plus the Dataverse and Power Apps icons from the
+[Microsoft Power Platform icons](https://learn.microsoft.com/power-platform/guidance/icons)
+set, stored unaltered in `brand-marks/azure/` and embedded as isolated SVG
+images. Microsoft permits their use in architectural diagrams, training
+materials, and documentation; do not crop, flip, rotate, distort, or recolour
+them, and do not use them to represent your own product or service. Microsoft
+reserves all other rights. Their inclusion does not state or imply endorsement
+by Microsoft.
+
+## Microsoft Fabric icon
+
+`brand-marks/azure/microsoft-fabric.svg` is `fabric_16_color.svg`, stored
+unaltered, from the `Icons.zip` archive
+(`@fabric-msft/svg-icons` 6.1.0) in
+[microsoft/fabric-samples](https://github.com/microsoft/fabric-samples/blob/main/docs-samples/Icons.zip),
+linked from the
+[Microsoft Fabric icons](https://learn.microsoft.com/fabric/fundamentals/icons)
+page. Fabric is not part of the Azure Architecture Icons set. Microsoft permits
+use of these icons in architectural diagrams, training materials, or
+documentation; do not crop, flip, rotate, distort, or change the icon shape, and
+do not use it to represent your own product or service. Microsoft reserves all
+other rights. The npm package also carries an MIT licence file; that file does not
+grant trademark rights, so the page terms above are followed. Its inclusion does
+not state or imply endorsement by Microsoft.
+
+## Dynamics AX 2012 entry
+
+No official Dynamics AX 2012 icon was found in Microsoft's published icon sets or
+Simple Icons. The `dynamics-ax-2012` entry therefore reuses the Dynamics 365 icon
+(`brand-marks/azure/dynamics-365.svg`) so that AX names resolve to a Microsoft
+Dynamics mark. It is a fallback, not an AX-specific mark, and the Microsoft terms
+above apply.
+
+## Boomi mark
+
+`brand-marks/boomi/boomi.svg` is stored unaltered from
+<https://boomi.com/wp-content/uploads/BoomiMenuLogoIcon.svg>, the logo in the
+boomi.com site header. No logo licence, press kit, or brand guidelines were found,
+and Simple Icons has no Boomi mark. The site carries only a general copyright
+notice with all rights reserved. **No licence for this mark is held or claimed.**
+It is included for the same referential use as other catalogue marks, to identify
+Boomi products in diagrams. Boomi and the Boomi logo are the property of their
+owner. Clear any use beyond that with Boomi. Its inclusion does not state or imply
+endorsement by Boomi.
+
 ## OpenAI mark
 
 The OpenAI vector path is recorded from the

@@ -128,14 +128,14 @@ function nodeBlock(html, id) {
 }
 
 test('generated catalog exposes a substantial, unique, provenance-backed preset library', () => {
-  assert.equal(BRAND_MARKS.length, 107);
+  assert.equal(BRAND_MARKS.length, 148);
   assert.equal(new Set(BRAND_MARKS.map((mark) => mark.id)).size, BRAND_MARKS.length);
   for (const mark of BRAND_MARKS) {
     assert.match(mark.id, /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
     assert.ok(mark.title);
     assert.ok(mark.category);
     assert.match(mark.hex, /^[0-9A-F]{6}$/i);
-    assert.match(mark.path, /^[Mm]/);
+    assert.match(mark.path ?? mark.svg, /^(?:[Mm]|data:image\/svg\+xml;base64,)/);
     assert.ok(mark.provenance?.source);
   }
 });

@@ -9,7 +9,7 @@ it contains the Boomi logo, which has no published licence.
 You need Git, Node.js 18 or later, and the GitHub CLI signed in to `peterbuitho`.
 
 ```bash
-gh repo clone peterbuitho/archify-custom C:\GitRepos\archify
+gh repo clone Nhat-Bui-CGI/archify-custom C:\GitRepos\archify
 ```
 
 ```bash

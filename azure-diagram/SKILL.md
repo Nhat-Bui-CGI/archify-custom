@@ -90,7 +90,7 @@ Microsoft publishes no layout, sizing or boundary rules, so this is not a standa
 
 ## Add more icons
 
-In the private repo `peterbuitho/archify-custom`, not in the installed skill:
+In the private repo `Nhat-Bui-CGI/archify-custom`, not in the installed skill:
 
 1. The user gets the SVG from a source they are entitled to use. For a new Microsoft set, follow "Update the Azure icon set" in `local/README.md`.
 2. Put it in `archify/brand-marks/azure/`.

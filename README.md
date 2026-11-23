@@ -6,7 +6,7 @@
 > see [third-party notices](THIRD_PARTY_NOTICES.md) and the
 > [icon catalogue](archify/brand-marks/README.md).
 >
-> **Download this fork:** [Release assets](https://github.com/peterbuitho/archify-custom/releases).
+> **Download this fork:** [archify.zip](https://github.com/Nhat-Bui-CGI/archify-custom/releases/latest/download/archify.zip) · [Release page and assets](https://github.com/Nhat-Bui-CGI/archify-custom/releases/latest).
 > **Let your harness handle it:** copy the [install prompt](docs/prompts/install-archify.md) or [update prompt](docs/prompts/update-archify.md). Both select the newest custom release automatically.
 > **Installing or updating from ZIP?** Follow the [ZIP installation and update guide](docs/zip-installation.md).
 
@@ -256,8 +256,9 @@ Archify may GET the fixed stable manifest solely to show an optional reminder; i
 ### Stay updated
 
 - **Get release notifications:** select **Watch → Custom → Releases** at the top of this GitHub repository. Starring the project does not subscribe you to release notifications.
-- **See what changed:** [Release notes](https://github.com/tt-a1i/archify/releases).
-- **Use a feed reader:** [Subscribe to the release feed](https://github.com/tt-a1i/archify/releases.atom).
+- **See what changed:** [Custom release notes and assets](https://github.com/Nhat-Bui-CGI/archify-custom/releases/latest).
+- **Download the package:** [archify.zip](https://github.com/Nhat-Bui-CGI/archify-custom/releases/latest/download/archify.zip).
+- **Use a feed reader:** [Subscribe to this fork's release feed](https://github.com/Nhat-Bui-CGI/archify-custom/releases.atom).
 
 Installations with the update checker also check for newer stable releases during diagram delivery and can show a reminder. Older installations without the checker need a manual update to gain this feature. You choose whether and when to upgrade; Archify never installs updates automatically.
 

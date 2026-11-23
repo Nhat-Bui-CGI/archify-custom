@@ -17,9 +17,9 @@ You do not need to follow the manual steps below when using a prompt.
 
 ## Download the package
 
-Open [this fork's releases](https://github.com/peterbuitho/archify-custom/releases), select the custom build you want, and download **archify.zip** under **Assets**. Custom builds can be marked as prereleases, so use the releases list rather than relying on GitHub's latest-release shortcut.
+Open [this fork's releases](https://github.com/Nhat-Bui-CGI/archify-custom/releases), select the custom build you want, and download **archify.zip** under **Assets**. Custom builds can be marked as prereleases, so use the releases list rather than relying on GitHub's latest-release shortcut.
 
-The first Azure icon build is [custom-3.2.0-azure-icons.1](https://github.com/peterbuitho/archify-custom/releases/tag/custom-3.2.0-azure-icons.1). Its [archify.zip asset](https://github.com/peterbuitho/archify-custom/releases/download/custom-3.2.0-azure-icons.1/archify.zip) has SHA-256:
+The first Azure icon build is [custom-3.2.0-azure-icons.1](https://github.com/Nhat-Bui-CGI/archify-custom/releases/tag/custom-3.2.0-azure-icons.1). Its [archify.zip asset](https://github.com/Nhat-Bui-CGI/archify-custom/releases/download/custom-3.2.0-azure-icons.1/archify.zip) has SHA-256:
 
 ```text
 565c14d7caec4fa222cea98b9206a160f36339a354ab453b54123444fc49dec1
@@ -74,7 +74,7 @@ The package version remains `3.2.0`, so version output alone does not identify t
 
 ## Get future updates from this fork
 
-Use [peterbuitho/archify-custom releases](https://github.com/peterbuitho/archify-custom/releases) for subsequent custom packages and repeat the update procedure. You can subscribe to the repository's release notifications.
+Use [Nhat-Bui-CGI/archify-custom releases](https://github.com/Nhat-Bui-CGI/archify-custom/releases) for subsequent custom packages and repeat the update procedure. You can subscribe to the repository's release notifications.
 
 This build retains the original Archify update metadata. Its built-in reminders refer to upstream releases; they do not track this fork's custom releases and never install updates automatically. Installing an upstream ZIP or using an upstream install command can replace the custom additions. The upstream installation examples elsewhere in the README describe the original project; follow this guide to retain this fork's icons.
 

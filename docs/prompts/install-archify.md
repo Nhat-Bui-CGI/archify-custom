@@ -1,6 +1,6 @@
 # Install Archify Custom
 
-Install Archify Custom from https://github.com/peterbuitho/archify-custom for the harness I am using now. This is the original Archify by tt-a1i with additional official Azure icons.
+Install Archify Custom from https://github.com/Nhat-Bui-CGI/archify-custom for the harness I am using now. This is the original Archify by tt-a1i with additional official Azure icons.
 
 Handle discovery, download, installation, and verification yourself. My request authorizes installing this Skill for the current harness only. Ask only if a necessary choice cannot be determined from this session or the harness configuration.
 

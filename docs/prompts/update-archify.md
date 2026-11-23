@@ -1,6 +1,6 @@
 # Update Archify Custom
 
-Update the Archify Skill this harness actually loads using https://github.com/peterbuitho/archify-custom. This is the original Archify by tt-a1i with additional official Azure icons.
+Update the Archify Skill this harness actually loads using https://github.com/Nhat-Bui-CGI/archify-custom. This is the original Archify by tt-a1i with additional official Azure icons.
 
 Handle discovery, download, backup, replacement, and verification yourself. My request authorizes updating that installation only. Ask only if a necessary choice cannot be determined from this session or the harness configuration.
 

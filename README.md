@@ -1,3 +1,11 @@
+> **Archify Custom — the original Archify with added Azure icons.**
+> This fork builds on [Archify by tt-a1i](https://github.com/tt-a1i/archify).
+> It extends the original diagramming tools with additional official Microsoft
+> Azure service icons. The latest additions cover containers, networking,
+> storage, security, and AI services. Microsoft retains the rights to its artwork;
+> see [third-party notices](THIRD_PARTY_NOTICES.md) and the
+> [icon catalogue](archify/brand-marks/README.md).
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/assets/archify-lockup-dark.svg" />

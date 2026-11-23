@@ -2,14 +2,32 @@
 // Simple Icons 16.28.0. Do not edit by hand.
 export const BRAND_MARKS = Object.freeze([
   {
+    "id": "ai-search",
+    "title": "Azure AI Search",
+    "category": "microsoft",
+    "aliases": [
+      "azure search",
+      "cognitive search",
+      "azure cognitive search"
+    ],
+    "domains": [],
+    "viewBox": 18,
+    "hex": "0078D4",
+    "svg": "data:image/svg+xml;base64,PHN2ZyBpZD0iZjQ3MGUxMTItZjFkOC00YzE4LWEzODEtOWI1NGUxMWE5Y2EzIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImIxOThmOWFkLTIyNGUtNGYzNy05OWJiLWYxYzVhMjBkMzkxNiIgeDE9IjkiIHkxPSIwLjM2IiB4Mj0iOSIgeTI9IjE4LjMxIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwLjE4IiBzdG9wLWNvbG9yPSIjNWVhMGVmIiAvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwNzhkNCIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48dGl0bGU+SWNvbi13ZWItNDQ8L3RpdGxlPjxwYXRoIGQ9Ik0xOCwxMS4zMmE0LjEyLDQuMTIsMCwwLDAtMy41MS00LDUuMTUsNS4xNSwwLDAsMC01LjI1LTUsNS4yNSw1LjI1LDAsMCwwLTUsMy40OUE0Ljg2LDQuODYsMCwwLDAsMCwxMC41OWE1LDUsMCwwLDAsNS4wNyw0LjgybC40NCwwaDguMjFhLjc4Ljc4LDAsMCwwLC4yMiwwQTQuMTMsNC4xMywwLDAsMCwxOCwxMS4zMloiIGZpbGw9InVybCgjYjE5OGY5YWQtMjI0ZS00ZjM3LTk5YmItZjFjNWEyMGQzOTE2KSIgLz48cGF0aCBkPSJNMTIuMzMsNi41OWEzLjA3LDMuMDcsMCwwLDAtNS42MS44NSwzLjE2LDMuMTYsMCwwLDAsLjMzLDIuMjdMNC43MSwxMi4wOGEuNzkuNzksMCwwLDAsMCwxLjEyLjc4Ljc4LDAsMCwwLC41Ni4yMy43Ni43NiwwLDAsMCwuNTYtLjIzbDIuMzMtMi4zNmEzLjE0LDMuMTQsMCwwLDAsLjgxLjMzLDMuMDgsMy4wOCwwLDAsMCwzLjM2LTQuNThabS0uNTQsMi4xQTIuMTYsMi4xNiwwLDAsMSw5LjcsMTAuMzRhMS43OSwxLjc5LDAsMCwxLS41MS0uMDcsMS44NywxLjg3LDAsMCwxLS43LS4zMiwyLjEzLDIuMTMsMCwwLDEtLjU2LS41NiwyLjE3LDIuMTcsMCwwLDEtLjMxLTEuNzNBMi4xNCwyLjE0LDAsMCwxLDkuNyw2YTIuMzEsMi4zMSwwLDAsMSwuNTIuMDYsMi4xOCwyLjE4LDAsMCwxLDEuMzIsMUEyLjEzLDIuMTMsMCwwLDEsMTEuNzksOC42OVoiIGZpbGw9IiNmMmYyZjIiIC8+PGVsbGlwc2UgY3g9IjkuNjkiIGN5PSI4LjE4IiByeD0iMi4xNSIgcnk9IjIuMTYiIGZpbGw9IiM4M2I5ZjkiIC8+PC9zdmc+",
+    "provenance": {
+      "provider": "Microsoft Azure Architecture Icons V25",
+      "source": "https://learn.microsoft.com/azure/architecture/icons/",
+      "guidelines": "https://learn.microsoft.com/azure/architecture/icons/",
+      "note": "Unaltered SVG from Azure_Public_Service_Icons_V25.zip: Icons/ai + machine learning/10044-icon-service-Cognitive-Search.svg. The official archive retains the older Cognitive Search filename for Azure AI Search."
+    }
+  },
+  {
     "id": "ai-services",
     "title": "Azure AI Services",
     "category": "microsoft",
     "aliases": [
       "cognitive services",
-      "azure cognitive services",
-      "azure openai",
-      "azure openai service"
+      "azure cognitive services"
     ],
     "domains": [],
     "viewBox": 18,
@@ -350,6 +368,45 @@ export const BRAND_MARKS = Object.freeze([
     }
   },
   {
+    "id": "azure-files",
+    "title": "Azure Files",
+    "category": "microsoft",
+    "aliases": [
+      "file share",
+      "file shares",
+      "azure file shares"
+    ],
+    "domains": [],
+    "viewBox": 18,
+    "hex": "0078D4",
+    "svg": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImI3NjFjNWRmLTdkMzUtNDVlYy1iYzIzLWJlODg1YmM1MzI2NiIgeDE9IjkiIHkxPSIxNS43OTkiIHgyPSI5IiB5Mj0iNS4zMTYiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMzMmJlZGQiIC8+PHN0b3Agb2Zmc2V0PSIwLjc3NSIgc3RvcC1jb2xvcj0iIzMyZDRmNSIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48dGl0bGU+TXNQb3J0YWxGeC5iYXNlLmltYWdlcy0xPC90aXRsZT48ZyBpZD0iZjdiZjE1ODAtMjFiMy00NzY4LTkzMGYtNjY3MDM3MWUyNjU1Ij48Zz48cGF0aCBkPSJNLjU0NCw1LjMxNkgxNy40NTZhMCwwLDAsMCwxLDAsMHY5LjkxOGEuNTY1LjU2NSwwLDAsMS0uNTY1LjU2NUgxLjEwOWEuNTY1LjU2NSwwLDAsMS0uNTY1LS41NjVWNS4zMTZBMCwwLDAsMCwxLC41NDQsNS4zMTZaIiBmaWxsPSJ1cmwoI2I3NjFjNWRmLTdkMzUtNDVlYy1iYzIzLWJlODg1YmM1MzI2NikiIC8+PHBhdGggZD0iTTEuMTEyLDIuMkgxNi44ODhhLjU2NS41NjUsMCwwLDEsLjU2NS41NjV2Mi41NWEwLDAsMCwwLDEsMCwwSC41NDdhMCwwLDAsMCwxLDAsMFYyLjc2NkEuNTY1LjU2NSwwLDAsMSwxLjExMiwyLjJaIiBmaWxsPSIjMDA3OGQ0IiAvPjxwYXRoIGQ9Ik0xMy45LDcuMzJIOS43MTVhLjIyNC4yMjQsMCwwLDEtLjEyNS0uMDM4bC0xLjItLjc5NWEuMjE5LjIxOSwwLDAsMC0uMTI0LS4wMzhINC43NTJhLjIyNC4yMjQsMCwwLDAtLjIyNC4yMjR2Ny4zOTJhLjIyMy4yMjMsMCwwLDAsLjIyNC4yMjNIMTMuOWEuMjI0LjIyNCwwLDAsMCwuMjI0LS4yMjNWNy41NDRBLjIyNC4yMjQsMCwwLDAsMTMuOSw3LjMyWiIgZmlsbD0iIzVlYTBlZiIgLz48cmVjdCB4PSI1LjE1NCIgeT0iNi45MDUiIHdpZHRoPSIyLjMxOCIgaGVpZ2h0PSIwLjQ2NCIgcng9IjAuMDk4IiBmaWxsPSIjZmZmIiAvPjxyZWN0IHg9IjUuMTU0IiB5PSI2LjkwNSIgd2lkdGg9IjAuNDY0IiBoZWlnaHQ9IjAuNDY0IiByeD0iMC4wNjciIGZpbGw9IiMwMDc4ZDQiIC8+PHBhdGggZD0iTTEzLjksNy4zMDlIOS4zYS4yMjUuMjI1LDAsMCwwLS4xNTkuMDY2bC0uNzM5LjczOWEuMjI1LjIyNSwwLDAsMS0uMTU5LjA2Nkg0Ljc1MmEuMjI0LjIyNCwwLDAsMC0uMjI0LjIyNHY1LjY1YS4yMjMuMjIzLDAsMCwwLC4yMjQuMjIzSDEzLjlhLjIyNC4yMjQsMCwwLDAsLjIyNC0uMjIzVjcuNTMzQS4yMjQuMjI0LDAsMCwwLDEzLjksNy4zMDlaIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIwLjkiIC8+PC9nPjwvZz48L3N2Zz4=",
+    "provenance": {
+      "provider": "Microsoft Azure Architecture Icons V25",
+      "source": "https://learn.microsoft.com/azure/architecture/icons/",
+      "guidelines": "https://learn.microsoft.com/azure/architecture/icons/",
+      "note": "Unaltered SVG from Azure_Public_Service_Icons_V25.zip: Icons/general/10838-icon-service-Storage-Azure-Files.svg."
+    }
+  },
+  {
+    "id": "azure-firewall",
+    "title": "Azure Firewall",
+    "category": "microsoft",
+    "aliases": [
+      "firewall",
+      "azure firewalls"
+    ],
+    "domains": [],
+    "viewBox": 18,
+    "hex": "0078D4",
+    "svg": "data:image/svg+xml;base64,PHN2ZyBpZD0iYWY0NjNkMzItZWMxMC00NGQ5LWE2MDctZWJhZDYzNzhhNTJiIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImIwMTJkZTdiLTdhMGUtNDYxOC05ZmVjLTcwMzYyMmUzZThjMyIgeDE9IjkiIHkxPSIxNC4xNCIgeDI9IjkiIHkyPSIxLjM4IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMDA3OGQ0IiAvPjxzdG9wIG9mZnNldD0iMC44MiIgc3RvcC1jb2xvcj0iIzVlYTBlZiIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48dGl0bGU+SWNvbi1uZXR3b3JraW5nLTg0PC90aXRsZT48cGF0aCBkPSJNMTgsMTAuMTRhNC4wNiw0LjA2LDAsMCwwLTMuNTEtMy44OUE1LjEsNS4xLDAsMCwwLDkuMjQsMS4zOGE1LjIzLDUuMjMsMCwwLDAtNSwzLjQxQTQuODIsNC44MiwwLDAsMCwwLDkuNDNhNC45LDQuOSwwLDAsMCw1LjA3LDQuNzFsLjQ0LDBoOC4yMWExLjQ2LDEuNDYsMCwwLDAsLjIyLDBBNC4xLDQuMSwwLDAsMCwxOCwxMC4xNFoiIGZpbGw9InVybCgjYjAxMmRlN2ItN2EwZS00NjE4LTlmZWMtNzAzNjIyZTNlOGMzKSIgLz48cGF0aCBkPSJNMTQuMjksMTEuMTlhLjQyLjQyLDAsMCwwLS40Mi0uNDFINC4xM2EuNDIuNDIsMCwwLDAtLjQyLjQxdjVhLjQyLjQyLDAsMCwwLC40Mi40MWg5Ljc0YS40Mi40MiwwLDAsMCwuNDItLjQxdi01WiIgZmlsbD0iIzgyMTAxMCIgLz48cmVjdCB4PSI0LjMiIHk9IjExLjM2IiB3aWR0aD0iMi44NyIgaGVpZ2h0PSIxLjI3IiBmaWxsPSIjZTYyMzIzIiAvPjxyZWN0IHg9IjcuNiIgeT0iMTEuMzYiIHdpZHRoPSIyLjg3IiBoZWlnaHQ9IjEuMjciIGZpbGw9IiNmZjczODEiIC8+PHJlY3QgeD0iMTAuOSIgeT0iMTEuMzYiIHdpZHRoPSIyLjg3IiBoZWlnaHQ9IjEuMjciIGZpbGw9IiNlNjIzMjMiIC8+PHJlY3QgeD0iNC4zIiB5PSIxMy4wNiIgd2lkdGg9IjEuMTkiIGhlaWdodD0iMS4yNyIgZmlsbD0iI2U2MjMyMyIgLz48cmVjdCB4PSIxMi41OCIgeT0iMTMuMDYiIHdpZHRoPSIxLjE5IiBoZWlnaHQ9IjEuMjciIGZpbGw9IiNmZjczODEiIC8+PHJlY3QgeD0iNS45MiIgeT0iMTMuMDYiIHdpZHRoPSIyLjg3IiBoZWlnaHQ9IjEuMjciIGZpbGw9IiNmZjczODEiIC8+PHJlY3QgeD0iOS4yMyIgeT0iMTMuMDYiIHdpZHRoPSIyLjg3IiBoZWlnaHQ9IjEuMjciIGZpbGw9IiNlNjIzMjMiIC8+PHJlY3QgeD0iNC4zIiB5PSIxNC43NiIgd2lkdGg9IjIuODciIGhlaWdodD0iMS4yNyIgZmlsbD0iI2U2MjMyMyIgLz48cmVjdCB4PSI3LjYiIHk9IjE0Ljc2IiB3aWR0aD0iMi44NyIgaGVpZ2h0PSIxLjI3IiBmaWxsPSIjZmY3MzgxIiAvPjxyZWN0IHg9IjEwLjkiIHk9IjE0Ljc2IiB3aWR0aD0iMi44NyIgaGVpZ2h0PSIxLjI3IiBmaWxsPSIjZTYyMzIzIiAvPjwvc3ZnPg==",
+    "provenance": {
+      "provider": "Microsoft Azure Architecture Icons V25",
+      "source": "https://learn.microsoft.com/azure/architecture/icons/",
+      "guidelines": "https://learn.microsoft.com/azure/architecture/icons/",
+      "note": "Unaltered SVG from Azure_Public_Service_Icons_V25.zip: Icons/networking/10084-icon-service-Firewalls.svg."
+    }
+  },
+  {
     "id": "azure-functions",
     "title": "Azure Functions",
     "category": "microsoft",
@@ -369,6 +426,25 @@ export const BRAND_MARKS = Object.freeze([
     }
   },
   {
+    "id": "azure-managed-redis",
+    "title": "Azure Managed Redis",
+    "category": "microsoft",
+    "aliases": [
+      "managed redis",
+      "amr"
+    ],
+    "domains": [],
+    "viewBox": 18,
+    "hex": "0078D4",
+    "svg": "data:image/svg+xml;base64,PHN2ZyBpZD0idXVpZC04ZTQ5ODc4ZS02ZjFlLTQ1ZGMtYjEzZi1kZTNmM2IwYTMwMjgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMTggMTgiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0idXVpZC1lMjc1MjAwZi04MDQ3LTQ4M2QtOTE2NS0zMzU4ODFkYzA0OTIiIHgxPSIuNTYyIiB5MT0iMi42ODQiIHgyPSIxNy41NjEiIHkyPSIxOS40MzciIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAyMCkgc2NhbGUoMSAtMSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM3NTc1NzUiIC8+PHN0b3Agb2Zmc2V0PSIuOTE1IiBzdG9wLWNvbG9yPSIjYjBiMGIwIiAvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJ1dWlkLWE4NDY3OTg4LWZiODEtNDdhOS05MzAwLTRmYWM5ZGNiOTdhNCIgeDE9IjEzLjMyMSIgeTE9IjE1LjMzOSIgeDI9IjQuNTgxIiB5Mj0iNi41NjMiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAyMCkgc2NhbGUoMSAtMSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMwMDc4ZDQiIC8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDA1YmExIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxwYXRoIGQ9Ik05LC41Yy4yNzYsMCwuNS4yMjQuNS41djFoMnYtMWMwLS4yNzYuMjI0LS41LjUtLjVzLjUuMjI0LjUuNXYxaDEuNWMxLjEwNSwwLDIsLjg5NSwyLDJ2MS41aDFjLjI3NiwwLC41LjIyNC41LjVzLS4yMjQuNS0uNS41aC0xdjJoMWMuMjc2LDAsLjUuMjI0LjUuNXMtLjIyNC41LS41LjVoLTF2MmgxYy4yNzYsMCwuNS4yMjQuNS41cy0uMjI0LjUtLjUuNWgtMXYxLjVjMCwxLjEwNS0uODk1LDItMiwyaC0xLjV2MWMwLC4yNzYtLjIyNC41LS41LjVzLS41LS4yMjQtLjUtLjV2LTFoLTJ2MWMwLC4yNzYtLjIyNC41LS41LjVzLS41LS4yMjQtLjUtLjV2LTFoLTJ2MWMwLC4yNzYtLjIyNC41LS41LjVzLS41LS4yMjQtLjUtLjV2LTFoLTEuNWMtMS4xMDUsMC0yLS44OTUtMi0ydi0xLjVoLTFjLS4yNzYsMC0uNS0uMjI0LS41LS41cy4yMjQtLjUuNS0uNWgxdi0yaC0xYy0uMjc2LDAtLjUtLjIyNC0uNS0uNXMuMjI0LS41LjUtLjVoMXYtMmgtMWMtLjI3NiwwLS41LS4yMjQtLjUtLjVzLjIyNC0uNS41LS41aDF2LTEuNWMwLTEuMTA1Ljg5NS0yLDItMmgxLjV2LTFjMC0uMjc2LjIyNC0uNS41LS41cy41LjIyNC41LjV2MWgydi0xYzAtLjI3Ni4yMjQtLjUuNS0uNVpNOC45ODQsM2gtMi45NjhjLS4wMDUsMC0uMDEsMC0uMDE2LDBzLS4wMTEsMC0uMDE2LDBoLTEuOTg0Yy0uNTUyLDAtMSwuNDQ4LTEsMXYxMGMwLC41NTIuNDQ4LDEsMSwxaDEuOTg0Yy4wMDUsMCwuMDEsMCwuMDE2LDBzLjAxMSwwLC4wMTYsMGgyLjk2OGMuMDA1LDAsLjAxLDAsLjAxNiwwcy4wMTEsMCwuMDE2LDBoMi45NjhjLjAwNSwwLC4wMSwwLC4wMTYsMCwuMDA1LDAsLjAxLDAsLjAxNiwwaDEuOTg0Yy41NTIsMCwxLS40NDgsMS0xdi0xLjk3OGMwLS4wMDcsMC0uMDE1LDAtLjAyMnMwLS4wMTUsMC0uMDIydi0yLjk1NWMwLS4wMDcsMC0uMDE1LDAtLjAyMnMwLS4wMTUsMC0uMDIydi0yLjk1NWMwLS4wMDcsMC0uMDE1LDAtLjAyMnMwLS4wMTUsMC0uMDIydi0xLjk3OGMwLS41NTItLjQ0OC0xLTEtMWgtMS45ODRjLS4wMDUsMC0uMDEsMC0uMDE2LDAtLjAwNSwwLS4wMTEsMC0uMDE2LDBoLTIuOTY4Yy0uMDA1LDAtLjAxLDAtLjAxNiwwcy0uMDExLDAtLjAxNiwwWiIgZmlsbD0idXJsKCN1dWlkLWUyNzUyMDBmLTgwNDctNDgzZC05MTY1LTMzNTg4MWRjMDQ5MikiIGZpbGwtcnVsZT0iZXZlbm9kZCIgLz48cmVjdCB4PSI0IiB5PSI0IiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHJ4PSIuNSIgcnk9Ii41IiBmaWxsPSJ1cmwoI3V1aWQtYTg0Njc5ODgtZmI4MS00N2E5LTkzMDAtNGZhYzlkY2I5N2E0KSIgLz48cGF0aCBkPSJNMTIuMTI0LDkuMzFjLS40ODQuNTY3LTEuMDA3LDEuMjE0LTIuMDUzLDEuMjE0LS45MzQsMC0xLjI4Mi0uNzY1LTEuMzA3LTEuMzg3LjIwNS40MDIuNjA1LjcyOCwxLjIyOS43MTMsMS4yMDEtLjAzNiwyLjAyNC0xLjA0MywyLjAyNC0xLjk2MSwwLTEuMDk3LS44ODEtMS44ODktMi40MTEtMS44ODktMS4wOTQsMC0yLjQ1LjM4Ny0zLjM0MS45OTgtLjAxLjYzLjM2OCwxLjQ0OC41MDQsMS4zNTguNzcyLS41MTYsMS4zODUtLjg0OCwxLjk3OS0xLjAxNC0uODc5LjkxMS0yLjk4OSwzLjAyNi0zLjI0OCwzLjM5OC4wMjkuMzQyLjQ4NCwxLjI1OS43MDcsMS4yNTkuMDY4LDAsLjEyNi0uMDM2LjE5NC0uMDk5LjYzNi0uNjY0LDEuMTU1LTEuMjU5LDEuNjE2LTEuODMzLjA2NS44NDEuNTEsMS44NjksMS43NTQsMS44NjksMS4xMTQsMCwyLjIxOC0uNzQ3LDIuNzIxLTIuNDI5LjA1OC0uMjA3LS4yMTMtLjM2OS0uMzY4LS4xOThaTTEwLjg1NSw3Ljk1MmMwLC41MzEtLjU2Mi43OTItMS4wNzUuNzkyLS4yNzQsMC0uNDg1LS4wNjctLjY1Mi0uMTU0LjMwNy0uNDMxLjYxLS44NzQuOTM2LTEuMzQ3LjU3NS4wOS43OS4zODcuNzkuNzA5WiIgZmlsbD0iI2ZmZiIgLz48L3N2Zz4=",
+    "provenance": {
+      "provider": "Microsoft Azure Architecture Icons V25",
+      "source": "https://learn.microsoft.com/azure/architecture/icons/",
+      "guidelines": "https://learn.microsoft.com/azure/architecture/icons/",
+      "note": "Unaltered SVG from Azure_Public_Service_Icons_V25.zip: Icons/databases/03675-icon-service-Azure-Managed-Redis.svg."
+    }
+  },
+  {
     "id": "azure-monitor",
     "title": "Azure Monitor",
     "category": "microsoft",
@@ -383,6 +459,25 @@ export const BRAND_MARKS = Object.freeze([
       "provider": "Official brand asset",
       "source": "https://learn.microsoft.com/azure/architecture/icons/",
       "guidelines": "https://learn.microsoft.com/azure/architecture/icons/"
+    }
+  },
+  {
+    "id": "azure-openai",
+    "title": "Azure OpenAI",
+    "category": "microsoft",
+    "aliases": [
+      "azure openai service",
+      "aoai"
+    ],
+    "domains": [],
+    "viewBox": 18,
+    "hex": "0078D4",
+    "svg": "data:image/svg+xml;base64,PHN2ZyBpZD0idXVpZC1hZGJkYWU4ZS01YTQxLTQ2ZDEtOGMxOC1hYTczY2RiZmVlMzIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMTggMTgiPjxkZWZzPjxyYWRpYWxHcmFkaWVudCBpZD0idXVpZC0yYTc0MDdhYS1iNzg3LTQ4ZGQtYTk2YS0wZDgxYWI2ZTkzYmIiIGN4PSItNjcuOTgxIiBjeT0iNzkzLjE5OSIgcj0iLjQ1IiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKC0xNzkzOS4wMyAyMDM2OC4wMjkpIHJvdGF0ZSg0NSkgc2NhbGUoMjUuMDkxIC0zNC4xNDkpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjODNiOWY5IiAvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwNzhkNCIgLz48L3JhZGlhbEdyYWRpZW50PjwvZGVmcz48cGF0aCBkPSJtMCwyLjd2MTIuNmMwLDEuNDkxLDEuMjA5LDIuNywyLjcsMi43aDEyLjZjMS40OTEsMCwyLjctMS4yMDksMi43LTIuN1YyLjdjMC0xLjQ5MS0xLjIwOS0yLjctMi43LTIuN0gyLjdDMS4yMDksMCwwLDEuMjA5LDAsMi43Wk0xMC44LDB2My42YzAsMy45NzYsMy4yMjQsNy4yLDcuMiw3LjJoLTMuNmMtMy45NzYsMC03LjE5OSwzLjIyMi03LjIsNy4xOTh2LTMuNTk4YzAtMy45NzYtMy4yMjQtNy4yLTcuMi03LjJoMy42YzMuOTc2LDAsNy4yLTMuMjI0LDcuMi03LjJaIiBmaWxsPSJ1cmwoI3V1aWQtMmE3NDA3YWEtYjc4Ny00OGRkLWE5NmEtMGQ4MWFiNmU5M2JiKSIgc3Ryb2tlLXdpZHRoPSIwIiAvPjwvc3ZnPg==",
+    "provenance": {
+      "provider": "Microsoft Azure Architecture Icons V25",
+      "source": "https://learn.microsoft.com/azure/architecture/icons/",
+      "guidelines": "https://learn.microsoft.com/azure/architecture/icons/",
+      "note": "Unaltered SVG from Azure_Public_Service_Icons_V25.zip: Icons/ai + machine learning/03438-icon-service-Azure-OpenAI.svg."
     }
   },
   {
@@ -438,6 +533,26 @@ export const BRAND_MARKS = Object.freeze([
       "providerVersion": "16.28.0",
       "source": "https://atlassian.design/resources/logo-library",
       "guidelines": "https://atlassian.design/foundations/logos"
+    }
+  },
+  {
+    "id": "blob-storage",
+    "title": "Azure Blob Storage",
+    "category": "microsoft",
+    "aliases": [
+      "azure blob",
+      "blob",
+      "blob storage"
+    ],
+    "domains": [],
+    "viewBox": 18,
+    "hex": "0078D4",
+    "svg": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImE5YzYyMzA3LTFjZDAtNDAwYy05MTFiLTE3ZWM2YTkxMTBjZSIgeDE9IjkiIHkxPSIxNS44MzQiIHgyPSI5IiB5Mj0iNS43ODgiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMzMmJlZGQiIC8+PHN0b3Agb2Zmc2V0PSIwLjc3NSIgc3RvcC1jb2xvcj0iIzMyZDRmNSIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48dGl0bGU+TXNQb3J0YWxGeC5iYXNlLmltYWdlcy03PC90aXRsZT48ZyBpZD0iZjMxZDIxNGUtZjA5ZS00OWUzLWIzZDItN2M1ZDU1NjgyZDA5Ij48Zz48cGF0aCBkPSJNLjUsNS43ODhoMTdhMCwwLDAsMCwxLDAsMHY5LjQ3OGEuNTY4LjU2OCwwLDAsMS0uNTY4LjU2OEgxLjA2OEEuNTY4LjU2OCwwLDAsMSwuNSwxNS4yNjZWNS43ODhBMCwwLDAsMCwxLC41LDUuNzg4WiIgZmlsbD0idXJsKCNhOWM2MjMwNy0xY2QwLTQwMGMtOTExYi0xN2VjNmE5MTEwY2UpIiAvPjxwYXRoIGQ9Ik0xLjA3MSwyLjE2NkgxNi45MjlhLjU2OC41NjgsMCwwLDEsLjU2OC41NjhWNS43ODhhMCwwLDAsMCwxLDAsMEguNWEwLDAsMCwwLDEsMCwwVjIuNzM0QS41NjguNTY4LDAsMCwxLDEuMDcxLDIuMTY2WiIgZmlsbD0iIzAwNzhkNCIgLz48cmVjdCB4PSIyLjMyOCIgeT0iNy4wNDkiIHdpZHRoPSI2LjI4MSIgaGVpZ2h0PSIzLjQwOCIgcng9IjAuMjgzIiBmaWxsPSIjMDA3OGQ0IiAvPjxyZWN0IHg9IjkuMzM2IiB5PSI3LjA0OSIgd2lkdGg9IjYuMjgxIiBoZWlnaHQ9IjMuNDA4IiByeD0iMC4yODMiIGZpbGw9IiNmZmYiIC8+PHJlY3QgeD0iMi4yOTYiIHk9IjExLjEyOCIgd2lkdGg9IjYuMjgxIiBoZWlnaHQ9IjMuNDA4IiByeD0iMC4yODMiIGZpbGw9IiMwMDc4ZDQiIC8+PHJlY3QgeD0iOS4zMDQiIHk9IjExLjEyOCIgd2lkdGg9IjYuMjgxIiBoZWlnaHQ9IjMuNDA4IiByeD0iMC4yODMiIGZpbGw9IiMwMDc4ZDQiIC8+PC9nPjwvZz48L3N2Zz4=",
+    "provenance": {
+      "provider": "Microsoft Azure Architecture Icons V25",
+      "source": "https://learn.microsoft.com/azure/architecture/icons/",
+      "guidelines": "https://learn.microsoft.com/azure/architecture/icons/",
+      "note": "Unaltered SVG from Azure_Public_Service_Icons_V25.zip: Icons/general/10780-icon-service-Blob-Block.svg. Uses the official Blob Block artwork to represent block blob storage."
     }
   },
   {
@@ -550,6 +665,45 @@ export const BRAND_MARKS = Object.freeze([
       "provider": "Simple Icons",
       "providerVersion": "16.28.0",
       "source": "https://cloudinary.com"
+    }
+  },
+  {
+    "id": "container-apps",
+    "title": "Azure Container Apps",
+    "category": "microsoft",
+    "aliases": [
+      "aca",
+      "azure container app",
+      "container app"
+    ],
+    "domains": [],
+    "viewBox": 18,
+    "hex": "0078D4",
+    "svg": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImIyN2YxYWQwLTdkMTEtNDI0Ny05ZGEzLTkxYmNlNjIxMWYzMiIgeDE9IjguNzk4IiB5MT0iOC43MDMiIHgyPSIxNC42ODMiIHkyPSI4LjcwMyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMC4wMDEiIHN0b3AtY29sb3I9IiM3NzNhZGMiIC8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNTUyZjk5IiAvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJiMmY5MjExMi00Y2E5LTRiMTctYTAxOS1jOWYyNmMxYTRhOGYiIHgxPSI1Ljc2NCIgeTE9IjMuNzc3IiB4Mj0iNS43NjQiIHkyPSIxMy43OCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2E2N2FmNCIgLz48c3RvcCBvZmZzZXQ9IjAuOTk5IiBzdG9wLWNvbG9yPSIjNzczYWRjIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJiOGEwNDg2YS01NTAxLTRkOTItYjU0MC1hNzY2YzRiM2I1NDgiPjxnPjxnPjxnPjxwYXRoIGQ9Ik0xNi45MzIsMTEuNTc4YTguNDQ4LDguNDQ4LDAsMCwxLTcuOTUsNS41OSw4LjE1LDguMTUsMCwwLDEtMi4zMy0uMzMsMi4xMzMsMi4xMzMsMCwwLDAsLjE4LS44M2MuMDEsMCwuMDMuMDEuMDQuMDFhNy40MjIsNy40MjIsMCwwLDAsMi4xMS4zLDcuNjQ2LDcuNjQ2LDAsMCwwLDYuODUtNC4yOGwuMDEtLjAxWiIgZmlsbD0iIzMyYmVkZCIgLz48cGF0aCBkPSJNMy41ODIsMTQuMDY4YTIuMDI1LDIuMDI1LDAsMCwwLS42NC41Niw4LjYsOC42LDAsMCwxLTEuNjctMi40NGwxLjA0LjIzdi4yNmEuNi42LDAsMCwwLC40Ny41OWwuMTQuMDNhNi4xMzYsNi4xMzYsMCwwLDAsLjYyLjczWiIgZmlsbD0iIzMyYmVkZCIgLz48cGF0aCBkPSJNMTIuMzUyLjk1OGEyLjI4LDIuMjgsMCwwLDAtLjI3LjgxYy0uMDItLjAxLS4wNS0uMDItLjA3LS4wM2E3LjQ3OSw3LjQ3OSwwLDAsMC0zLjAzLS42Myw3LjY0Myw3LjY0MywwLDAsMC01LjksMi44bC0uMjkuMDZhLjYuNiwwLDAsMC0uNDguNTh2LjQ2bC0xLjAyLjE5QTguNDU0LDguNDU0LDAsMCwxLDguOTgyLjI2OCw4LjYsOC42LDAsMCwxLDEyLjM1Mi45NThaIiBmaWxsPSIjMzJiZWRkIiAvPjxwYXRoIGQ9Ik0xNi44NzIsNS43bC0xLjA5LS4zOGE2LjYsNi42LDAsMCwwLS43Mi0xLjE2Yy0uMDItLjAzLS4wNC0uMDUtLjA1LS4wN2EyLjA4MywyLjA4MywwLDAsMCwuNzItLjQ1QTcuODEsNy44MSwwLDAsMSwxNi44NzIsNS43WiIgZmlsbD0iIzMyYmVkZCIgLz48cGF0aCBkPSJNMTAuMDcyLDExLjkwOGwyLjU0LjU2TDguNjcyLDE0LjFjLS4wMiwwLS4wMy4wMS0uMDUuMDFhLjE1NC4xNTQsMCwwLDEtLjE1LS4xNVYzLjQ0OGEuMTU0LjE1NCwwLDAsMSwuMTUtLjE1LjA5LjA5LDAsMCwxLC4wNS4wMWw0LjQ2LDEuNTYtMy4wNS41N2EuNTY1LjU2NSwwLDAsMC0uNDQuNTR2NS40QS41MzcuNTM3LDAsMCwwLDEwLjA3MiwxMS45MDhaIiBmaWxsPSIjZmZmIiAvPjxnPjxnIGlkPSJlOTE4ZjI4Ni01MDMyLTQ5NDItYWQyOS1lYTE3ZTZmMWNjOTAiPjxwYXRoIGQ9Ik0xLjEsNS42NjhsMS4yMS0uMjN2Ni41NWwtMS4yMy0uMjctLjk5LS4yMmEuMTExLjExMSwwLDAsMS0uMDktLjEydi01LjRhLjEyLjEyLDAsMCwxLC4wOS0uMTJaIiBmaWxsPSIjYTY3YWY0IiAvPjwvZz48Zz48ZyBpZD0iYTQ3YTk5ZGQtNGQ0Ny00YzcwLThjNDItYzVhYzI3NGNlNDk2Ij48Zz48cGF0aCBkPSJNMTAuMDcyLDExLjkwOGwyLjU0LjU2TDguNjcyLDE0LjFjLS4wMiwwLS4wMy4wMS0uMDUuMDFhLjE1NC4xNTQsMCwwLDEtLjE1LS4xNVYzLjQ0OGEuMTU0LjE1NCwwLDAsMSwuMTUtLjE1LjA5LjA5LDAsMCwxLC4wNS4wMWw0LjQ2LDEuNTYtMy4wNS41N2EuNTY1LjU2NSwwLDAsMC0uNDQuNTR2NS40QS41MzcuNTM3LDAsMCwwLDEwLjA3MiwxMS45MDhaIiBmaWxsPSJ1cmwoI2IyN2YxYWQwLTdkMTEtNDI0Ny05ZGEzLTkxYmNlNjIxMWYzMikiIC8+PHBhdGggZD0iTTguNTg2LDMuMywyLjg3OCw0LjM3OGEuMTc3LjE3NywwLDAsMC0uMTQuMTc1VjEyLjY4YS4xNzcuMTc3LDAsMCwwLC4xMzcuMTc0TDguNTgxLDE0LjFhLjE3Ni4xNzYsMCwwLDAsLjIxLS4xNzRWMy40NzhBLjE3NS4xNzUsMCwwLDAsOC42MTksMy4zWiIgZmlsbD0idXJsKCNiMmY5MjExMi00Y2E5LTRiMTctYTAxOS1jOWYyNmMxYTRhOGYpIiAvPjwvZz48L2c+PHBvbHlnb24gcG9pbnRzPSI1Ljk0OCA0LjkyMSA1Ljk0OCAxMi40ODMgNy45MzQgMTIuODE0IDcuOTM0IDQuNTY0IDUuOTQ4IDQuOTIxIiBmaWxsPSIjYjc5NmY5IiBvcGFjaXR5PSIwLjUiIC8+PHBvbHlnb24gcG9pbnRzPSIzLjUwOSA1LjMyOSAzLjUwOSAxMS45NTQgNS4yMzggMTIuMzE3IDUuMjM4IDUuMDMxIDMuNTA5IDUuMzI5IiBmaWxsPSIjYjc5NmY5IiBvcGFjaXR5PSIwLjUiIC8+PC9nPjwvZz48L2c+PHBhdGggZD0iTTE2LDIuMDQ4YTEuNzU1LDEuNzU1LDAsMSwxLTEuNzYtMS43NkExLjc1NiwxLjc1NiwwLDAsMSwxNiwyLjA0OFoiIGZpbGw9IiMzMmJlZGQiIC8+PGNpcmNsZSBjeD0iNC42NSIgY3k9IjE1Ljk3MyIgcj0iMS43NTkiIGZpbGw9IiMzMmJlZGQiIC8+PC9nPjxwYXRoIGQ9Ik0xOCw2LjY4OXYzLjg0NGEuMjIyLjIyMiwwLDAsMS0uMTMzLjJsLS43NjYuMzE2LTMuMDcsMS4yNjgtLjAxMSwwYS4xMjYuMTI2LDAsMCwxLS4wMzgsMCwuMS4xLDAsMCwxLS4xLS4xVjUuMjM0YS4xLjEsMCwwLDEsLjA1NC0uMDg4bDAsMCwuMDE5LDBhLjAzMS4wMzEsMCwwLDEsLjAxOSwwLC4wNTUuMDU1LDAsMCwxLC4wMzQuMDA4bC4wMTEsMCwuMDEyLDBMMTcuMDUsNi4ybC44LjI4MkEuMjEzLjIxMywwLDAsMSwxOCw2LjY4OVoiIGZpbGw9IiM3NzNhZGMiIC8+PHBhdGggZD0iTTEzLjk1OSw1LjE0bC0zLjguNzE1YS4xMTguMTE4LDAsMCwwLS4wOTMuMTE3djUuNDA5YS4xMTguMTE4LDAsMCwwLC4wOTEuMTE2bDMuOC44MzFhLjExNS4xMTUsMCwwLDAsLjEzNy0uMDkuMTA5LjEwOSwwLDAsMCwwLS4wMjZWNS4yNTZhLjExNy4xMTcsMCwwLDAtLjExNS0uMTE4QS4wODIuMDgyLDAsMCwwLDEzLjk1OSw1LjE0WiIgZmlsbD0iI2E2N2FmNCIgLz48L2c+PC9nPjwvc3ZnPg==",
+    "provenance": {
+      "provider": "Microsoft Azure Architecture Icons V25",
+      "source": "https://learn.microsoft.com/azure/architecture/icons/",
+      "guidelines": "https://learn.microsoft.com/azure/architecture/icons/",
+      "note": "Unaltered SVG from Azure_Public_Service_Icons_V25.zip: Icons/other/02884-icon-service-Worker-Container-App.svg."
+    }
+  },
+  {
+    "id": "container-registry",
+    "title": "Azure Container Registry",
+    "category": "microsoft",
+    "aliases": [
+      "acr",
+      "container registries"
+    ],
+    "domains": [],
+    "viewBox": 18,
+    "hex": "0078D4",
+    "svg": "data:image/svg+xml;base64,PHN2ZyBpZD0iZTlmN2JhNzMtNTZiOC00ODY0LTk2ZmYtZGNlODBiZWY3MjlhIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImJkZjI3ZGM2LTAyNWMtNDgwNS04YmZkLTNhMDVkZWZkM2ZiZCIgeDE9IjguNjM3IiB5MT0iLTEuOTkxIiB4Mj0iOC42MzciIHkyPSIxNi43MzkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM1ZWEwZWYiIC8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDA3OGQ0IiAvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJmY2Q2YzZjNy1lMmViLTRhMzItYjkxNC0zYTg0ODU1ODVhMWIiIHgxPSIxMi45NiIgeTE9IjguNTYxIiB4Mj0iMTIuOTYiIHkyPSI2LjE0MSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxLCAwLCAwLCAtMSwgMCwgMjApIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMzMzMTMyIiAvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzViNWE1YyIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBkPSJNNy40Myw4LjE3OGwyLjU4OS0xLjU3Myw3LjI1NSwyLjczMUEzLjY2NCwzLjY2NCwwLDAsMCwxNi4yMyw3LjQ5bC0uMDEtLjA1QTQuMTk0LDQuMTk0LDAsMCwwLDE0LDYuMzJhNC45MSw0LjkxLDAsMCwwLTUuMS00LjdBNS4wNzEsNS4wNzEsMCwwLDAsNC4wNiw0LjkxLDQuNjIxLDQuNjIxLDAsMCwwLDAsOS4zOWE0LjczLDQuNzMsMCwwLDAsNC44OSw0LjU0SDcuNDNaIiBmaWxsPSJ1cmwoI2JkZjI3ZGM2LTAyNWMtNDgwNS04YmZkLTNhMDVkZWZkM2ZiZCkiIC8+PHBvbHlnb24gcG9pbnRzPSIxMC4wNyA3LjE1OSAxMC4wOCAxMS40MzkgMTcuOTkgMTMuMTE5IDE3Ljk5IDEwLjEzOSAxMC4wNyA3LjE1OSIgZmlsbD0iIzc2NzY3NiIgLz48cG9seWxpbmUgcG9pbnRzPSIxMC4wNyA3LjE1OSA3LjkzIDguNDU5IDcuOTMgMTIuNDM5IDEwLjA4IDExLjQzOSIgZmlsbD0iIzk5OSIgLz48cG9seWdvbiBwb2ludHM9IjEzLjY4IDExLjQ5OSAxNC40IDExLjY5OSAxNC40IDkuMzY5IDEzLjY4IDkuMTE5IDEzLjY4IDExLjQ5OSIgZmlsbD0iI2EzYTNhMyIgLz48cG9seWdvbiBwb2ludHM9IjEyLjk2IDguODg5IDEyLjI0IDguNjI5IDEyLjI0IDExLjExOSAxMi45NiAxMS4zMTkgMTIuOTYgOC44ODkiIGZpbGw9IiNhM2EzYTMiIC8+PHBvbHlnb24gcG9pbnRzPSIxNS4xMiAxMS44ODkgMTUuODIgMTIuMDc5IDE1Ljg0IDkuODU5IDE1LjEyIDkuNjE5IDE1LjEyIDExLjg4OSIgZmlsbD0iI2EzYTNhMyIgLz48cG9seWdvbiBwb2ludHM9IjEwLjgxIDEwLjc0OSAxMS41MyAxMC45MjkgMTEuNTMgOC4zOTkgMTAuODEgOC4xNTkgMTAuODEgMTAuNzQ5IiBmaWxsPSIjYTNhM2EzIiAvPjxwb2x5Z29uIHBvaW50cz0iMTcuMjcgMTAuMzQ5IDE2LjU1IDEwLjA5OSAxNi41NSAxMi4yNjkgMTcuMjcgMTIuNDY5IDE3LjI3IDEwLjM0OSIgZmlsbD0iI2EzYTNhMyIgLz48cGF0aCBpZD0iZWYwZDFiNTQtYTFlNy00Y2I5LWE0ZTUtOGE4NTE4ZTdjMTI3IiBkPSJNOC42NiwxMS4zNjlsLS4zNi4yMVY4Ljc0OWwuMzYtLjE5Wm0uNzEtMy4yMkw5LDguMzg5djIuNzVsLjM3LS4yWiIgZmlsbD0iI2IzYjNiMyIgLz48cG9seWdvbiBwb2ludHM9IjE3Ljk5IDEzLjExOSAxNS44MyAxMy44NTkgNy45MyAxMi40MzkgMTAuMDggMTEuNDM5IDE3Ljk5IDEzLjExOSIgZmlsbD0idXJsKCNmY2Q2YzZjNy1lMmViLTRhMzItYjkxNC0zYTg0ODU1ODVhMWIpIiAvPjxwb2x5Z29uIHBvaW50cz0iMTcuOTkgMTYuMTY5IDEwLjA0IDE3LjY3OSAxMC4wOCAxMi4wODkgMTcuOTkgMTMuNTU5IDE3Ljk5IDE2LjE2OSIgZmlsbD0iIzc2NzY3NiIgLz48cG9seWdvbiBwb2ludHM9IjEwLjgxIDE2Ljc1OSAxMC44MSAxMy4yMDkgMTEuNTMgMTMuMjk5IDExLjUzIDE2LjYzOSAxMC44MSAxNi43NTkiIGZpbGw9IiNhM2EzYTMiIC8+PHBvbHlnb24gcG9pbnRzPSIxMi45NiAxNi4zOTkgMTIuMjQgMTYuNTI5IDEyLjI0IDEzLjM4OSAxMi45NiAxMy40OTkgMTIuOTYgMTYuMzk5IDEyLjk2IDE2LjM5OSIgZmlsbD0iI2EzYTNhMyIgLz48cG9seWdvbiBwb2ludHM9IjEzLjY4IDE2LjI4OSAxMy42OCAxMy41NjkgMTQuNCAxMy42NTkgMTQuNCAxNi4xNTkgMTMuNjggMTYuMjg5IiBmaWxsPSIjYTNhM2EzIiAvPjxwb2x5Z29uIHBvaW50cz0iMTUuODMgMTUuOTA5IDE1LjEyIDE2LjAzOSAxNS4xMiAxMy43NDkgMTUuODMgMTMuODU5IDE1LjgzIDE1LjkwOSIgZmlsbD0iI2EzYTNhMyIgLz48cG9seWdvbiBwb2ludHM9IjE3LjI5IDE1LjY3OSAxNi41NSAxNS44MDkgMTYuNTUgMTMuOTI5IDE3LjI0IDE0LjAxOSAxNy4yOSAxNS42NzkiIGZpbGw9IiNhM2EzYTMiIC8+PHBhdGggaWQ9ImI5ZjI1ZWI0LTRjODgtNDVjMi1iYzRkLWY5OTI3NTdkN2UwZSIgZD0iTTcuOTMsMTYuNHYtMy4yNmwyLjE2LTF2NS42WiIgZmlsbD0iIzk5OSIgLz48cGF0aCBpZD0iZWI5MjAwYTctNDY5My00NDI3LWJkYWUtYjMzY2U5MGZmN2YyIiBkPSJNOC42MSwxNi4zODlsLS4zMi0uMTZ2LTIuNzZsLjMyLS4xNVptLjc3LTMuNDUtLjM4LjE5djMuNDhsLjM3LjE5di0zLjg2WiIgZmlsbD0iI2IzYjNiMyIgLz48L3N2Zz4=",
+    "provenance": {
+      "provider": "Microsoft Azure Architecture Icons V25",
+      "source": "https://learn.microsoft.com/azure/architecture/icons/",
+      "guidelines": "https://learn.microsoft.com/azure/architecture/icons/",
+      "note": "Unaltered SVG from Azure_Public_Service_Icons_V25.zip: Icons/containers/10105-icon-service-Container-Registries.svg."
     }
   },
   {
@@ -898,6 +1052,26 @@ export const BRAND_MARKS = Object.freeze([
       "provider": "Official brand asset",
       "source": "https://learn.microsoft.com/azure/architecture/icons/",
       "guidelines": "https://learn.microsoft.com/azure/architecture/icons/"
+    }
+  },
+  {
+    "id": "expressroute",
+    "title": "Azure ExpressRoute",
+    "category": "microsoft",
+    "aliases": [
+      "express route",
+      "expressroute circuit",
+      "expressroute circuits"
+    ],
+    "domains": [],
+    "viewBox": 18,
+    "hex": "0078D4",
+    "svg": "data:image/svg+xml;base64,PHN2ZyBpZD0iZTAyMmRiNGEtNWFiZi00MjlmLTk1OWMtN2ZhZDE2YmMyYzYwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImJiMzdkZmFhLTQzOTAtNDJiNS1hNjI3LTUyZmQ3Mzk2OGUzYyIgeDE9IjUuMzMiIHkxPSIyLjgxIiB4Mj0iOC43NCIgeTI9IjYuMjIiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMi4wMyAtMS4zNykgcm90YXRlKC0wLjA4KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzg2ZDYzMyIgLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM1ZTk2MjQiIC8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImIwYTg1OGM5LTBlOTgtNGU0ZS05ZWFkLWQ3YTA3ODZjNDg0YiIgeDE9IjExLjg0IiB5MT0iMTQuNTQiIHgyPSIxNS4yNCIgeTI9IjE3Ljk1IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjODZkNjMzIiAvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzVlOTYyNCIgLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0iZWVlOGFiMTktMTQ1MS00MWRmLWI4NzEtMTNmOGE0OWQxN2Q2IiB4MT0iLTEuMzQiIHkxPSIxNC41MyIgeDI9IjIuMDYiIHkyPSIxNy45MyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzg2ZDYzMyIgLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM1ZTk2MjQiIC8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHRpdGxlPkljb24tbmV0d29ya2luZy03OTwvdGl0bGU+PHJlY3QgeD0iNC43NCIgeT0iNC4yMSIgd2lkdGg9IjEuOTgiIGhlaWdodD0iOS41IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1LjI1IC0xLjY2KSByb3RhdGUoMzApIiBmaWxsPSIjYTY3YWY0IiAvPjxyZWN0IHg9IjExLjIxIiB5PSI0LjM3IiB3aWR0aD0iMS45OCIgaGVpZ2h0PSI5LjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yLjkyIDcuMzIpIHJvdGF0ZSgtMzApIiBmaWxsPSIjYTY3YWY0IiAvPjxyZWN0IHg9IjcuOSIgeT0iOS45NyIgd2lkdGg9IjEuOTgiIGhlaWdodD0iOS41IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMy42MSA1LjgyKSByb3RhdGUoOTApIiBmaWxsPSIjNzczYWRjIiAvPjxjaXJjbGUgY3g9IjkuMDciIGN5PSIzLjE0IiByPSIyLjQxIiBmaWxsPSJ1cmwoI2JiMzdkZmFhLTQzOTAtNDJiNS1hNjI3LTUyZmQ3Mzk2OGUzYykiIC8+PGNpcmNsZSBjeD0iMTUuNTkiIGN5PSIxNC44NiIgcj0iMi40MSIgZmlsbD0idXJsKCNiMGE4NThjOS0wZTk4LTRlNGUtOWVhZC1kN2EwNzg2YzQ4NGIpIiAvPjxjaXJjbGUgY3g9IjIuNDEiIGN5PSIxNC44NiIgcj0iMi40MSIgZmlsbD0idXJsKCNlZWU4YWIxOS0xNDUxLTQxZGYtYjg3MS0xM2Y4YTQ5ZDE3ZDYpIiAvPjwvc3ZnPg==",
+    "provenance": {
+      "provider": "Microsoft Azure Architecture Icons V25",
+      "source": "https://learn.microsoft.com/azure/architecture/icons/",
+      "guidelines": "https://learn.microsoft.com/azure/architecture/icons/",
+      "note": "Unaltered SVG from Azure_Public_Service_Icons_V25.zip: Icons/networking/10079-icon-service-ExpressRoute-Circuits.svg."
     }
   },
   {
@@ -1398,6 +1572,25 @@ export const BRAND_MARKS = Object.freeze([
     }
   },
   {
+    "id": "load-balancer",
+    "title": "Azure Load Balancer",
+    "category": "microsoft",
+    "aliases": [
+      "load balancers",
+      "azure lb"
+    ],
+    "domains": [],
+    "viewBox": 18,
+    "hex": "0078D4",
+    "svg": "data:image/svg+xml;base64,PHN2ZyBpZD0iZTFlNzFlMjktMDY1YS00NmY3LWFkNGItNTJhZjM2YTBiZmNiIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImVmODQ2NjNhLWE3YjYtNDZhNy1hMjc1LTFlNDE5ZjVlYWU2MiIgeDE9IjkiIHkxPSIxOS44NSIgeDI9IjkiIHkyPSItMS4wMiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzVlOTYyNCIgLz48c3RvcCBvZmZzZXQ9IjAuMDIiIHN0b3AtY29sb3I9IiM1Zjk3MjQiIC8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNzZiYzJkIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjx0aXRsZT5JY29uLW5ldHdvcmtpbmctNjI8L3RpdGxlPjxwYXRoIGQ9Ik0uMTgsOC41Nyw4LjU3LjE4YS42LjYsMCwwLDEsLjg2LDBsOC4zOSw4LjM5YS42LjYsMCwwLDEsMCwuODZsLTguNCw4LjRhLjYuNiwwLDAsMS0uODQsMEwuMTgsOS40M0EuNi42LDAsMCwxLC4xOCw4LjU3WiIgZmlsbD0idXJsKCNlZjg0NjYzYS1hN2I2LTQ2YTctYTI3NS0xZTQxOWY1ZWFlNjIpIiAvPjxwYXRoIGQ9Ik0xMS4yLDQsOS4wOCwxLjg5YS4xMi4xMiwwLDAsMC0uMTYsMEw2LjgsNGEuMS4xLDAsMCwwLC4wOC4xOEg4LjEyYS4xMS4xMSwwLDAsMSwuMTEuMTF2MmEuMTEuMTEsMCwwLDAsLjExLjExSDkuNjZhLjExLjExLDAsMCwwLC4xMS0uMTF2LTJhLjExLjExLDAsMCwxLC4xMS0uMTFoMS4yNEEuMS4xLDAsMCwwLDExLjIsNFoiIGZpbGw9IiNiNGVjMzYiIC8+PHBhdGggZD0iTTQsNi42MSwxLjksOC43NGEuMTEuMTEsMCwwLDAsMCwuMTVMNCwxMWEuMTEuMTEsMCwwLDAsLjE5LS4wOFY5LjY5YS4xMS4xMSwwLDAsMSwuMTEtLjExaDJhLjEuMSwwLDAsMCwuMS0uMTFWOC4xNUEuMS4xLDAsMCwwLDYuMzMsOGgtMmEuMS4xLDAsMCwxLS4xMS0uMVY2LjY5QS4xMS4xMSwwLDAsMCw0LDYuNjFaIiBmaWxsPSIjYjRlYzM2IiAvPjxwYXRoIGQ9Ik0xNC4wOCwxMWwyLjEzLTIuMTJhLjExLjExLDAsMCwwLDAtLjE1TDE0LjA4LDYuNjFhLjExLjExLDAsMCwwLS4xOC4wOFY3Ljk0YS4xLjEsMCwwLDEtLjExLjFoLTJhLjEuMSwwLDAsMC0uMS4xMVY5LjQ3YS4xLjEsMCwwLDAsLjEuMTFoMmEuMTEuMTEsMCwwLDEsLjExLjExdjEuMjRBLjExLjExLDAsMCwwLDE0LjA4LDExWiIgZmlsbD0iI2I0ZWMzNiIgLz48cGF0aCBkPSJNMTEuNzksOWEyLjc5LDIuNzksMCwxLDAtMy41NCwyLjY3di45NWExLjcxLDEuNzEsMCwxLDAsMS41Nywwdi0xQTIuNzcsMi43NywwLDAsMCwxMS43OSw5WiIgZmlsbD0iI2ZmZiIgLz48Y2lyY2xlIGlkPSJlOTljMzM4Ny0xNWMzLTRmMjgtYmQ0Yi1jYjIwOWI0MzBlMDYiIGN4PSI5LjAxIiBjeT0iOC45OSIgcj0iMS42MiIgZmlsbD0iIzVlYTBlZiIgLz48L3N2Zz4=",
+    "provenance": {
+      "provider": "Microsoft Azure Architecture Icons V25",
+      "source": "https://learn.microsoft.com/azure/architecture/icons/",
+      "guidelines": "https://learn.microsoft.com/azure/architecture/icons/",
+      "note": "Unaltered SVG from Azure_Public_Service_Icons_V25.zip: Icons/networking/10062-icon-service-Load-Balancers.svg."
+    }
+  },
+  {
     "id": "log-analytics",
     "title": "Log Analytics",
     "category": "microsoft",
@@ -1533,6 +1726,26 @@ export const BRAND_MARKS = Object.freeze([
     }
   },
   {
+    "id": "microsoft-foundry",
+    "title": "Microsoft Foundry",
+    "category": "microsoft",
+    "aliases": [
+      "azure ai foundry",
+      "ai foundry",
+      "azure ai studio"
+    ],
+    "domains": [],
+    "viewBox": 18,
+    "hex": "0078D4",
+    "svg": "data:image/svg+xml;base64,PHN2ZyBpZD0idXVpZC02MjA1MDExNy02MzVlLTQyZWQtOTAyYi0yYmEyZWZkOWE3MjIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMTggMTgiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0idXVpZC01YTdiZDdmYS02OTM3LTQ0YmQtYTViYS1lMjNlZGRiYjZkMzUiIHgxPSIxMC45MSIgeTE9IjEzLjY2IiB4Mj0iMTMuNjIiIHkyPSIxMy42NiIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgwIDIwKSBzY2FsZSgxIC0xKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzMwMmVjOSIgLz48c3RvcCBvZmZzZXQ9Ii4xMiIgc3RvcC1jb2xvcj0iIzE1MTY5OCIgLz48c3RvcCBvZmZzZXQ9Ii4yNSIgc3RvcC1jb2xvcj0iIzBhMGI3ZSIgLz48c3RvcCBvZmZzZXQ9Ii40MyIgc3RvcC1jb2xvcj0iIzA5MGM3ZiIgLz48c3RvcCBvZmZzZXQ9Ii41MSIgc3RvcC1jb2xvcj0iIzE0MTY5OCIgLz48c3RvcCBvZmZzZXQ9Ii42MSIgc3RvcC1jb2xvcj0iIzI4MmFjNCIgLz48c3RvcCBvZmZzZXQ9Ii43NyIgc3RvcC1jb2xvcj0iIzhlOGZmNCIgLz48c3RvcCBvZmZzZXQ9Ii44NSIgc3RvcC1jb2xvcj0iI2E3YTZmNyIgLz48c3RvcCBvZmZzZXQ9Ii45MSIgc3RvcC1jb2xvcj0iI2NhY2FmYiIgLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmZmYiIC8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9InV1aWQtYTliMmFjNzgtYmZmMC00NzVkLTg5ZGYtMmM5N2YyMTIyZjkzIiB4MT0iMTIuMjYiIHkxPSI4LjMyIiB4Mj0iMTIuMjYiIHkyPSIxOC4yMyIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgwIDIwKSBzY2FsZSgxIC0xKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iLjAyIiBzdG9wLWNvbG9yPSIjMjAxYmE2IiAvPjxzdG9wIG9mZnNldD0iLjY0IiBzdG9wLWNvbG9yPSIjMmQyOWM3IiAvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzIwMWJhNiIgLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0idXVpZC0wM2IzYjcwYy0xYzhkLTRiM2YtOTkzNS1kOWRhMmIyMGRlMmYiIHgxPSIxNC4xOSIgeTE9IjguMjciIHgyPSIxNC4xOSIgeTI9IjE0LjQ3IiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMjApIHNjYWxlKDEgLTEpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMzUzMGMzIiAvPjxzdG9wIG9mZnNldD0iLjUiIHN0b3AtY29sb3I9IiM2ZDcxZDEiIC8+PHN0b3Agb2Zmc2V0PSIuOTciIHN0b3AtY29sb3I9IiNjMGJmZjUiIC8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZTNlNGZmIiAvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJ1dWlkLWNhYmM4ZWM5LTMyOTMtNDRiOC1hMzNiLTcwODIzZjU4M2IzMCIgeDE9IjYuNTEiIHkxPSIzIiB4Mj0iNi41MSIgeTI9IjE5LjE1IiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMjApIHNjYWxlKDEgLTEpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMzAyZWM5IiAvPjxzdG9wIG9mZnNldD0iLjQ1IiBzdG9wLWNvbG9yPSIjMzAyZWM5IiAvPjxzdG9wIG9mZnNldD0iLjk1IiBzdG9wLWNvbG9yPSIjY2FjYWZiIiAvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzdmN2VhZiIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBkPSJNMTEuOTYsMTEuNjhzLjA3LS4xLjA3LS4yNHYtMy44N2MwLS44NS42Ni0xLjc2LDEuNTktMi4wMy0uMDYtLjE5LS42NC0yLjExLS44MS0yLjY1LS4xNy0uNTYtLjY3LTEuOS0xLjI5LTEuOSwwLDAsMCwwLS4wMSwwaDBzLS4wOS4wNS0uMTMuMTNjLS4zMi41OC0uNDYsMy4wMi0uNDYsNC44NHYyLjI2Yy4yNy45Ny45MSwzLjIyLjk2LDMuMzUsMCwwLC4wNS4xLjA5LjFoMFoiIGZpbGw9InVybCgjdXVpZC01YTdiZDdmYS02OTM3LTQ0YmQtYTViYS1lMjNlZGRiYjZkMzUpIiAvPjxwYXRoIGQ9Ik0xMS45NiwxMS42OHMuMDctLjEuMDctLjI0di0zLjg3YzAtLjg1LjY2LTEuNzYsMS41OS0yLjAzLS4wNi0uMTktLjY0LTIuMTEtLjgxLTIuNjUtLjE3LS41Ni0uNjctMS45LTEuMjktMS45LDAsMCwwLDAtLjAxLDBoMHMtLjA5LjA1LS4xMy4xM2MtLjMyLjU4LS40NiwzLjAyLS40Niw0Ljg0djIuMjZjLjI3Ljk3LjkxLDMuMjIuOTYsMy4zNSwwLDAsLjA1LjEuMDkuMWgwWiIgZmlsbD0idXJsKCN1dWlkLWE5YjJhYzc4LWJmZjAtNDc1ZC04OWRmLTJjOTdmMjEyMmY5MykiIC8+PHBhdGggZD0iTTE2LjAxLDUuNDZoLTEuODFjLTEuMjEsMC0yLjE3LDEuMDktMi4xNywyLjExdjMuODdjMCwuMTQtLjA0LjI0LS4wNy4yNHMtLjA5LS4xLS4wOS0uMWMwLDAsLjA3LjIxLjE3LjIxaDEuOThjLjYyLDAsMi40OC0uNjEsMi40OC0yLjUydi0zLjI1YzAtLjQxLS4yNC0uNTUtLjQ5LS41NVoiIGZpbGw9InVybCgjdXVpZC0wM2IzYjcwYy0xYzhkLTRiM2YtOTkzNS1kOWRhMmIyMGRlMmYpIiAvPjxwYXRoIGQ9Ik0yLjM0LDE3aDUuMzhjMi4zNSwwLDMuMi0yLjAzLDMuMi0zLjgxdi03LjIzYzAtMi4wOC4xOS00Ljk3LjYxLTQuOTdoLTMuMjNjLS43NywwLTEuNDMuODItMi4xOCwyLjQ4LS43NSwxLjY2LTQuMzYsMTEuODctNC41MiwxMi4zNi0uMjYuNzktLjAyLDEuMTYuNzQsMS4xNloiIGZpbGw9InVybCgjdXVpZC1jYWJjOGVjOS0zMjkzLTQ0YjgtYTMzYi03MDgyM2Y1ODNiMzApIiAvPjwvc3ZnPg==",
+    "provenance": {
+      "provider": "Microsoft Azure Architecture Icons V25",
+      "source": "https://learn.microsoft.com/azure/architecture/icons/",
+      "guidelines": "https://learn.microsoft.com/azure/architecture/icons/",
+      "note": "Unaltered SVG from Azure_Public_Service_Icons_V25.zip: Icons/ai + machine learning/035746832-icon-service-AI-Foundry.svg."
+    }
+  },
+  {
     "id": "miro",
     "title": "Miro",
     "category": "collaboration",
@@ -1639,6 +1852,26 @@ export const BRAND_MARKS = Object.freeze([
       "providerVersion": "16.28.0",
       "source": "https://www.netlify.com/press/",
       "guidelines": "https://www.netlify.com/press/"
+    }
+  },
+  {
+    "id": "network-security-group",
+    "title": "Network Security Group",
+    "category": "microsoft",
+    "aliases": [
+      "nsg",
+      "network security groups",
+      "azure nsg"
+    ],
+    "domains": [],
+    "viewBox": 18,
+    "hex": "0078D4",
+    "svg": "data:image/svg+xml;base64,PHN2ZyBpZD0iYjc1OTQzYmEtMWEzZi00ODVkLWI0NWQtM2ZlZTAwZWQ3ZTVlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImZlNWNlNDNmLTI4MjMtNDYxNy1iYjU0LTU3ZGY5ZTc3ODM3MiIgeDE9IjkuMDEiIHkxPSIwLjc1IiB4Mj0iOS4wMSIgeTI9IjE3LjI1IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNWVhMGVmIiAvPjxzdG9wIG9mZnNldD0iMC4xOCIgc3RvcC1jb2xvcj0iIzU1OWNlYyIgLz48c3RvcCBvZmZzZXQ9IjAuNDciIHN0b3AtY29sb3I9IiMzYzkxZTUiIC8+PHN0b3Agb2Zmc2V0PSIwLjg0IiBzdG9wLWNvbG9yPSIjMTM4MGRhIiAvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwNzhkNCIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48dGl0bGU+SWNvbi1uZXR3b3JraW5nLTY3PC90aXRsZT48cGF0aCBkPSJNMTYuMzYsOC40YzAsNC44NC01Ljg1LDguNzQtNy4xMiw5LjUzYS40Ni40NiwwLDAsMS0uNDgsMGMtMS4yNy0uNzktNy4xMi00LjY5LTcuMTItOS41M1YyLjU4YS40Ni40NiwwLDAsMSwuNDUtLjQ2QzYuNjQsMiw1LjU5LDAsOSwwczIuMzYsMiw2LjkxLDIuMTJhLjQ2LjQ2LDAsMCwxLC40NS40NloiIGZpbGw9IiMwMDc4ZDQiIC8+PHBhdGggZD0iTTE1Ljc1LDguNDVjMCw0LjQ0LTUuMzYsOC02LjUzLDguNzRhLjQzLjQzLDAsMCwxLS40NCwwYy0xLjE3LS43Mi02LjUzLTQuMy02LjUzLTguNzRWMy4xMWEuNDIuNDIsMCwwLDEsLjQxLS40MkM2LjgzLDIuNTgsNS44Ny43NSw5LC43NXMyLjE3LDEuODMsNi4zNCwxLjk0YS40Mi40MiwwLDAsMSwuNDEuNDJaIiBmaWxsPSIjNmJiOWYyIiAvPjxwYXRoIGQ9Ik05LDlWLjc1YzMuMTMsMCwyLjE3LDEuODMsNi4zNCwxLjk0YS40My40MywwLDAsMSwuNDEuNDNWOC40NmE0Ljg5LDQuODksMCwwLDEsMCwuNTRaTTksOUgyLjI4Yy40LDQuMTgsNS4zOCw3LjUsNi41LDguMTlhLjM5LjM5LDAsMCwwLC4xOC4wNkg5WiIgZmlsbD0idXJsKCNmZTVjZTQzZi0yODIzLTQ2MTctYmI1NC01N2RmOWU3NzgzNzIpIiAvPjxwYXRoIGQ9Ik0yLjY2LDIuNjlDNi44MywyLjU4LDUuODcuNzUsOSwuNzVWOUgyLjI4YTQuODksNC44OSwwLDAsMSwwLS41NFYzLjEyQS40My40MywwLDAsMSwyLjY2LDIuNjlaIiBmaWxsPSIjNTBlNmZmIiAvPjxwYXRoIGQ9Ik0xNS43Miw5SDl2OC4yNUg5YS4zOS4zOSwwLDAsMCwuMTgtLjA2QzEwLjM0LDE2LjUsMTUuMzIsMTMuMTgsMTUuNzIsOVoiIGZpbGw9IiM1MGU2ZmYiIC8+PC9zdmc+",
+    "provenance": {
+      "provider": "Microsoft Azure Architecture Icons V25",
+      "source": "https://learn.microsoft.com/azure/architecture/icons/",
+      "guidelines": "https://learn.microsoft.com/azure/architecture/icons/",
+      "note": "Unaltered SVG from Azure_Public_Service_Icons_V25.zip: Icons/networking/10067-icon-service-Network-Security-Groups.svg."
     }
   },
   {
@@ -1947,11 +2180,49 @@ export const BRAND_MARKS = Object.freeze([
     }
   },
   {
+    "id": "private-dns-zone",
+    "title": "Azure Private DNS Zone",
+    "category": "microsoft",
+    "aliases": [
+      "private dns",
+      "private dns zones",
+      "azure private dns"
+    ],
+    "domains": [],
+    "viewBox": 18,
+    "hex": "0078D4",
+    "svg": "data:image/svg+xml;base64,PHN2ZyBpZD0iYTU0MmNmMzktMmJhNi00MjA2LTgyNzgtNmE0ZjFjMjQ1MmY1IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImU3NTc5ZjRkLTM2YTMtNDY5My1hNzI2LTdhNjA1MGFjNTY3MSIgY3g9Ii02ODExLjQiIGN5PSI2NzI5LjY5IiByPSIxNyIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgwLjUsIDAsIDAsIC0wLjUsIDM0MTQuOTEsIDMzNzQuMDUpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwLjE4IiBzdG9wLWNvbG9yPSIjNWVhMGVmIiAvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwNzhkNCIgLz48L3JhZGlhbEdyYWRpZW50PjwvZGVmcz48dGl0bGU+SWNvbi1uZXR3b3JraW5nLTY0PC90aXRsZT48cGF0aCBpZD0iZjU3ZTEwNWQtNmQyZC00YWQ3LWI4YzMtYzEwNjg0YzlmOWI4IiBkPSJNMTQuMjEsMTUuNzJBOC41LDguNSwwLDAsMSwzLjc5LDIuMjhsLjA5LS4wNmE4LjUsOC41LDAsMCwxLDEwLjMzLDEzLjUiIGZpbGw9InVybCgjZTc1NzlmNGQtMzZhMy00NjkzLWE3MjYtN2E2MDUwYWM1NjcxKSIgLz48cGF0aCBkPSJNOSwxLjMxQTcuNjksNy42OSwwLDEsMCwxNi42OSw5LDcuNyw3LjcsMCwwLDAsOSwxLjMxWk0xNC4xNSwzLjlBNy4zNyw3LjM3LDAsMCwxLDEyLDQuNyw4LjgzLDguODMsMCwwLDAsMTAuNzUsMiw3LjIsNy4yLDAsMCwxLDE0LjE1LDMuOVpNOSwxLjc0YTYuNTksNi41OSwwLDAsMSwxLjA5LjA5aDBhNy40OCw3LjQ4LDAsMCwxLDEuNTMsMywxNS4xMiwxNS4xMiwwLDAsMS01LjQ1LDBBNy4zOCw3LjM4LDAsMCwxLDcuNjgsMS44OWwwLDBBNy4zNCw3LjM0LDAsMCwxLDksMS43NFpNNywyQTguNzIsOC43MiwwLDAsMCw1LjczLDQuNjhhNS41OCw1LjU4LDAsMCwxLTEuOS0uNzdBNy4zNSw3LjM1LDAsMCwxLDcsMlpNMy43MiwxNGE1LjI3LDUuMjcsMCwwLDEsMS43OC0uNzYsNy4wOCw3LjA4LDAsMCwwLDEuMzUsMi43MkE3LjI1LDcuMjUsMCwwLDEsMy43MiwxNFptNi40MSwyLjJBNy4wOCw3LjA4LDAsMCwxLDksMTYuMjZhNi44Myw2LjgzLDAsMCwxLTEuNDQtLjE1bDAsMGE2LDYsMCwwLDEtMS42Ny0zLDE0LjczLDE0LjczLDAsMCwxLDUuODgsMCw2LDYsMCwwLDEtMS42OSwzWm0uNzMtLjE2YTcuMTMsNy4xMywwLDAsMCwxLjM4LTIuOCw2LjY4LDYuNjgsMCwwLDEsMiwuODNBNy4xMyw3LjEzLDAsMCwxLDEwLjg2LDE2Wm0xLjQ4LTMuMjJjLjA4LS4zNi4xNS0uNzMuMi0xLjEybC0uNDYuMTFjLS4wNS4zMS0uMS42Mi0uMTcuOTFhMTUuMjMsMTUuMjMsMCwwLDAtNi4wOSwwYy0uMDctLjI3LS4xMi0uNTYtLjE3LS44NmEuMjguMjgsMCwwLDEsMC0uMDlsLS40Ni0uMTNhMi4zNiwyLjM2LDAsMCwwLDAsLjI4YzAsLjMyLjExLjYyLjE3LjkxYTUuOSw1LjksMCwwLDAtMiwuODUsNy4yNCw3LjI0LDAsMCwxLC4xMS05LjQsNi4yOSw2LjI5LDAsMCwwLDIuMDguODZjLS4wNy4yNC0uMTMuNS0uMTguNzZzMCwuMjUtLjA4LjM3bC40Ny0uMTEsMC0uMTdjLjA2LS4yNi4xMi0uNTEuMTktLjc1QTE0Ljg5LDE0Ljg5LDAsMCwwLDksNS40OGExNSwxNSwwLDAsMCwyLjc4LS4yNmMuMDcuMjcuMTQuNTYuMi44NWwuNDYuMTFxLS4xMS0uNTQtLjI0LTFhNy43Myw3LjczLDAsMCwwLDIuMy0uOTEsNy4yMiw3LjIyLDAsMCwxLC4wNiw5LjQ5QTcuMjgsNy4yOCwwLDAsMCwxMi4zNCwxMi43OVoiIGZpbGw9IiM1ZWEwZWYiIC8+PHBhdGggZD0iTTMuNjksN2E3LjkyLDcuOTIsMCwwLDEsMS4xNi0uMDgsMi40NCwyLjQ0LDAsMCwxLDEuNzEuNTJBMiwyLDAsMCwxLDcuMTUsOC45YTIuMjEsMi4yMSwwLDAsMS0uNjEsMS42NCwyLjYsMi42LDAsMCwxLTEuODYuNjEsOS4xNyw5LjE3LDAsMCwxLTEtLjA1Wm0uNTUsMy43M2E0LDQsMCwwLDAsLjU1LDBBMS42MiwxLjYyLDAsMCwwLDYuNTgsOC45MiwxLjUsMS41LDAsMCwwLDQuODcsNy4zYTMuMTcsMy4xNywwLDAsMC0uNjMsMFoiIGZpbGw9IiNmZmYiIC8+PHBhdGggZD0iTTcuODYsMTEuMTFWNi45aC41OUw5LjgsOWExMi4xOCwxMi4xOCwwLDAsMSwuNzYsMS4zN2gwYy0uMDUtLjU2LS4wNi0xLjA3LS4wNi0xLjczVjYuOUgxMXY0LjIxaC0uNTVMOS4xMyw5Yy0uMjktLjQ3LS41Ny0xLS43OS0xLjRoMGMwLC41MywwLDEsMCwxLjc0djEuOFoiIGZpbGw9IiNmZmYiIC8+PHBhdGggZD0iTTExLjg5LDEwLjQ1YTIsMiwwLDAsMCwxLC4yN2MuNTYsMCwuODgtLjI5Ljg4LS43MnMtLjIyLS42Mi0uNzktLjgzLTEuMTItLjYtMS4xMi0xLjJhMS4yMiwxLjIyLDAsMCwxLDEuMzctMS4xNCwyLDIsMCwwLDEsLjkzLjJMMTQsNy40OGExLjYzLDEuNjMsMCwwLDAtLjgtLjJjLS41OCwwLS44LjM0LS44LjYzcy4yNi41OS44NC44MSwxLjA4LjYyLDEuMDgsMS4yNC0uNDgsMS4yMS0xLjQ4LDEuMjFhMi4xNiwyLjE2LDAsMCwxLTEuMDctLjI3WiIgZmlsbD0iI2ZmZiIgLz48L3N2Zz4=",
+    "provenance": {
+      "provider": "Microsoft Azure Architecture Icons V25",
+      "source": "https://learn.microsoft.com/azure/architecture/icons/",
+      "guidelines": "https://learn.microsoft.com/azure/architecture/icons/",
+      "note": "Unaltered SVG from Azure_Public_Service_Icons_V25.zip: Icons/networking/10064-icon-service-DNS-Zones.svg. Uses the official DNS Zones artwork; the pack has no separate Private DNS Zone SVG. The label identifies the private zone."
+    }
+  },
+  {
+    "id": "private-endpoint",
+    "title": "Azure Private Endpoint",
+    "category": "microsoft",
+    "aliases": [
+      "private endpoints",
+      "azure private endpoints"
+    ],
+    "domains": [],
+    "viewBox": 18,
+    "hex": "0078D4",
+    "svg": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImYzODZiYjdhLWJjYjItNGI2Ny1iNWIyLTA2ODE5NjE4ZmY1MSIgeDE9IjkuMDg0IiB5MT0iNzkwLjk2NyIgeDI9IjkuMDg0IiB5Mj0iNzg3LjQ5MiIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxLCAwLCAwLCAtMSwgMCwgNzkxLjUxNikiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM1MGU2ZmYiIC8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMzJiZWRkIiAvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJhNjJhOWNhZC1iMTczLTQ3ODUtYmE4MS04ZWUzMGQ0ZGM2ZWIiIHgxPSI5LjA2NSIgeTE9IjEzLjg0MyIgeDI9IjkuMDY1IiB5Mj0iMTAuMzY4IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNWU5NjI0IiAvPjxzdG9wIG9mZnNldD0iMC4xODMiIHN0b3AtY29sb3I9IiM2MjljMjUiIC8+PHN0b3Agb2Zmc2V0PSIwLjQzNSIgc3RvcC1jb2xvcj0iIzZkYWUyYSIgLz48c3RvcCBvZmZzZXQ9IjAuNzI2IiBzdG9wLWNvbG9yPSIjN2ZjYjMwIiAvPjxzdG9wIG9mZnNldD0iMC44MjIiIHN0b3AtY29sb3I9IiM4NmQ2MzMiIC8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PGcgaWQ9ImJkY2Q3MjY4LTMxZmMtNDE2My05NTQ0LTY1MWQ2MWYxNDk4ZSI+PGc+PHBhdGggZD0iTTcuODUsMTMuMzQyYTEuNzM4LDEuNzM4LDAsMSwwLDIuNDM2LTIuNDc5LDEuNzE1LDEuNzE1LDAsMCwwLS42MjYtLjM4OVYzLjAwOUg4LjU0OHY3LjQ0NGExLjcyOSwxLjcyOSwwLDAsMC0uNywyLjg5MVoiIGZpbGw9IiNiM2IzYjMiIC8+PGNpcmNsZSBjeD0iOS4wODQiIGN5PSIyLjIwOSIgcj0iMS43MzgiIGZpbGw9InVybCgjZjM4NmJiN2EtYmNiMi00YjY3LWI1YjItMDY4MTk2MThmZjUxKSIgLz48Zz48cGF0aCBkPSJNMi42MzIsMTAuNDQ5aC45MzdhLjMuMywwLDAsMSwuMy4zdjYuOTA5YS42LjYsMCwwLDEtLjYuNkgyLjMzMmEwLDAsMCwwLDEsMCwwVjEwLjc0OUEuMy4zLDAsMCwxLDIuNjMyLDEwLjQ0OVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE1LjQ1MiAyMi4yOTIpIHJvdGF0ZSgxMzQuOTE5KSIgZmlsbD0iIzUwZTZmZiIgLz48cGF0aCBkPSJNMi41ODEsNi4wOTNoLjkzN2EuMy4zLDAsMCwxLC4zLjN2Ny40YTAsMCwwLDAsMSwwLDBIMi44OGEuNi42LDAsMCwxLS42LS42di02LjhBLjMuMywwLDAsMSwyLjU4MSw2LjA5M1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDcuOTEgMC43NDkpIHJvdGF0ZSg0NC45MTkpIiBmaWxsPSIjMTQ5MGRmIiAvPjxwYXRoIGQ9Ik0xNC4xMzIsMTAuNDQ5aC45MzdhLjYuNiwwLDAsMSwuNi42djYuOTA5YS4zLjMsMCwwLDEtLjMuM2gtLjkzN2EuMy4zLDAsMCwxLS4zLS4zVjEwLjQ0OWEwLDAsMCwwLDEsMCwwWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTQuNTQyIC02LjMzMykgcm90YXRlKDQ1LjA4MSkiIGZpbGw9IiM1MGU2ZmYiIC8+PHBhdGggZD0iTTE0Ljc4Miw2LjA5M2guOTM3YTAsMCwwLDAsMSwwLDB2Ny40YS4zLjMsMCwwLDEtLjMuM2gtLjkzN2EuMy4zLDAsMCwxLS4zLS4zdi02LjhBLjYuNiwwLDAsMSwxNC43ODIsNi4wOTNaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMi41NTggNi40MjQpIHJvdGF0ZSgxMzUuMDgxKSIgZmlsbD0iIzE0OTBkZiIgLz48L2c+PGNpcmNsZSBjeD0iOS4wNjUiIGN5PSIxMi4xMDYiIHI9IjEuNzM4IiBmaWxsPSJ1cmwoI2E2MmE5Y2FkLWIxNzMtNDc4NS1iYTgxLThlZTMwZDRkYzZlYikiIC8+PC9nPjwvZz48L3N2Zz4=",
+    "provenance": {
+      "provider": "Microsoft Azure Architecture Icons V25",
+      "source": "https://learn.microsoft.com/azure/architecture/icons/",
+      "guidelines": "https://learn.microsoft.com/azure/architecture/icons/",
+      "note": "Unaltered SVG from Azure_Public_Service_Icons_V25.zip: Icons/other/02579-icon-service-Private-Endpoints.svg."
+    }
+  },
+  {
     "id": "private-link",
     "title": "Azure Private Link",
     "category": "microsoft",
     "aliases": [
-      "private endpoint",
       "privatelink"
     ],
     "domains": [],
@@ -2033,6 +2304,26 @@ export const BRAND_MARKS = Object.freeze([
       "providerVersion": "16.28.0",
       "source": "https://github.com/pytorch/pytorch.github.io/blob/8f083bd12192ca12d5e1c1f3d236f4831d823d8f/assets/images/logo.svg",
       "guidelines": "https://github.com/pytorch/pytorch.github.io/blob/381117ec296f002b2de475402ef29cca6c55e209/assets/brand-guidelines/PyTorch-Brand-Guidelines.pdf"
+    }
+  },
+  {
+    "id": "queue-storage",
+    "title": "Azure Queue Storage",
+    "category": "microsoft",
+    "aliases": [
+      "storage queue",
+      "storage queues",
+      "azure queue"
+    ],
+    "domains": [],
+    "viewBox": 18,
+    "hex": "0078D4",
+    "svg": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImY2NjA3ZjlhLTZlM2EtNDMzOS1hY2M5LWQ2ZjNhZTFhMmMwZCIgeDE9IjkiIHkxPSIxNS43OTkiIHgyPSI5IiB5Mj0iNS4zMTYiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNhNjdhZjQiIC8+PHN0b3Agb2Zmc2V0PSIwLjc3NSIgc3RvcC1jb2xvcj0iI2I3OTZmOSIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48dGl0bGU+TXNQb3J0YWxGeC5iYXNlLmltYWdlcy0zPC90aXRsZT48ZyBpZD0iZjM3ODRmODAtMzM3OS00ZTY2LThlMzItZmNhM2ZhYjBmNGQ3Ij48Zz48cGF0aCBkPSJNLjU0NCw1LjMxNkgxNy40NTZhMCwwLDAsMCwxLDAsMHY5LjkxOGEuNTY1LjU2NSwwLDAsMS0uNTY1LjU2NUgxLjEwOWEuNTY1LjU2NSwwLDAsMS0uNTY1LS41NjVWNS4zMTZBMCwwLDAsMCwxLC41NDQsNS4zMTZaIiBmaWxsPSJ1cmwoI2Y2NjA3ZjlhLTZlM2EtNDMzOS1hY2M5LWQ2ZjNhZTFhMmMwZCkiIC8+PHBhdGggZD0iTTEuMTEyLDIuMkgxNi44ODhhLjU2NS41NjUsMCwwLDEsLjU2NS41NjV2Mi41NWEwLDAsMCwwLDEsMCwwSC41NDdhMCwwLDAsMCwxLDAsMFYyLjc2NkEuNTY1LjU2NSwwLDAsMSwxLjExMiwyLjJaIiBmaWxsPSIjNzczYWRjIiAvPjxnPjxyZWN0IHg9IjIuNjI1IiB5PSI2LjQzNSIgd2lkdGg9IjMuNjgzIiBoZWlnaHQ9IjcuOTMzIiByeD0iMC4yNzQiIGZpbGw9IiNmZmYiIC8+PHJlY3QgeD0iNy4xNTgiIHk9IjYuNDM1IiB3aWR0aD0iMy42ODMiIGhlaWdodD0iNy45MzMiIHJ4PSIwLjI3NCIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iMC43NSIgLz48cmVjdCB4PSIxMS42OTIiIHk9IjYuNDM1IiB3aWR0aD0iMy42ODMiIGhlaWdodD0iNy45MzMiIHJ4PSIwLjI3NCIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iMC41IiAvPjwvZz48L2c+PC9nPjwvc3ZnPg==",
+    "provenance": {
+      "provider": "Microsoft Azure Architecture Icons V25",
+      "source": "https://learn.microsoft.com/azure/architecture/icons/",
+      "guidelines": "https://learn.microsoft.com/azure/architecture/icons/",
+      "note": "Unaltered SVG from Azure_Public_Service_Icons_V25.zip: Icons/general/10840-icon-service-Storage-Queue.svg."
     }
   },
   {
@@ -2349,10 +2640,7 @@ export const BRAND_MARKS = Object.freeze([
     "title": "Azure Storage",
     "category": "microsoft",
     "aliases": [
-      "azure storage account",
-      "blob storage",
-      "azure blob",
-      "azure blob storage"
+      "azure storage account"
     ],
     "domains": [],
     "viewBox": 18,
@@ -2598,6 +2886,26 @@ export const BRAND_MARKS = Object.freeze([
       "provider": "Official brand asset",
       "source": "https://learn.microsoft.com/azure/architecture/icons/",
       "guidelines": "https://learn.microsoft.com/azure/architecture/icons/"
+    }
+  },
+  {
+    "id": "vpn-gateway",
+    "title": "Azure VPN Gateway",
+    "category": "microsoft",
+    "aliases": [
+      "vpn gateways",
+      "virtual network gateway",
+      "vnet gateway"
+    ],
+    "domains": [],
+    "viewBox": 18,
+    "hex": "0078D4",
+    "svg": "data:image/svg+xml;base64,PHN2ZyBpZD0iYjZmNzRjYTUtM2FlNi00MjZmLTllZjEtOWZmNmJiYWE3ZjFjIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImJkNzMwNWY4LTg3ODktNDYwMC1hMWYyLTY1OTRlNjBlZWZjYyIgeDE9IjguNTkiIHkxPSItNy43OSIgeDI9IjkuMTIiIHkyPSIyMC4wNSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMC4yMiIgc3RvcC1jb2xvcj0iIzMyZDRmNSIgLz48c3RvcCBvZmZzZXQ9IjAuNDciIHN0b3AtY29sb3I9IiMzMWQxZjMiIC8+PHN0b3Agb2Zmc2V0PSIwLjYzIiBzdG9wLWNvbG9yPSIjMmVjOWViIiAvPjxzdG9wIG9mZnNldD0iMC43NyIgc3RvcC1jb2xvcj0iIzI5YmFkZSIgLz48c3RvcCBvZmZzZXQ9IjAuODkiIHN0b3AtY29sb3I9IiMyMmE1Y2IiIC8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMTk4YWIzIiAvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzE5OGFiMyIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48dGl0bGU+SWNvbi1uZXR3b3JraW5nLTYzPC90aXRsZT48cGF0aCBkPSJNMTUuMDYsOC42N2gtMVY1LjU5YTUuODEsNS44MSwwLDAsMC0xLjQ5LTMuOTJBNC43OSw0Ljc5LDAsMCwwLDguOTEsMGE0Ljc5LDQuNzksMCwwLDAtMy43LDEuNjdBNS43Myw1LjczLDAsMCwwLDMuNzIsNS41OVY4LjY3SDIuOTFhLjcuNywwLDAsMC0uNjkuNjl2OGEuNy43LDAsMCwwLC42OS42OUgxNS4wNmEuNzEuNzEsMCwwLDAsLjctLjY5VjkuMzZBLjcxLjcxLDAsMCwwLDE1LjA2LDguNjdabS0zLjM3LDBINi4xM1Y1LjU0QTMuMTgsMy4xOCwwLDAsMSw3LDMuMzlhMi41MSwyLjUxLDAsMCwxLDEuODgtLjg2LDIuNTQsMi41NCwwLDAsMSwxLjg5Ljg2LDMuMTksMy4xOSwwLDAsMSwuMzIuNDNoMGEzLDMsMCwwLDEsLjYxLDEuNzFaIiBmaWxsPSJ1cmwoI2JkNzMwNWY4LTg3ODktNDYwMC1hMWYyLTY1OTRlNjBlZWZjYykiIC8+PHBhdGggZD0iTTE1LjA5LDguNjdIMi45MmEuNjYuNjYsMCwwLDAtLjQ0LjE3bDEzLjA1LDlhLjY3LjY3LDAsMCwwLC4yNS0uNTJ2LThBLjcxLjcxLDAsMCwwLDE1LjA5LDguNjdaIiBmaWxsPSIjNTBlNmZmIiAvPjxwYXRoIGQ9Ik0yLjk0LDguNjdIMTUuMWEuNy43LDAsMCwxLC40NS4xN2wtMTMuMDYsOWEuNy43LDAsMCwxLS4yNS0uNTJ2LThBLjcyLjcyLDAsMCwxLDIuOTQsOC42N1oiIGZpbGw9IiNmZmYiIG9wYWNpdHk9IjAuMiIgLz48cGF0aCBkPSJNNy44LDEwLjYsOSw5LjRhLjA3LjA3LDAsMCwxLC4wOSwwbDEuMTksMS4yYS4wNi4wNiwwLDAsMSwwLC4xaC0uN2EuMDYuMDYsMCwwLDAtLjA2LjA2VjEyLjNhLjA2LjA2LDAsMCwxLS4wNi4wNkg4LjY3YS4wNS4wNSwwLDAsMS0uMDYtLjA2VjEwLjc2YS4wNy4wNywwLDAsMC0uMDctLjA2aC0uN0EuMDYuMDYsMCwwLDEsNy44LDEwLjZabTIuNDcsNS40OEw5LjA4LDE3LjI3YS4wNi4wNiwwLDAsMS0uMDksMEw3LjgsMTYuMDhhLjA2LjA2LDAsMCwxLDAtLjFoLjdhLjA3LjA3LDAsMCwwLC4wNy0uMDZWMTQuMzdhLjA2LjA2LDAsMCwxLC4wNi0uMDZoLjc0YS4wNi4wNiwwLDAsMSwuMDYuMDZ2MS41NWEuMDYuMDYsMCwwLDAsLjA2LjA2aC43QS4wNi4wNiwwLDAsMSwxMC4yNywxNi4wOFptLTQuNy0xLjU1di0uN2EuMDYuMDYsMCwwLDAtLjA2LS4wNkg0YS4wNi4wNiwwLDAsMS0uMDYtLjA2VjEzQS4wNi4wNiwwLDAsMSw0LDEyLjkxSDUuNTFhLjA2LjA2LDAsMCwwLC4wNi0uMDZ2LS43YS4wNy4wNywwLDAsMSwuMTEtLjA1bDEuMTksMS4yYS4wNi4wNiwwLDAsMSwwLC4wOGwtMS4xOSwxLjJBLjA3LjA3LDAsMCwxLDUuNTcsMTQuNTNabTYuOTMtMi4zOHYuN2EuMDYuMDYsMCwwLDAsLjA2LjA2SDE0LjFzLjA3LDAsLjA3LjA2di43NGEuMDcuMDcsMCwwLDEtLjA3LjA2SDEyLjU2YS4wNi4wNiwwLDAsMC0uMDYuMDZ2LjdhLjA2LjA2LDAsMCwxLS4xLjA1bC0xLjE5LTEuMmEwLDAsMCwwLDEsMC0uMDhsMS4xOS0xLjJTMTIuNSwxMi4wOSwxMi41LDEyLjE1WiIgZmlsbD0iI2ZmZiIgLz48L3N2Zz4=",
+    "provenance": {
+      "provider": "Microsoft Azure Architecture Icons V25",
+      "source": "https://learn.microsoft.com/azure/architecture/icons/",
+      "guidelines": "https://learn.microsoft.com/azure/architecture/icons/",
+      "note": "Unaltered SVG from Azure_Public_Service_Icons_V25.zip: Icons/networking/10063-icon-service-Virtual-Network-Gateways.svg. Uses the official Virtual Network Gateways artwork for the VPN Gateway resource."
     }
   },
   {

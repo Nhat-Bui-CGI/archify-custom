@@ -51,6 +51,13 @@ does; `brand` explains whose product it is.
    AX icon was found. Microsoft Fabric is `microsoft-fabric`, and it is different
    from Azure Service Fabric. Boomi is the `boomi` mark in the `data` category.
    Prefer the specific service mark (`logic-apps`) over the generic `azure`.
+   The custom catalogue also includes containers, private networking, hybrid
+   connectivity, storage, security, and AI services. Queries such as `ACR`,
+   `NSG`, `AOAI`, `Azure AI Search`, and `Managed Redis` resolve to their specific
+   service marks. `private-endpoint`, `blob-storage`, and `azure-openai` now have
+   separate artwork; those names previously resolved to broader service icons.
+   Private DNS Zone uses the official DNS Zones artwork; its label identifies
+   the private zone. See `brand-marks/azure/sources-v25.json` for source files.
 
 4. If there is no match and no user-provided URL, omit `brand`. Do not invent a
    URL or silently assign a visually similar company.

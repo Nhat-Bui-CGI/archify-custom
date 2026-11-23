@@ -56,6 +56,16 @@ them, and do not use them to represent your own product or service. Microsoft
 reserves all other rights. Their inclusion does not state or imply endorsement
 by Microsoft.
 
+The additional container, networking, storage, and AI service icons are copied
+without artwork changes from Microsoft's
+[Azure Architecture Icons V25 archive](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V25.zip).
+The source filenames and SHA-256 checksums are recorded in
+`brand-marks/azure/sources-v25.json` within the Skill. Private DNS Zone uses the
+official DNS Zones artwork, VPN Gateway uses Virtual Network Gateways, and Blob
+Storage uses Blob Block. Catalogue notes identify these mappings. These assets
+remain subject to Microsoft's icon terms above, separately from Archify's
+Apache-2.0 licence.
+
 ## Microsoft Fabric icon
 
 `brand-marks/azure/microsoft-fabric.svg` is `fabric_16_color.svg`, stored

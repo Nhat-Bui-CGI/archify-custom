@@ -1,6 +1,6 @@
 # Built-in brand marks
 
-Archify ships a bounded catalogue of 148 commonly used brands for architecture,
+Archify ships a bounded catalogue of commonly used brands for architecture,
 workflow, sequence, data-flow, and lifecycle nodes. The mark is optional authored
 identity: it never replaces the node's semantic `type`, color, label, or
 relationships.
@@ -28,19 +28,25 @@ and Microsoft Fabric) is stored in `brand-marks/azure/` from Microsoft's publish
 icon sets and embedded unaltered; the generator rejects files with script, event handlers, or external
 references. Try `node bin/archify.mjs brands microsoft`.
 
-Three marks were added locally to the installed package, and a package update may
-overwrite them. `microsoft-fabric` comes from Microsoft's Fabric icon set.
-`boomi` (`brand-marks/boomi/`) comes from the boomi.com site header; no logo licence
-was found. `dynamics-ax-2012` has no artwork of its own: no official AX icon was
-found, so it reuses the Dynamics 365 icon. See `THIRD_PARTY_NOTICES.md`. The generator
-is not part of the installed package, so these entries were added to `catalog.json`
-and the bundle by hand in the generator's output shape.
+Fork-specific marks are maintained in `catalog.local.json`. This includes
+Microsoft service icons, Fabric, Boomi, and the Dynamics AX 2012 fallback.
+The generator merges this file with the upstream `catalog.json`. See
+`THIRD_PARTY_NOTICES.md` for their separate artwork terms.
 
-Edit `catalog.json`, then regenerate the committed zero-runtime-dependency bundle:
+The V25 additions cover containers, private networking, hybrid connectivity,
+storage services, load balancing, network security groups, Foundry, OpenAI,
+AI Search, and Managed Redis. Source filenames and checksums are recorded in
+`azure/sources-v25.json`. Private DNS Zone shares the official DNS Zones
+artwork; VPN Gateway uses Virtual Network Gateways; Blob Storage uses Blob Block.
+Use the service label to make the intended resource clear.
+
+Edit `catalog.local.json` for fork-specific additions, then regenerate the
+committed bundle from the repository root:
 
 ```bash
-npm run generate:brand-marks
-npm run check:brand-marks
+npm --prefix archify run generate:brand-marks
+npm --prefix archify run check:brand-marks
+node archify/bin/archify.mjs brands microsoft --json
 ```
 
 Do not hand-edit `renderers/shared/generated-brand-marks.mjs`.

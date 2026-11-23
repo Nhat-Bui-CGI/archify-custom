@@ -128,7 +128,9 @@ function nodeBlock(html, id) {
 }
 
 test('generated catalog exposes a substantial, unique, provenance-backed preset library', () => {
-  assert.equal(BRAND_MARKS.length, 148);
+  const catalogs = ['catalog.json', 'catalog.local.json'].flatMap((file) =>
+    JSON.parse(fs.readFileSync(path.join(skillRoot, 'brand-marks', file), 'utf8')).marks);
+  assert.deepEqual(BRAND_MARKS.map((mark) => mark.id).sort(), catalogs.map((mark) => mark.id).sort());
   assert.equal(new Set(BRAND_MARKS.map((mark) => mark.id)).size, BRAND_MARKS.length);
   for (const mark of BRAND_MARKS) {
     assert.match(mark.id, /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
@@ -146,6 +148,25 @@ test('brand discovery resolves model names, aliases, domains, and Chinese channe
     ['Gemini', 'google-gemini'],
     ['github.com', 'github'],
     ['微信', 'wechat'],
+    ['ACA', 'container-apps'],
+    ['ACR', 'container-registry'],
+    ['private endpoint', 'private-endpoint'],
+    ['private dns', 'private-dns-zone'],
+    ['firewall', 'azure-firewall'],
+    ['vpn gateway', 'vpn-gateway'],
+    ['express route', 'expressroute'],
+    ['blob storage', 'blob-storage'],
+    ['file shares', 'azure-files'],
+    ['storage queue', 'queue-storage'],
+    ['azure lb', 'load-balancer'],
+    ['NSG', 'network-security-group'],
+    ['azure ai foundry', 'microsoft-foundry'],
+    ['azure openai', 'azure-openai'],
+    ['cognitive search', 'ai-search'],
+    ['managed redis', 'azure-managed-redis'],
+    ['storage-account', 'storage-account'],
+    ['private-link', 'private-link'],
+    ['ai-services', 'ai-services'],
   ]) {
     const result = spawnSync(process.execPath, [cli, 'brands', query, '--json'], {
       cwd: skillRoot,
@@ -155,6 +176,32 @@ test('brand discovery resolves model names, aliases, domains, and Chinese channe
     const receipt = JSON.parse(result.stdout);
     assert.equal(receipt.ok, true);
     assert.ok(receipt.marks.some((mark) => mark.id === expected), query);
+  }
+});
+
+test('official Azure V25 artwork survives catalogue embedding and architecture rendering', () => {
+  const manifest = JSON.parse(fs.readFileSync(path.join(skillRoot, 'brand-marks/azure/sources-v25.json'), 'utf8'));
+  const diagram = JSON.parse(fs.readFileSync(path.join(skillRoot, 'examples/web-app.architecture.json'), 'utf8'));
+  diagram.components = manifest.icons.map((entry, index) => ({
+    id: entry.id, type: 'cloud', label: entry.id, brand: entry.id,
+    pos: [40 + (index % 4) * 300, 40 + Math.floor(index / 4) * 140], size: [260, 90],
+  }));
+  diagram.connections = [];
+  diagram.boundaries = [];
+  diagram.cards = [];
+  const input = path.join(tmp, 'azure-v25.architecture.json');
+  fs.writeFileSync(input, JSON.stringify(diagram));
+  const { result, html } = renderSync('architecture', input, 'azure-v25');
+  assert.equal(result.status, 0, result.stderr || result.stdout);
+  for (const entry of manifest.icons) {
+    const bytes = fs.readFileSync(path.join(skillRoot, 'brand-marks', entry.svgFile));
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), entry.sha256, entry.id);
+    const mark = BRAND_MARKS.find((item) => item.id === entry.id);
+    assert.ok(mark, entry.id);
+    assert.equal(Buffer.from(mark.svg.split(',')[1], 'base64').toString('utf8'), bytes.toString('utf8').trim(), entry.id);
+    assert.ok(mark.provenance.note.includes(entry.archivePath.replace('Azure_Public_Service_Icons/', '')), entry.id);
+    assert.ok(html.includes(mark.svg), entry.id + ' artwork must appear in rendered output');
+    assert.ok(html.includes('data-brand-mark="' + entry.id + '"'), entry.id);
   }
 });
 

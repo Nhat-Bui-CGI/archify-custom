@@ -661,13 +661,18 @@ export function brandMetadataFor(node) {
   } : {};
 }
 
+export function brandMarkSize(node) {
+  const mark = brandMarkFor(node);
+  return mark?.kind === 'preset' && mark.category === 'microsoft' && mark.svg ? 24 : 16;
+}
+
 export function brandLabelFitWidth(node, width) {
-  return brandMarkFor(node) ? Math.max(1, width - 48) : width;
+  return brandMarkFor(node) ? Math.max(1, width - 2 * (brandMarkSize(node) + 8)) : width;
 }
 
 export function brandTopRailProblem(node, width, minimumFontSize, subject = 'Node') {
   if (!brandMarkFor(node)) return null;
-  const available = width - 48;
+  const available = brandLabelFitWidth(node, width);
   const required = textUnits(node.label) * minimumFontSize * 0.6;
   if (available >= required) return null;
   return `${subject} "${node.id}" brand top rail leaves ${Math.max(0, available)}px for its label, but `
@@ -684,14 +689,14 @@ function markAttrs(mark) {
   ].filter(Boolean).join(' ');
 }
 
-export function renderBrandMark(node, { x, y, size = 16 } = {}) {
+export function renderBrandMark(node, { x, y, size = brandMarkSize(node) } = {}) {
   const mark = brandMarkFor(node);
   if (!mark) return '';
   const inset = 3;
   let content;
   if (mark.kind === 'preset' && mark.svg) {
     // Full-colour official icons: shown unaltered, with a slimmer inset so the
-    // detail stays legible inside the 16px badge.
+    // detail stays legible inside the badge, including the larger Microsoft marks.
     const svgInset = 1;
     content = `<image href="${esc(mark.svg)}" x="${svgInset}" y="${svgInset}" width="${size - svgInset * 2}" height="${size - svgInset * 2}" preserveAspectRatio="xMidYMid meet"/>`;
   } else if (mark.kind === 'preset') {

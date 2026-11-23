@@ -51,12 +51,12 @@ export function availableNodeTextWidth(width) {
 // Adapted from Souptik Chakraborty's #220: shift only labels which reach a
 // corner icon. Unlike the original hard gate, a narrow valid node uses a
 // separate text row; its authored bounds and acceptance remain unchanged.
-export function nodeLabelLayout({ width, height, rows, side = 'left', brand = false, source = false, step = '' }) {
+export function nodeLabelLayout({ width, height, rows, side = 'left', brand = false, brandSize = 16, source = false, step = '' }) {
   const result = { x: width / 2, ys: rows.map(row => row.y), sigilY: SEMANTIC_SIGIL_INSET, sigilSize: SEMANTIC_SIGIL_SIZE };
   const labelWidth = minimumNodeTextWidth(rows[0].text, rows[0].font);
   const stepEnd = step ? (side === 'left' ? 23 : 10) + minimumNodeTextWidth(step, 8) + 3 : 0;
   const left = Math.max(side === 'left' ? SEMANTIC_SIGIL_FOOTPRINT + 2 : 4, stepEnd);
-  const right = width - (brand ? 26 : side === 'right' ? SEMANTIC_SIGIL_FOOTPRINT + 2 : 4)
+  const right = width - (brand ? brandSize + 10 : side === 'right' ? SEMANTIC_SIGIL_FOOTPRINT + 2 : 4)
     - (source ? SOURCE_BADGE_FOOTPRINT : 0);
   if (result.x - labelWidth / 2 >= left && result.x + labelWidth / 2 <= right) return result;
   if (labelWidth <= right - left) {
@@ -67,7 +67,7 @@ export function nodeLabelLayout({ width, height, rows, side = 'left', brand = fa
   }
   // Keep the existing font sizes and put the text below the decoration rail.
   // Conservative ascent/descent bounds also protect CJK and fallback fonts.
-  let bottom = Math.max(brand ? 22 : SEMANTIC_SIGIL_FOOTPRINT, source ? 19 : 0);
+  let bottom = Math.max(brand ? brandSize + 6 : SEMANTIC_SIGIL_FOOTPRINT, source ? 19 : 0);
   const ys = rows.map(row => {
     const y = Math.max(row.y, Math.ceil((bottom + 2 + row.font * 1.2) * 10) / 10);
     bottom = y + row.font * 0.3;
@@ -83,7 +83,7 @@ export function nodeLabelLayout({ width, height, rows, side = 'left', brand = fa
     // Try compact leading before giving up the dedicated text rail. Retain
     // every font size and the authored box; only this crowded fallback packs
     // the rows, with a full em above each baseline and 0.3 em below it.
-    let compactBottom = Math.max(brand ? 22 : SEMANTIC_SIGIL_FOOTPRINT, 19) + 1;
+    let compactBottom = Math.max(brand ? brandSize + 6 : SEMANTIC_SIGIL_FOOTPRINT, 19) + 1;
     const compactYs = rows.map(row => {
       const y = Math.ceil((compactBottom + 1 + row.font) * 10) / 10;
       compactBottom = y + row.font * 0.3;

@@ -6,7 +6,7 @@ import { throwDiagnosticProblems } from '../shared/diagnostics.mjs';
 import { legendFootprint, measureLegend, resolveLegend, renderLegend as renderResolvedLegend } from '../shared/legend.mjs';
 import { componentFill, arrowClassMap, rectsOverlap, cleanFlowProblems, cleanCrossingProblems, cleanAmbiguousCorridorProblems, cleanBorderRunProblems, cleanRouteRhythmProblems, cleanLabelRouteClearanceProblems, cleanLabelCanvasContainmentProblems, routePointsValue, asArray, isFinitePoint, edgeLabelAccent } from '../shared/geometry.mjs';
 import { availableNodeTextWidth, fittedNodeFontSize, minimumNodeTextWidth } from '../shared/text-fit.mjs';
-import { brandLabelFitWidth, brandMetadataFor, brandTopRailProblem, renderBrandMark } from '../shared/brand-marks.mjs';
+import { brandMarkSize, brandLabelFitWidth, brandMetadataFor, brandTopRailProblem, renderBrandMark } from '../shared/brand-marks.mjs';
 import { translateMessage as i18nText } from '../shared/i18n.mjs';
 import { DESKTOP_READER_DIAGRAM_WIDTH, MIN_PROJECTED_NODE_TEXT_PX, minimumReadableSourceTextPx } from '../shared/desktop-readability.mjs';
 
@@ -935,7 +935,7 @@ function renderParticipant(participant) {
   const sub = hasSub
     ? `\n          <text data-detail="context" x="${participant.cx}" y="${layout.topY + layout.participantSublabelY}" class="t-muted" font-size="${fittedNodeFontSize(participant.sublabel, layout.participantW, readableSublabelPreferred, readableSublabelMinimum)}" text-anchor="middle">${esc(participant.sublabel)}</text>`
     : '';
-  const brand = renderBrandMark(participant, { x: participant.x + layout.participantW - 22, y: layout.topY + 6 });
+  const brand = renderBrandMark(participant, { x: participant.x + layout.participantW - brandMarkSize(participant) - 6, y: layout.topY + 6 });
   const labelFontSize = fittedNodeFontSize(participant.label, brandLabelFitWidth(participant, layout.participantW), 11, 8);
   const passport = {
     kind: participant.type,

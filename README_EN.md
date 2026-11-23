@@ -1,8 +1,10 @@
 > **Archify Custom — the original Archify with added Azure icons.**
-> Based on [Archify by tt-a1i](https://github.com/tt-a1i/archify), with additional
-> official Microsoft Azure icons for containers, networking, storage, security,
-> and AI services. See the [icon catalogue](archify/brand-marks/README.md) and
-> [third-party notices](THIRD_PARTY_NOTICES.md).
+> This fork builds on [Archify by tt-a1i](https://github.com/tt-a1i/archify).
+> It extends the original diagramming tools with additional official Microsoft
+> Azure service icons. The latest additions cover containers, networking,
+> storage, security, and AI services. Microsoft retains the rights to its artwork;
+> see [third-party notices](THIRD_PARTY_NOTICES.md) and the
+> [icon catalogue](archify/brand-marks/README.md).
 >
 > **Download this fork:** [archify.zip](https://github.com/Nhat-Bui-CGI/archify-custom/releases/latest/download/archify.zip) · [Release page and assets](https://github.com/Nhat-Bui-CGI/archify-custom/releases/latest).
 > **Let your harness handle it:** copy the [install prompt](docs/prompts/install-archify.md) or [update prompt](docs/prompts/update-archify.md). Both select the newest custom release automatically.

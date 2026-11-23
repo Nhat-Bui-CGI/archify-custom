@@ -51,6 +51,8 @@ does; `brand` explains whose product it is.
    AX icon was found. Microsoft Fabric is `microsoft-fabric`, and it is different
    from Azure Service Fabric. Boomi is the `boomi` mark in the `data` category.
    Prefer the specific service mark (`logic-apps`) over the generic `azure`.
+   Bundled Microsoft SVGs use 24px badges by default. Leave enough node width
+   for the badge and label; no icon-size setting is required.
    The custom catalogue also includes containers, private networking, hybrid
    connectivity, storage, security, and AI services. Queries such as `ACR`,
    `NSG`, `AOAI`, `Azure AI Search`, and `Managed Redis` resolve to their specific

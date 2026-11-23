@@ -237,6 +237,40 @@ test('all five renderers keep the semantic sigil and add one export-safe brand b
   }
 });
 
+test('Microsoft SVG badges use 24px with their original artwork in all five renderers', () => {
+  const mark = BRAND_MARKS.find((entry) => entry.id === 'azure-functions');
+  for (const type of Object.keys(cases)) {
+    const input = writeFixture(type, `azure-24-${type}`, 'azure-functions', (_diagram, node) => {
+      node.label = 'API';
+      node.sublabel = 'Worker';
+    });
+    const { result, html } = renderSync(type, input, `azure-24-${type}`);
+    assert.equal(result.status, 0, `${type}: ${result.stderr || result.stdout}`);
+    const [, collection] = cases[type];
+    const id = JSON.parse(fs.readFileSync(input, 'utf8'))[collection][0].id;
+    const block = nodeBlock(html, id);
+    const frame = block.match(/<rect x="([-\d.]+)" y="([-\d.]+)" width="([-\d.]+)" height="([-\d.]+)" rx="[^"]+" class="c-mask"\/>/);
+    const badge = block.match(/data-brand-mark="azure-functions"[^>]+translate\(([-\d.]+) ([-\d.]+)\)">\s*<rect width="([-\d.]+)" height="([-\d.]+)"/);
+    assert.ok(frame && badge, type);
+    const [x, y, width, height] = frame.slice(1).map(Number);
+    const [badgeX, badgeY, badgeWidth, badgeHeight] = badge.slice(1).map(Number);
+    assert.equal(badgeWidth, 24, type);
+    assert.equal(badgeHeight, 24, type);
+    assert.equal(x + width - badgeX - badgeWidth, 6, type);
+    assert.equal(badgeY - y, 6, type);
+    assert.ok(badgeY + badgeHeight <= y + height, type);
+    assert.ok(block.includes(mark.svg), `${type}: preserve the official SVG bytes`);
+    assert.match(block, /width="22" height="22" preserveAspectRatio="xMidYMid meet"/);
+  }
+});
+
+test('other SVG brand badges keep their existing 16px default', () => {
+  const input = writeFixture('architecture', 'boomi-16', 'boomi');
+  const { result, html } = renderSync('architecture', input, 'boomi-16');
+  assert.equal(result.status, 0, result.stderr || result.stdout);
+  assert.match(html, /data-brand-mark="boomi"[^>]+translate\([^)]*\)">\s*<rect width="16" height="16"/);
+});
+
 test('a branded node fails before its semantic sigil, label, and brand badge can overlap', () => {
   const input = writeFixture('workflow', 'narrow-brand-rail', 'openai', (_diagram, node) => {
     node.label = 'A';

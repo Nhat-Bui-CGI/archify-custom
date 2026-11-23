@@ -28,6 +28,11 @@ and Microsoft Fabric) is stored in `brand-marks/azure/` from Microsoft's publish
 icon sets and embedded unaltered; the generator rejects files with script, event handlers, or external
 references. Try `node bin/archify.mjs brands microsoft`.
 
+Bundled Microsoft SVG icons use 24px badges by default in Architecture,
+Workflow, Sequence, Dataflow, and Lifecycle diagrams. The renderer reserves
+space for the larger badge and keeps the original artwork and proportions.
+Other brand badges retain their 16px default.
+
 Fork-specific marks are maintained in `catalog.local.json`. This includes
 Microsoft service icons, Fabric, Boomi, and the Dynamics AX 2012 fallback.
 The generator merges this file with the upstream `catalog.json`. See

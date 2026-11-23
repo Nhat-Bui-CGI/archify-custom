@@ -5,7 +5,7 @@ import { animateAttr, focusEdgeAttrs, focusNodeAttrs, focusNodeTitle, loadDiagra
 import { throwDiagnosticProblems } from '../shared/diagnostics.mjs';
 import { legendFootprint, resolveLegend, renderLegend as renderResolvedLegend } from '../shared/legend.mjs';
 import { availableNodeTextWidth, fittedNodeFontSize, minimumNodeTextWidth, nodeLabelLayout, nodeTextFit } from '../shared/text-fit.mjs';
-import { brandLabelFitWidth, brandMarkFor, brandMetadataFor, brandTopRailProblem, renderBrandMark } from '../shared/brand-marks.mjs';
+import { brandMarkSize, brandLabelFitWidth, brandMarkFor, brandMetadataFor, brandTopRailProblem, renderBrandMark } from '../shared/brand-marks.mjs';
 import { translateMessage as i18nText } from '../shared/i18n.mjs';
 import { DESKTOP_READER_DIAGRAM_WIDTH, MIN_PROJECTED_NODE_TEXT_PX } from '../shared/desktop-readability.mjs';
 import { asArray, rectsOverlap, segmentRectClearance, roundedPath, routePointsValue, arrowClassMap, edgeLabelAccent } from '../shared/geometry.mjs';
@@ -77,7 +77,7 @@ function fonts(state, width) {
 function preferredWidth(state) {
   const need = (text, font) => (text ? textUnits(text) * font * nodeTextFit.widthFactor + nodeTextFit.horizontalPadding + 36 : 0);
   const left = Math.max(SEMANTIC_SIGIL_FOOTPRINT + 2, state.step ? 26 + minimumNodeTextWidth(state.step, TEXT.step) : 0);
-  const right = (brandMarkFor(state) ? 26 : 4) + (sourceEvidence?.nodes?.[state.id]?.length ? SOURCE_BADGE_FOOTPRINT : 0);
+  const right = (brandMarkFor(state) ? brandMarkSize(state) + 10 : 4) + (sourceEvidence?.nodes?.[state.id]?.length ? SOURCE_BADGE_FOOTPRINT : 0);
   const label = minimumNodeTextWidth(state.label, TEXT.labelPreferred) + left + right + 4;
   return Math.ceil(Math.min(STATE_MAX_W, Math.max(STATE_MIN_W,
     label, need(state.sublabel, TEXT.sublabelPreferred), need(state.tag, TEXT.tagPreferred))));
@@ -998,7 +998,7 @@ function renderState(state) {
   if (state.tag) rows.push({ text: state.tag, font: tagFont, y: tagY + textOffset });
   const labelLayout = nodeLabelLayout({
     width: state.width, height: state.height, rows,
-    brand: Boolean(brandMarkFor(state)), source: Boolean(sourceEvidence?.nodes?.[state.id]?.length), side: 'left', step: state.step,
+    brand: Boolean(brandMarkFor(state)), brandSize: brandMarkSize(state), source: Boolean(sourceEvidence?.nodes?.[state.id]?.length), side: 'left', step: state.step,
   });
   const sub = hasSub
     ? `\n          <text data-detail="context" x="${state.cx}" y="${state.y + labelLayout.ys[1]}" class="t-muted" font-size="${sublabelFont}" text-anchor="middle">${esc(state.sublabel)}</text>`
@@ -1010,7 +1010,7 @@ function renderState(state) {
   const step = state.step
     ? `\n          <text data-detail="fine" x="${state.x + 23}" y="${state.y + 14}" class="${accent}" font-size="${TEXT.step}" font-weight="700">${esc(state.step)}</text>`
     : '';
-  const brand = renderBrandMark(state, { x: state.x + state.width - 22, y: state.y + 6 });
+  const brand = renderBrandMark(state, { x: state.x + state.width - brandMarkSize(state) - 6, y: state.y + 6 });
   const initial = state.id === mainPath[0]
     ? `\n          <g aria-hidden="true" data-lifecycle-initial-marker="">${initialMarkerShape(state.x - 26, state.x - 1, state.cy)}</g>`
     : '';

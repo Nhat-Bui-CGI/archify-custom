@@ -3,7 +3,7 @@ import { animateAttr, focusEdgeAttrs, focusNodeAttrs, focusNodeTitle, svgAccessi
 import { throwDiagnosticProblems, withIsolatedDiagnosticRecording, rendererFailure } from '../shared/diagnostics.mjs';
 import { resolveLegend, renderLegend as renderResolvedLegend, legendFootprint } from '../shared/legend.mjs';
 import { availableNodeTextWidth, fittedNodeFontSize, minimumNodeTextWidth, nodeLabelLayout } from '../shared/text-fit.mjs';
-import { brandLabelFitWidth, brandMarkFor, brandMetadataFor, brandTopRailProblem, renderBrandMark } from '../shared/brand-marks.mjs';
+import { brandMarkSize, brandLabelFitWidth, brandMarkFor, brandMetadataFor, brandTopRailProblem, renderBrandMark } from '../shared/brand-marks.mjs';
 import { translateMessage as i18nText } from '../shared/i18n.mjs';
 import { DECLARED_WIDE_READER_RATIO, minimumReadableSourceTextPx, predictedFixedWidthOverflow } from '../shared/desktop-readability.mjs';
 import { placeAutomaticLabels } from '../shared/automatic-labels.mjs';
@@ -1438,7 +1438,7 @@ export function compileDataflow({ dataflow, sourceEvidence, qualityProfile: requ
       if (hasSub) textRows.push({ text: node.sublabel, font: sublabelFontSize, y: 37 + inset });
       if (node.tag) textRows.push({ text: node.tag, font: tagFontSize, y: node.height - 11 - inset });
       const labelLayout = nodeLabelLayout({ width: node.width, height: node.height, rows: textRows,
-        brand: Boolean(brandMarkFor(node)), source: Boolean(sourceEvidence?.nodes?.[node.id]?.length) });
+        brand: Boolean(brandMarkFor(node)), brandSize: brandMarkSize(node), source: Boolean(sourceEvidence?.nodes?.[node.id]?.length) });
       const sub = hasSub
         ? `\n          <text data-detail="context" x="${node.cx}" y="${node.y + labelLayout.ys[1]}" class="t-muted" font-size="${sublabelFontSize}" text-anchor="middle">${esc(node.sublabel)}</text>`
         : '';
@@ -1449,7 +1449,7 @@ export function compileDataflow({ dataflow, sourceEvidence, qualityProfile: requ
       const context = stage
         ? `${String(node.stage + 1).padStart(2, '0')} / ${stage.label}`
         : i18nText(dataflow.meta.locale, 'node.context.dataflow');
-      const brand = renderBrandMark(node, { x: node.x + node.width - 22, y: node.y + 6 });
+      const brand = renderBrandMark(node, { x: node.x + node.width - brandMarkSize(node) - 6, y: node.y + 6 });
       const passport = { kind: node.type, sublabel: node.sublabel, tag: node.tag, context, ...brandMetadataFor(node) };
       return `        <g ${focusNodeAttrs(node.id, node.label, passport, dataflow.meta.locale)}>
           ${focusNodeTitle(node.label, passport)}

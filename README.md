@@ -5,6 +5,9 @@
 > storage, security, and AI services. Microsoft retains the rights to its artwork;
 > see [third-party notices](THIRD_PARTY_NOTICES.md) and the
 > [icon catalogue](archify/brand-marks/README.md).
+>
+> **Download this fork:** [Release assets](https://github.com/peterbuitho/archify-custom/releases).
+> **Installing or updating from ZIP?** Follow the [ZIP installation and update guide](docs/zip-installation.md).
 
 <p align="center">
   <picture>
@@ -444,6 +447,11 @@ Stable links can restore `#focus=<id>`, `#focus=<id>&reach=upstream|downstream`,
 The complete generation and viewer contract lives in [`archify/SKILL.md`](archify/SKILL.md).
 
 ## Installation options
+
+For this custom fork, use the [ZIP installation and update guide](docs/zip-installation.md).
+It includes instructions for replacing an existing ZIP installation, preserving
+personal additions, and verifying the new icons. The upstream installation
+commands in this README install the original project.
 
 | Surface | Install location or method | Capability |
 |---|---|---|

@@ -2,6 +2,8 @@
 
 Archify Custom is based on the original [Archify by tt-a1i](https://github.com/tt-a1i/archify), with additional official Microsoft Azure icons. This guide covers manual ZIP installations of the Skill.
 
+For the ChatGPT app's uploaded-Skill workflow, use [ChatGPT setup and compatibility](chatgpt.md). Its account permissions and execution environment differ from a local filesystem installation.
+
 ## Let your harness do it
 
 Copy one of these prompts into the harness where you want to use Archify:

@@ -9,6 +9,7 @@
 > **Download this fork:** [archify.zip](https://github.com/Nhat-Bui-CGI/archify-custom/releases/latest/download/archify.zip) · [Release page and assets](https://github.com/Nhat-Bui-CGI/archify-custom/releases/latest).
 > **Let your harness handle it:** copy the [install prompt](docs/prompts/install-archify.md) or [update prompt](docs/prompts/update-archify.md). Both select the newest custom release automatically.
 > **Installing or updating from ZIP?** Follow the [ZIP installation and update guide](docs/zip-installation.md).
+> **Using the ChatGPT app without Codex?** See [ChatGPT setup and compatibility](docs/chatgpt.md). This ZIP's execution inside ChatGPT is not yet verified.
 
 <p align="center">
   <picture>
@@ -459,6 +460,7 @@ commands in this README install the original project.
 |---|---|---|
 | **Claude Code** | `~/.claude/skills/` or `.claude/skills/` | Full renderer + validation workflow |
 | **Codex CLI** | `~/.agents/skills/` or `.agents/skills/` | Full renderer + validation workflow |
+| **ChatGPT app** | Upload through **Plugins → Skills → Create → Upload from your computer**, when available | Node.js required for generation; supported browser required for full checks. [Setup and unverified compatibility](docs/chatgpt.md). |
 | **opencode** | `~/.config/opencode/skills/`, `.opencode/skills/`, or `.agents/skills/` | Full renderer + validation workflow |
 | **Claude.ai** | Upload `archify.zip` under Settings → Capabilities → Skills | Depends on Node.js access in the sandbox |
 | **Project Knowledge** | Upload `archify.zip` to the project | Prompt-driven architecture fallback |

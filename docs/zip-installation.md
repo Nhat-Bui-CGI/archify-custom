@@ -2,6 +2,19 @@
 
 Archify Custom is based on the original [Archify by tt-a1i](https://github.com/tt-a1i/archify), with additional official Microsoft Azure icons. This guide covers manual ZIP installations of the Skill.
 
+## Let your harness do it
+
+Copy one of these prompts into the harness where you want to use Archify:
+
+- [Install Archify Custom](prompts/install-archify.md)
+- [Update an existing installation](prompts/update-archify.md)
+
+Both prompts discover the newest published release with an `archify.zip` asset,
+including custom prereleases. They contain no fixed version, tag, or checksum.
+The harness selects one release, checks its requirements, and verifies the
+installed icons. An update also preserves a backup and restores it on failure.
+You do not need to follow the manual steps below when using a prompt.
+
 ## Download the package
 
 Open [this fork's releases](https://github.com/peterbuitho/archify-custom/releases), select the custom build you want, and download **archify.zip** under **Assets**. Custom builds can be marked as prereleases, so use the releases list rather than relying on GitHub's latest-release shortcut.

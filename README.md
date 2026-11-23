@@ -7,6 +7,7 @@
 > [icon catalogue](archify/brand-marks/README.md).
 >
 > **Download this fork:** [Release assets](https://github.com/peterbuitho/archify-custom/releases).
+> **Let your harness handle it:** copy the [install prompt](docs/prompts/install-archify.md) or [update prompt](docs/prompts/update-archify.md). Both select the newest custom release automatically.
 > **Installing or updating from ZIP?** Follow the [ZIP installation and update guide](docs/zip-installation.md).
 
 <p align="center">

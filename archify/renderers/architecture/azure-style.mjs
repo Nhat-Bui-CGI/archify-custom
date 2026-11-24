@@ -32,7 +32,7 @@ export function azureNodeAppearance(node, labelY, sublabelY) {
     ? `<text class="t-muted" data-azure-product="" x="${node.cx}" y="${productBaseline}" text-anchor="middle" font-size="${productFont}">${esc(product)}</text>`
     : '';
   return {
-    style: `--azure-label-dy:${labelBaseline - labelY}px;--azure-label-font:${labelFont}px;--azure-sub-dy:${hasSub ? subBaseline - sublabelY : 0}px;--azure-tag-dy:${node.tag ? top + iconSize + rowsHeight - (node.y + node.height - 8) : 0}px`,
+    style: `--azure-label-dy: ${labelBaseline - labelY}px; --azure-label-font: ${labelFont}px; --azure-sub-dy: ${hasSub ? subBaseline - sublabelY : 0}px; --azure-tag-dy: ${node.tag ? top + iconSize + rowsHeight - (node.y + node.height - 8) : 0}px;`,
     visual: `<g class="architecture-azure-visual" aria-hidden="true" pointer-events="none">${artwork}${productLine}</g>`,
   };
 }

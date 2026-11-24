@@ -155,6 +155,16 @@ function checkRoadmap(relativePath, source, version, isDevelopment) {
 }
 
 const packageJson = readJson('archify/package.json');
+const customVersion = packageJson.customVersion;
+if (customVersion !== undefined) {
+  if (!/^\d+\.\d+\.\d+\.\d+\.\d+$/.test(customVersion || '') || !customVersion.startsWith(packageJson.version + '.')) {
+    fail('Custom version must use upstream.feature.fix, for example 3.2.0.1.0.');
+  }
+  if (!read('archify/assets/template.html').includes('<meta name="archify-custom-version" content="' + customVersion + '">')
+    || !read('archify/SKILL.md').includes('custom-version: "' + customVersion + '"')) {
+    fail('Viewer and Skill custom version must match package.json customVersion.');
+  }
+}
 const changelog = read('CHANGELOG.md');
 const unreleasedStart = changelog.search(/^## \[Unreleased\][^\n]*(?:\n|$)/m);
 const afterUnreleased = unreleasedStart === -1

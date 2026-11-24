@@ -486,5 +486,6 @@
   "legend.waterfall.cancelled": "已取消",
   "legend.waterfall.incomplete": "未完成（无结束记录）",
   "viewer.preset.azure": "Azure",
-  "viewer.preset.azure.hint": "图标与资源名称"
+  "viewer.preset.azure.hint": "图标与资源名称",
+  "viewer.export.drawio.hint": "可编辑架构"
 }

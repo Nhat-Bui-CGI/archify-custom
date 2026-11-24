@@ -7,8 +7,9 @@ import { componentBox, boundaryBox, connectionPath } from '../shared/layout-repo
 import { rendererFailure, throwDiagnosticProblems } from '../shared/diagnostics.mjs';
 import { legendFootprint, relationshipLegendObstacles, resolveLegend, renderLegend as renderResolvedLegend } from '../shared/legend.mjs';
 import { availableNodeTextWidth, fittedNodeFontSize, minimumNodeTextWidth } from '../shared/text-fit.mjs';
+import { resolveGroups } from './groups.mjs';
 import { azureNodeAppearance } from './azure-style.mjs';
-import { brandMarkSize, brandLabelFitWidth, brandMetadataFor, brandTopRailProblem, renderBrandMark } from '../shared/brand-marks.mjs';
+import { brandMarkFor, brandMarkSize, brandLabelFitWidth, brandMetadataFor, brandTopRailProblem, renderBrandMark } from '../shared/brand-marks.mjs';
 import { minimumReadableSourceTextPx } from '../shared/desktop-readability.mjs';
 import { translateMessage as i18nText } from '../shared/i18n.mjs';
 import { gridLayout, resolveComponentPos, validateGridPlacement } from './grid.mjs';
@@ -108,8 +109,7 @@ for (const [index, c] of asArray(arch.components).entries()) {
 }
 
 // ---- Boundaries computed from the `wraps` id list ---------------------------
-function boundaryRect(boundary) {
-  const members = asArray(boundary.wraps).map((id) => components.get(id)).filter(Boolean);
+function boundaryRect(boundary, members) {
   if (!members.length) return null;
   let minX = Infinity;
   let minY = Infinity;
@@ -309,7 +309,16 @@ function layoutBoundaryTitles(rawBoundaries, minimumFontSize) {
 
   for (const entry of ordered) {
     const { index } = entry;
-    const boundary = expandBoundaryForReadableTitle(entry.boundary, minimumFontSize);
+    const childFrames = (entry.boundary.children || []).map(id => {
+      const childIndex = rawBoundaries.findIndex(b => b.id === id);
+      const child = measured.get(childIndex);
+      const y = enforcesBoundaryTitleComposition ? Math.min(child.boundary.y, child.title.y - layout.boundaryLabelFrameInset) : child.boundary.y;
+      return { ...child.boundary, y, height: child.boundary.y + child.boundary.height - y };
+    });
+    const frame = childFrames.length ? boundaryRect(entry.boundary, [
+      ...entry.boundary.wraps.map(id => components.get(id)), ...childFrames,
+    ]) : entry.boundary;
+    const boundary = expandBoundaryForReadableTitle(frame, minimumFontSize);
     const title = measureBoundaryTitle(boundary, minimumFontSize);
     let guard = 0;
     while (guard < rawBoundaries.length + components.size + 1) {
@@ -355,7 +364,7 @@ function layoutBoundaryTitles(rawBoundaries, minimumFontSize) {
 // reads components, connections and the member-derived boundary frames (so an
 // automatic route never borrows a frame border as its corridor), never the
 // title-expanded frames or the viewBox.
-const rawBoundaries = asArray(arch.boundaries).map(boundaryRect).filter(Boolean);
+const rawBoundaries = resolveGroups(asArray(arch.boundaries), components, boundaryRect);
 const routerOptions = {
   distinctAutomaticPorts: true,
   preferReadableRoutes: true,
@@ -631,7 +640,7 @@ function validateArchitecture() {
   }
 
   // Boundaries: every wrapped id must exist; the computed box must stay in view.
-  for (const boundary of asArray(arch.boundaries)) {
+  for (const boundary of rawBoundaries) {
     for (const id of asArray(boundary.wraps)) {
       if (!components.has(id)) problems.push(`Boundary "${boundary.label}" wraps unknown component "${id}".`);
     }
@@ -1136,6 +1145,27 @@ function renderLegend() {
   });
 }
 
+function drawioBrand(node) {
+  const mark = brandMarkFor(node);
+  if (!mark) return null;
+  // Preserve artwork, not fetch URLs or internal source/provenance records.
+  return {
+    svg: mark.svg, dataUrl: mark.dataUrl, path: mark.path,
+    hex: mark.hex, viewBox: mark.viewBox, title: mark.title,
+    category: mark.category, size: brandMarkSize(node),
+  };
+}
+
+function drawioGroups() {
+  const used = new Set(boundaries.map(b => b.id).filter(Boolean));
+  return boundaries.map((b, index) => {
+    let id = b.id || 'boundary-' + index;
+    while (!b.id && used.has(id)) id += '_';
+    used.add(id);
+    return { ...boundaryBox(b), id, parentId: b.parentId, children: b.children };
+  });
+}
+
 function renderSvg() {
   // An automatic architecture canvas is compiler-measured geometry. Let the
   // Reader spend the real desktop height budget on it, including when an
@@ -1155,6 +1185,20 @@ ${svgAccessibleText(arch.meta, 'architecture')}
 ${renderDefinitions()}
 ${nodeCardStyle()}
 
+        <metadata id="archify-architecture-data">${esc(JSON.stringify({
+          title: arch.meta.title,
+          viewBox,
+          nodes: [...components.values()].map(c => ({
+            id: c.id, label: c.label, sublabel: c.sublabel, tag: c.tag, type: c.type,
+            x: c.x, y: c.y, width: c.width, height: c.height,
+            brand: drawioBrand(c),
+          })),
+          groups: drawioGroups(),
+          edges: asArray(arch.connections).map(conn => ({
+            ...connectionPath(conn, pathFor(conn), conn.label ? resolvedLabelPoints.get(conn) || labelPoint(conn, pathFor(conn).points) : null),
+            width: conn.width,
+          })),
+        }))}</metadata>
         <!-- Background Grid -->
         <rect width="100%" height="100%" fill="url(#grid)" />
 

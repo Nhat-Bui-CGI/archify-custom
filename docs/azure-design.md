@@ -46,6 +46,26 @@ design whenever an artifact is reopened, author it in the JSON and regenerate.
 Existing standalone HTML files keep their embedded viewer, so regenerate them
 with the updated package to gain the new dropdown option.
 
+## Nested Azure groups
+
+Architecture boundaries now support subscription, resource group, region, VNet,
+subnet, on-premises, external, and security-group kinds. A boundary can wrap named
+child boundaries as well as components. Parent frames include their descendants.
+See the [authoring guide and JSON example](../archify/references/azure-architecture.md).
+Existing component-only boundaries remain supported.
+
+## Export an editable diagram
+
+Choose **Export → draw.io** in an Architecture diagram. Open the downloaded file
+in diagrams.net or draw.io Desktop. Nodes, labels, connectors, and group containers
+are editable. Moving a parent container also moves its descendants. Official
+brand artwork is embedded, so it does not depend on external icon downloads.
+
+The export uses the selected theme and an Azure icon layout or simple cards for
+other designs. It preserves the compiled topology and positions; fonts and spacing
+can differ from the HTML. Temporary focus and zoom do not remove diagram content.
+Other native diagram types retain their existing export formats.
+
 ## Package and scope
 
 Get the updated `archify.zip` from [this fork's releases](https://github.com/Nhat-Bui-CGI/archify-custom/releases).
@@ -54,6 +74,5 @@ for local harnesses or the [ChatGPT app guide](chatgpt.md) for uploaded Skills.
 
 This design is inspired by the Azure Architecture Center style; it is not a
 Microsoft diagram standard or an endorsement. The separate Azure Diagram
-skill remains useful when you need its editable draw.io output and numbered
-data-flow format. Choosing Azure in Archify does not add draw.io export or
-invent numbered process steps.
+skill still has its own numbered data-flow format. Archify does not invent
+numbered process steps when you choose the Azure design.

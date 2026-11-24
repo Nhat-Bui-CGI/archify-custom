@@ -486,5 +486,6 @@
   "legend.waterfall.cancelled": "취소됨",
   "legend.waterfall.incomplete": "미완료 (종료 기록 없음)",
   "viewer.preset.azure": "Azure",
-  "viewer.preset.azure.hint": "아이콘과 리소스 이름"
+  "viewer.preset.azure.hint": "아이콘과 리소스 이름",
+  "viewer.export.drawio.hint": "편집 가능한 아키텍처"
 }

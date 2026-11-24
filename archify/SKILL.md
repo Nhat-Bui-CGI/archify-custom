@@ -1,9 +1,10 @@
 ---
 name: archify
-description: "Create validated architecture, workflow, sequence, data-flow, lifecycle/state, ERD, class, tree, timeline, and waterfall diagrams as explorable standalone HTML with dark/light themes, motion and image/SVG/WebM export. Accept requirements or Mermaid; inspect repository evidence for code-backed diagrams. Use when visualizing systems, API calls, pipelines, schemas, histories, timings, or everyday steps, parts, relationships and states. Also turn an answer into a one-page explainer, with the conclusion first, structured panels, native diagrams and charts, when the user asks for a page, an explainer or an answer to share (做成一页, 用页面讲), or proactively when the user's rules opt in with an [archify explainer: ...] line. Also use for interactive Azure diagrams, including the Azure icon-first visual preset; for editable draw.io output, use azure-diagram. Not for dashboards."
+description: "Create validated architecture, workflow, sequence, data-flow, lifecycle/state, ERD, class, tree, timeline, and waterfall diagrams as explorable standalone HTML with dark/light themes, motion and image/SVG/WebM export. Accept requirements or Mermaid; inspect repository evidence for code-backed diagrams. Use when visualizing systems, API calls, pipelines, schemas, histories, timings, or everyday steps, parts, relationships and states. Also turn an answer into a one-page explainer, with the conclusion first, structured panels, native diagrams and charts, when the user asks for a page, an explainer or an answer to share (做成一页, 用页面讲), or proactively when the user's rules opt in with an [archify explainer: ...] line. Also use for interactive Azure diagrams, including the Azure icon-first visual preset, editable draw.io architecture export, and nested Azure groups. Not for dashboards."
 license: Apache-2.0
 metadata:
   version: "3.2"
+  custom-version: "3.2.0.1.0"
   author: tt-a1i
 ---
 
@@ -22,6 +23,8 @@ For a native diagram of a real codebase, read [Repository authoring](references/
 - A rules line in context changes this. `[archify explainer: proactive]`: also make a page, unasked, for an explanation, comparison, trade-off, decision, diagnosis, review or plan that needs a table, steps or several sections. `[archify explainer: always-on]`: every reply that reaches a conclusion also gets a compact page of at most four panels, delivered without opening it, its link closing the reply. `[archify explainer: on-demand]`: only when asked, and never offer a mode.
 - In every mode a page needs a conclusion with some structure behind it: chat, one-line answers, raw command output and text-only requests get none.
 - For `explainer`, read [Explainer authoring](references/explainer-authoring.md) for its conclusion, reasons, scope, board layout and optional native diagrams. Write the complete draft, then run `finalize explainer` for validation, atomic delivery and artifact checks. Use panel patch for local content revisions.
+
+For Azure architecture or editable draw.io output, read [Azure groups and draw.io](references/azure-architecture.md).
 
 ## Existing candidate handoff
 

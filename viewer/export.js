@@ -1099,6 +1099,7 @@
       // WebP encoding (older Safari), so detect explicitly.
       function supports(format) {
         if (format === 'svg' || format === 'svg-light' || format === 'svg-dark' || format === 'png') return true;
+        if (format === 'drawio') return Boolean(document.getElementById('archify-architecture-data'));
         if (format === 'webm') return canRecordMotion();
         var mime = format === 'jpeg' ? 'image/jpeg' : 'image/webp';
         try {
@@ -1110,6 +1111,7 @@
 
       // Gray out unsupported items.
       items().forEach(function (it) {
+        if (it.dataset.format === 'drawio' && !supports('drawio')) it.hidden = true;
         if (it.dataset.format && !supports(it.dataset.format)) {
           it.disabled = true;
           it.title = viewerText('viewer.export.unsupported');
@@ -1206,7 +1208,7 @@
       });
 
       function runExport(format) {
-        if (['svg', 'svg-light', 'svg-dark', 'png', 'jpeg', 'webp', 'webm'].indexOf(format) === -1) {
+        if (['svg', 'svg-light', 'svg-dark', 'png', 'jpeg', 'webp', 'webm', 'drawio'].indexOf(format) === -1) {
           return Promise.reject(exportError('viewer.export.unsupported'));
         }
         var base = diagramFilename();
@@ -1216,7 +1218,21 @@
         close(true);
         clearExportReceipt();
         if (format === 'webm') toast(viewerText('viewer.export.recording'));
-        return (svgTheme
+        return (format === 'drawio'
+          ? Promise.resolve().then(function () {
+              var data = document.getElementById('archify-architecture-data');
+              if (!data) throw exportError('viewer.export.unsupported');
+              var styles = getComputedStyle(document.querySelector('.diagram-container > svg'));
+              function color(name, fallback) { return styles.getPropertyValue(name).trim() || fallback; }
+              var xml = Archify.drawio.serialize(JSON.parse(data.textContent), {
+                preset: document.documentElement.getAttribute('data-preset'),
+                colors: { text: color('--text', '#242424'), muted: color('--text-muted', '#605e5c'), stroke: color('--cloud-stroke', '#0078d4'), fill: color('--cloud-fill', '#eff6fc'), background: color('--bg', '#ffffff') },
+              });
+              var blob = new Blob([xml], { type: 'application/xml;charset=utf-8' });
+              recordExportReceipt('drawio', blob, true);
+              download(blob, base + '.drawio');
+            })
+          : svgTheme
           ? Promise.resolve(serializeSvg(1, { theme: svgTheme })).then(function (d) {
               var blob = new Blob([d.svgString], { type: 'image/svg+xml;charset=utf-8' });
               recordExportReceipt('svg', blob, d.canonicalStateClean);

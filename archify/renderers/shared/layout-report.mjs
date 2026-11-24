@@ -32,6 +32,8 @@ export function entityBox(e) {
 
 export function boundaryBox(b) {
   return {
+    ...(b.id ? { id: b.id } : {}),
+    ...(b.parentId ? { parentId: b.parentId } : {}),
     kind: b.kind,
     label: b.label,
     x: Math.round(b.x),

@@ -14,6 +14,7 @@ const defaultRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '
 const fragments = [
   ['/* ARCHIFY:VIEWER_CSS */', 'viewer.css', 4],
   ['/* ARCHIFY:AZURE_CSS */', 'azure.css', 4],
+  ['/* ARCHIFY:DRAWIO */', 'drawio-export.js'],
   ['/* ARCHIFY:EXPORT */', 'export.js'],
   ['/* ARCHIFY:READER_LAYOUT */', 'reader-layout.js'],
   ['/* ARCHIFY:CHROME_LAYOUT */', 'viewer-chrome-layout.js'],

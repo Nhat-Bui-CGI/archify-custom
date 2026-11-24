@@ -88,4 +88,11 @@ svg[data-preset="azure"] [data-azure-node] > text[data-node-label] { transform: 
 svg[data-preset="azure"] [data-azure-node] > text[data-detail="context"] { transform: translateY(var(--azure-sub-dy)); }
 svg[data-preset="azure"] [data-azure-node] > text[data-detail="fine"] { transform: translateY(var(--azure-tag-dy)); }
 svg[data-preset="azure"] .c-region { fill: none; stroke: var(--lane-stroke); stroke-width: 1; }
+svg[data-preset="azure"] [data-graph-role="structural-frame"][data-composition-frame-kind="subscription"] { stroke-dasharray: 8 4; }
+svg[data-preset="azure"] [data-graph-role="structural-frame"][data-composition-frame-kind="resource-group"],
+svg[data-preset="azure"] [data-graph-role="structural-frame"][data-composition-frame-kind="region"],
+svg[data-preset="azure"] [data-graph-role="structural-frame"][data-composition-frame-kind="vnet"] { stroke-dasharray: none; }
+svg[data-preset="azure"] [data-graph-role="structural-frame"][data-composition-frame-kind="subnet"],
+svg[data-preset="azure"] [data-graph-role="structural-frame"][data-composition-frame-kind="on-premises"],
+svg[data-preset="azure"] [data-graph-role="structural-frame"][data-composition-frame-kind="external"] { stroke-dasharray: 4 4; }
 svg[data-preset="azure"] .c-sg { fill: var(--lane-fill); stroke: var(--lane-stroke); }

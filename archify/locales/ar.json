@@ -486,5 +486,6 @@
   "legend.waterfall.cancelled": "ملغى",
   "legend.waterfall.incomplete": "غير مكتمل (بلا نهاية مسجَّلة)",
   "viewer.preset.azure": "Azure",
-  "viewer.preset.azure.hint": "أيقونات وأسماء الموارد"
+  "viewer.preset.azure.hint": "أيقونات وأسماء الموارد",
+  "viewer.export.drawio.hint": "بنية قابلة للتحرير"
 }

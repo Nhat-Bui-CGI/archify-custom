@@ -907,7 +907,7 @@ function collectArchitectureLeadingSpace({ svgAttrs, fragment, nodeRects, frames
       || svgAttrs['data-reader-primary-text'] !== '14'
       || svgAttrs.transform
       || [...fragment.matchAll(/<g\b[^>]*\btransform\s*=[^>]*>/gi)]
-        .some((match) => !/\bdata-semantic-sigil=/.test(match[0]))
+        .some((match) => !/\bdata-(?:semantic-sigil|azure-symbol)=/.test(match[0]))
       || /<(?:path|line|rect|text)\b[^>]*\btransform\s*=/i.test(fragment)) return evidence;
   const [originX, originY, width, height] = viewBoxRect(svgAttrs);
   if (![originX, originY, width, height].every(Number.isFinite) || width <= 0 || height <= 0) return evidence;

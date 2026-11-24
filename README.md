@@ -10,6 +10,7 @@
 > **Let your harness handle it:** copy the [install prompt](docs/prompts/install-archify.md) or [update prompt](docs/prompts/update-archify.md). Both select the newest custom release automatically.
 > **Installing or updating from ZIP?** Follow the [ZIP installation and update guide](docs/zip-installation.md).
 > **Using the ChatGPT app without Codex?** See [ChatGPT setup and compatibility](docs/chatgpt.md). This ZIP's execution inside ChatGPT is not yet verified.
+> **Azure design:** select **Azure** in the style dropdown for standalone service icons and resource/product labels. [Design guide](docs/azure-design.md).
 
 <p align="center">
   <picture>

@@ -10,6 +10,7 @@ import { generateViewer } from '../scripts/generate-viewer.mjs';
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const marker = '/* ARCHIFY:READER_LAYOUT */';
 const viewerCssMarker = '/* ARCHIFY:VIEWER_CSS */';
+const azureCssMarker = '/* ARCHIFY:AZURE_CSS */';
 const exportMarker = '/* ARCHIFY:EXPORT */';
 const cleanupMarker = '/* ARCHIFY:EXPORT_CLEANUP */';
 const chromeMarker = '/* ARCHIFY:CHROME_LAYOUT */';
@@ -23,7 +24,7 @@ const intentMarker = '/* ARCHIFY:INTENT_TRACE */';
 const lensMarker = '/* ARCHIFY:SEMANTIC_LENS */';
 const routeMarker = '/* ARCHIFY:ROUTE_PROBE */';
 const focusMarker = '/* ARCHIFY:FOCUS */';
-const fragments = { viewerCss: viewerCssMarker, export: exportMarker, reader: marker, cleanup: cleanupMarker, chrome: chromeMarker, camera: cameraMarker, radar: radarMarker, motion: motionMarker, finder: finderMarker, outline: outlineMarker, tree: treeMarker, intent: intentMarker, lens: lensMarker, route: routeMarker, focus: focusMarker };
+const fragments = { azureCss: '/* ARCHIFY:AZURE_CSS */', viewerCss: viewerCssMarker, export: exportMarker, reader: marker, cleanup: cleanupMarker, chrome: chromeMarker, camera: cameraMarker, radar: radarMarker, motion: motionMarker, finder: finderMarker, outline: outlineMarker, tree: treeMarker, intent: intentMarker, lens: lensMarker, route: routeMarker, focus: focusMarker };
 
 function fixture(t) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'archify-viewer-build-'));
@@ -40,6 +41,7 @@ function fixture(t) {
     root, output,
     shell: path.join(root, 'viewer/template.source.html'),
     viewerCss: path.join(root, 'viewer/viewer.css'),
+    azureCss: path.join(root, 'viewer/azure.css'),
     export: path.join(root, 'viewer/export.js'),
     reader: path.join(root, 'viewer/reader-layout.js'),
     cleanup: path.join(root, 'viewer/export-cleanup.js'),
@@ -178,7 +180,8 @@ test('assembly preserves literal replacement tokens, Unicode and source line end
   const f = fixture(t);
   const reader = '// $& $\' $` $$ 中文 \u{1f5fa}\r\n(function () {})();\r\n';
   const css = '/* === TOKENS === */\r\n:root { --x: 1; }\r\n';
-  fs.writeFileSync(f.shell, `<style>${viewerCssMarker}</style><script>\r\n${focusMarker}${routeMarker}${lensMarker}${intentMarker}${finderMarker}${outlineMarker}${treeMarker}${motionMarker}${radarMarker}${cameraMarker}${chromeMarker}${exportMarker}${marker}</script>\n`);
+  fs.writeFileSync(f.shell, `<style>${viewerCssMarker}${azureCssMarker}</style><script>\r\n${focusMarker}${routeMarker}${lensMarker}${intentMarker}${finderMarker}${outlineMarker}${treeMarker}${motionMarker}${radarMarker}${cameraMarker}${chromeMarker}${exportMarker}${marker}</script>\n`);
+  fs.writeFileSync(f.azureCss, css);
   fs.writeFileSync(f.viewerCss, css);
   fs.writeFileSync(f.export, reader + cleanupMarker);
   fs.writeFileSync(f.cleanup, reader);
@@ -205,7 +208,7 @@ test('assembly preserves literal replacement tokens, Unicode and source line end
   const indentedCss = css.split('\n').map((line) => line.length === 0 ? line : '    ' + line).join('\n');
   assert.equal(
     fs.readFileSync(f.output, 'utf8'),
-    `<style>${indentedCss}</style><script>\r\n${reader}${reader}${reader}${reader}${reader}${reader}${reader}${reader}${reader}${reader}${reader}${reader}${reader}${reader}</script>\n`,
+    `<style>${indentedCss}${indentedCss}</style><script>\r\n${reader}${reader}${reader}${reader}${reader}${reader}${reader}${reader}${reader}${reader}${reader}${reader}${reader}${reader}</script>\n`,
   );
   assert.equal(f.run('--check').status, 0);
 });

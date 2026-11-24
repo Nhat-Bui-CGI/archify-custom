@@ -26,7 +26,10 @@ for (const [mode, [example, collection, index = 0]] of Object.entries(cases)) {
         fs.writeFileSync(input, JSON.stringify(spec));
         const result = spawnSync(process.execPath, [path.join(root, `renderers/${mode}/render-${mode}.mjs`), input, output], { encoding: 'utf8' });
         assert.equal(result.status, 0, result.stderr);
-        return fs.readFileSync(output, 'utf8');
+        // The Azure view has a decorative copy of an unbranded node's icon.
+        // Exclude that icon output too, while retaining its labels and layout.
+        return fs.readFileSync(output, 'utf8')
+          .replace(/<g aria-hidden="true" data-azure-symbol="[^"]+"[^>]*>[\s\S]*?<\/g>/g, '');
       };
       const baseline = render();
       const sigil = /<g aria-hidden="true" data-semantic-sigil="[^"]+"[^>]*>[\s\S]*?<\/g>/;

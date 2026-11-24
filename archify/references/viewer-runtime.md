@@ -2,6 +2,17 @@
 
 Read this only when the user asks for a reader-facing capability. Ordinary generation does not require implementing or re-documenting these features; they are already in the generated HTML.
 
+## Visual designs
+
+The style dropdown includes Classic, Signal Flow, Blueprint, Azure, and
+Editorial. Azure uses standalone service icons and resource/product labels
+in Architecture diagrams, fitting icons up to 64px within the authored node
+bounds. Use approximately 120px-tall nodes when authoring this style with full
+labels. Other diagram types keep their notation and use the Azure palette.
+The control changes the current session only; `meta.visual_preset: "azure"`
+sets the initial design. Both themes and SVG/raster export retain the design.
+Older HTML artifacts need regeneration to gain the new option.
+
 ## Exploration
 
 - Diagram Guide lists current actions and shortcuts. Open it with the guide button or `?`; it never opens automatically.

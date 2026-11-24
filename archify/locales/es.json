@@ -484,5 +484,7 @@
   "legend.waterfall.ok": "Completado",
   "legend.waterfall.error": "Error",
   "legend.waterfall.cancelled": "Cancelado",
-  "legend.waterfall.incomplete": "Incompleto (sin fin registrado)"
+  "legend.waterfall.incomplete": "Incompleto (sin fin registrado)",
+  "viewer.preset.azure": "Azure",
+  "viewer.preset.azure.hint": "Iconos y nombres de recursos"
 }

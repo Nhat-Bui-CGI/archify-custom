@@ -484,5 +484,7 @@
   "legend.waterfall.ok": "已完成",
   "legend.waterfall.error": "出错",
   "legend.waterfall.cancelled": "已取消",
-  "legend.waterfall.incomplete": "未完成（无结束记录）"
+  "legend.waterfall.incomplete": "未完成（无结束记录）",
+  "viewer.preset.azure": "Azure",
+  "viewer.preset.azure.hint": "图标与资源名称"
 }

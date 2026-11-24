@@ -168,6 +168,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
   </style>
   <style>
 /* ARCHIFY:VIEWER_CSS */
+    /* ARCHIFY:AZURE_CSS */
   </style>
 </head>
 <body>
@@ -210,6 +211,11 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <button class="preset-option" data-preset-value="blueprint" type="button" role="menuitemradio" aria-checked="false" tabindex="-1">
           <span class="preset-option-swatch blueprint" aria-hidden="true"></span>
           <span class="preset-option-copy"><strong>{{i18n:viewer.preset.blueprint}}</strong><small>{{i18n:viewer.preset.blueprint.hint}}</small></span>
+          <span class="preset-option-check" aria-hidden="true"></span>
+        </button>
+        <button class="preset-option" data-preset-value="azure" type="button" role="menuitemradio" aria-checked="false" tabindex="-1">
+          <span class="preset-option-swatch azure" aria-hidden="true"></span>
+          <span class="preset-option-copy"><strong>{{i18n:viewer.preset.azure}}</strong><small>{{i18n:viewer.preset.azure.hint}}</small></span>
           <span class="preset-option-check" aria-hidden="true"></span>
         </button>
         <button class="preset-option" data-preset-value="editorial" type="button" role="menuitemradio" aria-checked="false" tabindex="-1">
@@ -761,12 +767,13 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
        URL, or a later diagram's authored default.
        ============================================================ */
     Archify.preset = (function () {
-      var PRESETS = ['classic', 'signal-flow', 'blueprint', 'editorial'];
+      var PRESETS = ['classic', 'signal-flow', 'blueprint', 'azure', 'editorial'];
       var LABELS = {
         classic: viewerText('viewer.preset.classic.short'),
         'signal-flow': viewerText('viewer.preset.flow.short'),
         blueprint: viewerText('viewer.preset.blueprint'),
-        editorial: viewerText('viewer.preset.editorial')
+        editorial: viewerText('viewer.preset.editorial'),
+        azure: viewerText('viewer.preset.azure')
       };
       var html = document.documentElement;
       var svg = document.querySelector('.diagram-container svg');

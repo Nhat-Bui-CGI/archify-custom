@@ -5082,6 +5082,97 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       .relationship-pulse-overlay { display: none !important; }
       svg [data-node-id], svg [data-edge-from], svg [data-detail], svg [data-detail-anchor], svg [data-legend-hit], svg { transition: none !important; }
     }
+        /* Azure Architecture Center inspired presentation. These rules also survive
+       SVG export: the exported SVG carries its own preset and theme attributes. */
+    [data-preset="azure"][data-theme="light"] {
+      --bg: #ffffff;
+      --grid: #e6edf2;
+      --canvas-dot: transparent;
+      --text: #242424;
+      --text-muted: #605e5c;
+      --text-dim: #797775;
+      --text-faint: #605e5c;
+      --mask: #ffffff;
+      --panel: #ffffff;
+      --panel-border: #d2d0ce;
+      --lane-fill: #f3f9fd;
+      --lane-stroke: #b3cde2;
+      --arrow: #605e5c;
+      --arrow-emphasis: #0078d4;
+      --toolbar-bg: #ffffff;
+      --toolbar-border: #d2d0ce;
+      --toolbar-hover: #eff6fc;
+      --toolbar-menu-bg: #ffffff;
+      --frontend-fill: #eff6fc;
+      --frontend-stroke: #0078d4;
+      --backend-fill: #eff6fc;
+      --backend-stroke: #0078d4;
+      --database-fill: #eff6fc;
+      --database-stroke: #0078d4;
+      --cloud-fill: #eff6fc;
+      --cloud-stroke: #0078d4;
+      --security-fill: #f3f2f1;
+      --security-stroke: #605e5c;
+      --messagebus-fill: #eff6fc;
+      --messagebus-stroke: #0078d4;
+      --external-fill: #f3f2f1;
+      --external-stroke: #8a8886;
+    }
+    [data-preset="azure"][data-theme="dark"] {
+      --bg: #101820;
+      --grid: #253746;
+      --canvas-dot: transparent;
+      --text: #f3f6f9;
+      --text-muted: #c2d2e0;
+      --text-dim: #91a7ba;
+      --text-faint: #b2c4d3;
+      --mask: #101820;
+      --panel: #15232f;
+      --panel-border: #3b5368;
+      --lane-fill: #142939;
+      --lane-stroke: #557a98;
+      --arrow: #b2c4d3;
+      --arrow-emphasis: #50b8ff;
+      --toolbar-bg: #15232f;
+      --toolbar-border: #3b5368;
+      --toolbar-hover: #213c51;
+      --toolbar-menu-bg: #15232f;
+      --frontend-fill: #142939;
+      --frontend-stroke: #50b8ff;
+      --backend-fill: #142939;
+      --backend-stroke: #50b8ff;
+      --database-fill: #142939;
+      --database-stroke: #50b8ff;
+      --cloud-fill: #142939;
+      --cloud-stroke: #50b8ff;
+      --security-fill: #1b2d3b;
+      --security-stroke: #b2c4d3;
+      --messagebus-fill: #142939;
+      --messagebus-stroke: #50b8ff;
+      --external-fill: #1b2d3b;
+      --external-stroke: #91a7ba;
+    }
+    html[data-preset="azure"] body { font-family: 'Segoe UI', Arial, sans-serif; background-image: none; }
+    html[data-preset="azure"] .diagram-container { background: var(--bg); background-image: none; box-shadow: none; }
+    html[data-preset="azure"] .diagram-container > svg { font-family: 'Segoe UI', Arial, sans-serif; }
+    svg[data-preset="azure"] { font-family: 'Segoe UI', Arial, sans-serif; }
+    html[data-preset="azure"] .pulse-dot { background: #0078d4; box-shadow: none; animation: none; }
+    #btn-preset[data-preset-option="azure"] .preset-control-mark { background: #0078d4; border-radius: 2px; }
+    .preset-option-swatch.azure { background: #fff; border: 1px solid #b3cde2; }
+    .preset-option-swatch.azure::before { content: ''; position: absolute; width: 13px; height: 17px; left: 13px; top: 7px; background: #0078d4; clip-path: polygon(40% 0,100% 100%,0 100%,20% 65%,58% 65%); }
+    svg .architecture-azure-visual { display: none; }
+    svg[data-preset="azure"] .architecture-azure-visual { display: inline; }
+    svg[data-preset="azure"] [data-azure-node] > rect { fill: transparent; stroke: transparent; filter: none; pointer-events: all; }
+    /* Override the shared dark-mode node-card paint while preserving its rules
+       for every other preset and diagram type. */
+    svg[data-node-ui][data-preset="azure"] g[data-node-id][data-azure-node] > rect:not(.c-mask) { fill: transparent; stroke: transparent; filter: none; }
+    svg[data-preset="azure"] .c-grid { stroke: transparent; }
+    svg[data-preset="azure"] [data-architecture-badges] { display: none; }
+    svg[data-preset="azure"] [data-azure-node] > text[data-node-label] { transform: translateY(var(--azure-label-dy)); font-size: var(--azure-label-font); }
+    svg[data-preset="azure"] [data-azure-node] > text[data-detail="context"] { transform: translateY(var(--azure-sub-dy)); }
+    svg[data-preset="azure"] [data-azure-node] > text[data-detail="fine"] { transform: translateY(var(--azure-tag-dy)); }
+    svg[data-preset="azure"] .c-region { fill: none; stroke: var(--lane-stroke); stroke-width: 1; }
+    svg[data-preset="azure"] .c-sg { fill: var(--lane-fill); stroke: var(--lane-stroke); }
   </style>
 </head>
 <body>
@@ -5124,6 +5215,11 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
         <button class="preset-option" data-preset-value="blueprint" type="button" role="menuitemradio" aria-checked="false" tabindex="-1">
           <span class="preset-option-swatch blueprint" aria-hidden="true"></span>
           <span class="preset-option-copy"><strong>{{i18n:viewer.preset.blueprint}}</strong><small>{{i18n:viewer.preset.blueprint.hint}}</small></span>
+          <span class="preset-option-check" aria-hidden="true"></span>
+        </button>
+        <button class="preset-option" data-preset-value="azure" type="button" role="menuitemradio" aria-checked="false" tabindex="-1">
+          <span class="preset-option-swatch azure" aria-hidden="true"></span>
+          <span class="preset-option-copy"><strong>{{i18n:viewer.preset.azure}}</strong><small>{{i18n:viewer.preset.azure.hint}}</small></span>
           <span class="preset-option-check" aria-hidden="true"></span>
         </button>
         <button class="preset-option" data-preset-value="editorial" type="button" role="menuitemradio" aria-checked="false" tabindex="-1">
@@ -5675,12 +5771,13 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
        URL, or a later diagram's authored default.
        ============================================================ */
     Archify.preset = (function () {
-      var PRESETS = ['classic', 'signal-flow', 'blueprint', 'editorial'];
+      var PRESETS = ['classic', 'signal-flow', 'blueprint', 'azure', 'editorial'];
       var LABELS = {
         classic: viewerText('viewer.preset.classic.short'),
         'signal-flow': viewerText('viewer.preset.flow.short'),
         blueprint: viewerText('viewer.preset.blueprint'),
-        editorial: viewerText('viewer.preset.editorial')
+        editorial: viewerText('viewer.preset.editorial'),
+        azure: viewerText('viewer.preset.azure')
       };
       var html = document.documentElement;
       var svg = document.querySelector('.diagram-container svg');

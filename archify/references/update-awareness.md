@@ -11,3 +11,10 @@ If `source` is `cache`, say that a previous check at `checkedAt` found the updat
 When the user explicitly asks to pause or stop this reminder, run `node scripts/check-update.mjs --snooze "<eventKey>"` (seven days) or `--ignore "<eventKey>"` (this exact release only) from the Skill directory with the receipt's `update.eventKey`, then report the returned status. Never run them on your own initiative; `--ack` is a no-op. These commands do not install an update, and a newer release notifies again.
 
 The notice is information, not permission. Keep the installed version unchanged. This workflow never downloads, installs, or executes an update, and silence is never consent.
+
+For this custom package, `package.json.customVersion` identifies the custom release.
+The retained notifier metadata describes upstream releases. An upstream notice
+does not identify an update to this fork or authorize replacing it with upstream.
+For an authorized custom update, retain the selected
+[Nhat-Bui-CGI/archify-custom](https://github.com/Nhat-Bui-CGI/archify-custom/releases)
+source; change distribution sources only when the user explicitly requests it.

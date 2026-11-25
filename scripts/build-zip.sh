@@ -31,10 +31,14 @@ fi
 # both the ZIP and DeepSeek Harness tarball.
 stage="$(mktemp -d)"
 trap 'rm -rf "$stage"' EXIT
+stage_options=()
+if node -e 'process.exit(require(process.argv[1]).customVersion ? 0 : 1)' "$repo_root/archify/package.json"; then
+  stage_options+=(--omit-rendered-examples)
+fi
 node "$repo_root/scripts/stage-clean-skill.mjs" \
   --root "$repo_root" \
   --dest "$stage/archify" \
-  --mode-manifest "$stage/modes.json" >/dev/null
+  --mode-manifest "$stage/modes.json" "${stage_options[@]}" >/dev/null
 
 # Entry modes come from the recorded Git index modes, not from stat(), so the
 # archive bytes do not depend on the building platform's permission support.

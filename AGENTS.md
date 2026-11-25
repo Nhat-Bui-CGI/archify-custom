@@ -12,6 +12,8 @@ Before running tests, read [Choose evidence by impact](CONTRIBUTING.md#choose-ev
 
 ## Live Archify installations
 
+Before installing or updating Archify Custom, run the local skill security reviewer on the exact staged bundle. Use the custom staging option to omit rendered HTML examples and escape NUL separators in source files. Proceed with installation only after the staged bundle passes.
+
 Install, update, reinstall, or remove a live Archify installation only when the user explicitly requests that action. Repository editing, testing, reviewing, publishing, or syncing does not authorize installation. This applies to Skills CLI, manual ZIP copies, and DSH plugins. Reuse authorization already given for the same action and scope; ask only for unresolved decisions.
 
 - Keep the source, Skill/package, target agents, and global/project scope within the request. Avoid bulk operations or force flags that expand that scope. An update notification is informational.

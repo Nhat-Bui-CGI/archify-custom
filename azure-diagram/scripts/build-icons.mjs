@@ -3,7 +3,7 @@
 //
 //   node azure-diagram/scripts/build-icons.mjs [--out <dir>] [--source <brand-marks dir>] [--azure <dir>]
 //
-// Writes <id>.svg and index.json. SVGs are copied unaltered, except that a missing
+// Writes the icon index and a single file of SVG artwork. A missing
 // viewBox is added. An unsafe SVG stops the build.
 
 import fs from 'node:fs';
@@ -56,7 +56,8 @@ export function buildIcons({
   const { marks } = JSON.parse(fs.readFileSync(catalogFile, 'utf8'));
 
   fs.mkdirSync(out, { recursive: true });
-  const write = (file, svg, name) => fs.writeFileSync(path.join(out, file), ensureViewBox(svg, name));
+  const artwork = Object.create(null);
+  const write = (file, svg, name) => { artwork[file] = ensureViewBox(svg, name); };
   const curated = marks.map((mark) => {
     const svg = fs.readFileSync(path.join(source, mark.svgFile), 'utf8');
     assertSafeSvg(svg, mark.svgFile);
@@ -69,6 +70,7 @@ export function buildIcons({
   });
   const icons = [...curated, ...azureIcons(azure, curated, write)];
   fs.writeFileSync(path.join(out, 'index.json'), `${JSON.stringify({ schemaVersion: 1, icons }, null, 2)}\n`);
+  fs.writeFileSync(path.join(out, 'artwork.json'), JSON.stringify(artwork));
   return icons;
 }
 

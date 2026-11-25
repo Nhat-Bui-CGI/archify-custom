@@ -4,7 +4,7 @@ description: "Create validated architecture, workflow, sequence, data-flow, life
 license: Apache-2.0
 metadata:
   version: "3.2"
-  custom-version: "3.2.0.1.1"
+  custom-version: "3.2.0.1.2"
   author: tt-a1i
 ---
 

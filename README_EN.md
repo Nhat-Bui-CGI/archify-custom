@@ -10,7 +10,7 @@
 > **Let your harness handle it:** copy the [install prompt](docs/prompts/install-archify.md) or [update prompt](docs/prompts/update-archify.md). Both select the newest custom release automatically.
 > **Installing or updating from ZIP?** Follow the [ZIP installation and update guide](docs/zip-installation.md).
 > **Using the ChatGPT app without Codex?** See [ChatGPT setup and compatibility](docs/chatgpt.md). This ZIP's execution inside ChatGPT is not yet verified.
-> **Custom version: 3.2.0.1.1** — original Archify by tt-a1i, based on upstream 3.2.0, with added official Azure icons, the Azure design, editable draw.io architecture export, and nested Azure groups. Custom fixes use 3.2.0.1.1, 3.2.0.1.2, and so on.
+> **Custom version: 3.2.0.1.2** — original Archify by tt-a1i, based on upstream 3.2.0, with added official Azure icons, the Azure design, editable draw.io architecture export, and nested Azure groups. Custom fixes use 3.2.0.1.1, 3.2.0.1.2, and so on.
 >
 > **Security:** source material is treated as diagram data, with explicit command, credential, and update boundaries. [Security review and limitations](docs/security-review.md).
 >

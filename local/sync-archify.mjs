@@ -120,7 +120,7 @@ function verify(stage) {
   }
   run('npm', ['run', '-s', 'check:brand-marks'], { cwd: skill });
   run('node', [path.join(repo, 'scripts', 'stage-clean-skill.mjs'), '--root', repo, '--dest', stage,
-    '--mode-manifest', `${stage}.modes.json`]);
+    '--mode-manifest', `${stage}.modes.json`, '--omit-rendered-examples']);
 
   const cli = path.join(stage, 'bin', 'archify.mjs');
   run('node', [cli, 'doctor']);

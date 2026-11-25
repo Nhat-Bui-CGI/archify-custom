@@ -6,7 +6,7 @@ import path from 'node:path';
 import { before, test } from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { DiagramError } from '../lib/errors.mjs';
-import { assertSafeSvg, DEFAULT_ICONS_DIR, ensureViewBox, loadIcons } from '../lib/icons.mjs';
+import { assertSafeSvg, DEFAULT_ICONS_DIR, ensureViewBox, loadIcons, resolveIcon } from '../lib/icons.mjs';
 import { renderDiagram } from '../lib/render.mjs';
 import { nodeObstacles, segmentHitsRect, toSegments } from '../lib/route.mjs';
 import { buildIcons } from '../scripts/build-icons.mjs';
@@ -119,7 +119,7 @@ test('Microsoft icons are searchable, unaltered and do not replace curated marks
   assert.equal(firewall.title, 'Firewalls');
   assert.match(firewall.note, /Azure Public Service Icons V24: networking/);
   const original = path.join(root, 'test', 'fixtures', 'firewalls.svg');
-  assert.equal(fs.readFileSync(path.join(DEFAULT_ICONS_DIR, firewall.file), 'utf8'), fs.readFileSync(original, 'utf8'));
+  assert.equal(resolveIcon(loadIcons(), firewall.id).svg, fs.readFileSync(original, 'utf8'));
   assert.ok(lookup.size > 600);
   assert.doesNotThrow(() => renderDiagram(spec({ nodes: [{ id: 'a', icon: 'firewalls', label: 'Edge firewall', col: 0, row: 0 }] })));
 });
@@ -259,7 +259,7 @@ test('icons keep their aspect ratio and exact bytes', () => {
     assert.match(tag, /width="64" height="64"/);
     assert.match(tag, /preserveAspectRatio="xMidYMid meet"/);
   }
-  const logic = fs.readFileSync(path.join(DEFAULT_ICONS_DIR, 'logic-apps.svg'));
+  const logic = Buffer.from(resolveIcon(loadIcons(), 'logic-apps').svg);
   assert.ok(svg.includes(logic.toString('base64')));
 });
 
@@ -269,7 +269,7 @@ test('a viewBox is added only when missing', () => {
   const fine = '<svg viewBox="0 0 18 18"><path/></svg>';
   assert.equal(ensureViewBox(fine, 'x'), fine);
   assert.throws(() => ensureViewBox('<svg><path/></svg>', 'x'), /no viewBox/);
-  const fabric = fs.readFileSync(path.join(DEFAULT_ICONS_DIR, 'microsoft-fabric.svg'), 'utf8');
+  const fabric = resolveIcon(loadIcons(), 'microsoft-fabric').svg;
   assert.match(fabric, /viewBox="0 0 16 16"/);
 });
 

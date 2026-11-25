@@ -72,7 +72,7 @@ node bin/archify.mjs brands microsoft --json
 
 Each command should finish successfully with `ok: true`. The first two results should include the IDs `azure-openai` and `container-apps`; the last command lists the Microsoft catalogue. This confirms that the installed files contain the custom additions. It does not by itself prove which copy an agent loads, so also confirm its active Skill path in the new session.
 
-The custom version is **3.2.0.1.1**. Read `customVersion` in the installed
+The custom version is **3.2.0.1.2**. Read `customVersion` in the installed
 `package.json` to identify this release. The same value appears in Skill metadata
 as `custom-version` and in generated HTML metadata as `archify-custom-version`.
 The upstream package version remains `3.2.0` for compatibility with its tooling.

@@ -70,6 +70,8 @@ export function loadIcons(dir = DEFAULT_ICONS_DIR) {
     throw new DiagramError(`Icon index not found at ${indexFile}. In the repo, run: node azure-diagram/scripts/build-icons.mjs`);
   }
   const { icons } = JSON.parse(fs.readFileSync(indexFile, 'utf8'));
+  const artworkFile = path.join(dir, 'artwork.json');
+  const artwork = fs.existsSync(artworkFile) ? JSON.parse(fs.readFileSync(artworkFile, 'utf8')) : null;
   const lookup = new Map();
   const add = (key, icon) => {
     const id = normalise(key);
@@ -78,7 +80,7 @@ export function loadIcons(dir = DEFAULT_ICONS_DIR) {
   // An exact id or title beats another icon's alias: "Azure OpenAI" is its own icon.
   for (const icon of icons) [icon.id, icon.title].forEach((key) => add(key, icon));
   for (const icon of icons) (icon.aliases ?? []).forEach((key) => add(key, icon));
-  return { dir, icons, lookup };
+  return { dir, icons, lookup, artwork };
 }
 
 export function genericIds() {
@@ -94,7 +96,10 @@ export function resolveIcon(library, reference) {
   }
   const icon = library.lookup.get(key);
   if (!icon) return undefined;
-  const svg = fs.readFileSync(path.join(library.dir, icon.file), 'utf8');
+  const svg = library.artwork == null
+    ? fs.readFileSync(path.join(library.dir, icon.file), 'utf8')
+    : library.artwork[icon.file];
+  if (typeof svg !== 'string') throw new DiagramError('Missing artwork for ' + icon.id);
   assertSafeSvg(svg, icon.file);
   return { id: icon.id, title: icon.title, svg, warning: icon.warning };
 }

@@ -96,9 +96,10 @@ function requireTrackedFile(repoRoot, relative) {
   }
 }
 
-function excluded(relative) {
+function excluded(relative, omitRenderedExamples) {
   if (EXCLUDED_FILES.has(relative)) return true;
   const insideSkill = relative.slice('archify/'.length);
+  if (omitRenderedExamples && insideSkill.startsWith('examples/') && /\.html$/i.test(insideSkill)) return true;
   if (insideSkill === 'test' || insideSkill.startsWith('test/')) return true;
   return insideSkill.split('/').some((segment) => (
     EXCLUDED_SEGMENTS.has(segment) || segment.startsWith('.validator-check-')
@@ -501,7 +502,9 @@ function validateRuntimeDependencies(packageEntries) {
   }
 }
 
-export function stageCleanSkill({ repoRoot = scriptRoot, destination, modeManifest = null }) {
+export function stageCleanSkill({
+  repoRoot = scriptRoot, destination, modeManifest = null, omitRenderedExamples = false,
+}) {
   const resolvedRoot = fs.realpathSync(path.resolve(repoRoot));
   if (!destination) throw new Error('clean Skill staging requires a destination');
   const resolvedDestination = path.resolve(destination);
@@ -548,7 +551,7 @@ export function stageCleanSkill({ repoRoot = scriptRoot, destination, modeManife
   }
   requireTrackedFile(resolvedRoot, 'THIRD_PARTY_NOTICES.md');
 
-  const includedEntries = entries.filter((entry) => !excluded(entry.relative));
+  const includedEntries = entries.filter((entry) => !excluded(entry.relative, omitRenderedExamples));
   validatePortablePathSet(
     includedEntries.map((entry) => entry.relative.slice('archify/'.length)),
     { profile: 'archive' },
@@ -639,6 +642,7 @@ if (isMainModule()) {
       repoRoot: argument('--root', scriptRoot),
       destination: argument('--dest'),
       modeManifest,
+      omitRenderedExamples: process.argv.includes('--omit-rendered-examples'),
     });
     const summary = { destination: result.destination, fileCount: result.fileCount };
     if (modeManifest) summary.modeManifest = path.resolve(modeManifest);
